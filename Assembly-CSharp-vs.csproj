@@ -46,6 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ChunkGenerators\BumpyGrassChunkGenerator.cs" />
+     <Compile Include="Assets\Scripts\ChunkGenerators\FlatGrassChunkGenerator.cs" />
+     <Compile Include="Assets\Scripts\ChunkGenerators\IChunkGenerator.cs" />
+     <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\WorldChunk.cs" />
      <Compile Include="Assets\Scripts\WorldGenerator.cs" />

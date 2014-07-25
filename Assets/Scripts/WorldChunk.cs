@@ -14,9 +14,6 @@ public class WorldChunk : MonoBehaviour
     void Update()
     {
         this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - .3f, this.gameObject.transform.position.y, 0);
-        if (this.gameObject.transform.position.x < -200)
-        {
-            Destroy(gameObject);
-        }
+
     }
 }
