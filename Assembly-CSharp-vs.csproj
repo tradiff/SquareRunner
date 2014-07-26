@@ -51,6 +51,10 @@
      <Compile Include="Assets\Scripts\ChunkGenerators\IChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\PlayerControl\CharacterController2D.cs" />
+     <Compile Include="Assets\Scripts\PlayerControl\ControllerParameters2D.cs" />
+     <Compile Include="Assets\Scripts\PlayerControl\ControllerState2D.cs" />
+     <Compile Include="Assets\Scripts\PlayerControl\Player.cs" />
      <Compile Include="Assets\Scripts\WorldChunk.cs" />
      <Compile Include="Assets\Scripts\WorldGenerator.cs" />
   </ItemGroup>

@@ -26,7 +26,6 @@ public class WorldGenerator : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(Time.fixedTime);
         if (Time.fixedTime > 10 && !bumpyAdded)
         {
             bumpyAdded = true;
