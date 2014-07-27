@@ -25,17 +25,16 @@ public class WorldGenerator : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Time.fixedTime > 1 && !bumpyAdded)
+        if (Time.fixedTime > .1 && !bumpyAdded)
         {
             bumpyAdded = true;
             chunkGenerators.Add(new BumpyGrassChunkGenerator());
         }
 
         //Debug.Log(newestChunk.transform.position.x);
-        var chunkRight = newestChunk.transform.position.x + chunkWidth;
-
-        if (chunkRight < 100)
+        if (Camera.main.transform.position.x > newestChunk.transform.position.x)
         {
+            var chunkRight = newestChunk.transform.position.x + chunkWidth;
             GenerateWorldChunk(chunkRight);
         }
     }

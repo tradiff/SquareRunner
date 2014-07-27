@@ -8,9 +8,9 @@ namespace Assets.Scripts.ChunkGenerators
     {
         public GameObject Generate(GameObject chunk, float chunkWidth)
         {
-            var groundPrefab = Resources.Load("tiles/Ground_88_Prefab");
-            var rightCornerPrefab = Resources.Load("tiles/Ground_83_Prefab");
-            var leftCornerPrefab = Resources.Load("tiles/Ground_84_Prefab");
+            var groundPrefab = Resources.Load("tiles/Grass_N_Prefab");
+            var rightCornerPrefab = Resources.Load("tiles/Grass_NE_Prefab");
+            var leftCornerPrefab = Resources.Load("tiles/Grass_NW_Prefab");
 
             int i = 0;
 

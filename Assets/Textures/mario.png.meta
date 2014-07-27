@@ -154,7 +154,7 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
@@ -183,8 +183,8 @@ TextureImporter:
         y: 226
         width: 14
         height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_1
       rect:
@@ -193,8 +193,8 @@ TextureImporter:
         y: 227
         width: 15
         height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_2
       rect:
@@ -203,7 +203,7 @@ TextureImporter:
         y: 226
         width: 15
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_3
@@ -213,7 +213,7 @@ TextureImporter:
         y: 227
         width: 15
         height: 19
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_4
@@ -223,7 +223,7 @@ TextureImporter:
         y: 226
         width: 16
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_5
@@ -233,7 +233,7 @@ TextureImporter:
         y: 227
         width: 15
         height: 19
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_6
@@ -243,7 +243,7 @@ TextureImporter:
         y: 227
         width: 16
         height: 22
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_7
@@ -253,7 +253,7 @@ TextureImporter:
         y: 228
         width: 16
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_8
@@ -263,7 +263,7 @@ TextureImporter:
         y: 226
         width: 15
         height: 21
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_9
@@ -273,7 +273,7 @@ TextureImporter:
         y: 226
         width: 15
         height: 14
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_10
@@ -283,7 +283,7 @@ TextureImporter:
         y: 226
         width: 16
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_11
@@ -293,7 +293,7 @@ TextureImporter:
         y: 227
         width: 16
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_12
@@ -303,7 +303,7 @@ TextureImporter:
         y: 226
         width: 14
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_13
@@ -313,7 +313,7 @@ TextureImporter:
         y: 226
         width: 14
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_14
@@ -323,7 +323,7 @@ TextureImporter:
         y: 226
         width: 16
         height: 21
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_15
@@ -333,7 +333,7 @@ TextureImporter:
         y: 226
         width: 15
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_16
@@ -343,7 +343,7 @@ TextureImporter:
         y: 227
         width: 16
         height: 19
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_17
@@ -353,7 +353,7 @@ TextureImporter:
         y: 227
         width: 15
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_18
@@ -363,7 +363,7 @@ TextureImporter:
         y: 226
         width: 15
         height: 21
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_19
@@ -373,7 +373,7 @@ TextureImporter:
         y: 226
         width: 21
         height: 21
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_20
@@ -383,7 +383,7 @@ TextureImporter:
         y: 227
         width: 20
         height: 15
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_21
@@ -393,7 +393,7 @@ TextureImporter:
         y: 227
         width: 19
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_22
@@ -401,10 +401,10 @@ TextureImporter:
         serializedVersion: 2
         x: 401
         y: 225
-        width: 45
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 24
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_23
       rect:
@@ -413,7 +413,7 @@ TextureImporter:
         y: 201
         width: 16
         height: 18
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_24
@@ -423,7 +423,7 @@ TextureImporter:
         y: 200
         width: 15
         height: 19
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_25
@@ -433,7 +433,7 @@ TextureImporter:
         y: 199
         width: 15
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_26
@@ -443,7 +443,7 @@ TextureImporter:
         y: 201
         width: 16
         height: 18
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_27
@@ -453,7 +453,7 @@ TextureImporter:
         y: 200
         width: 16
         height: 19
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_28
@@ -463,7 +463,7 @@ TextureImporter:
         y: 199
         width: 16
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_29
@@ -473,7 +473,7 @@ TextureImporter:
         y: 202
         width: 16
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_30
@@ -483,7 +483,7 @@ TextureImporter:
         y: 202
         width: 16
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_31
@@ -493,7 +493,7 @@ TextureImporter:
         y: 203
         width: 16
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_32
@@ -503,7 +503,7 @@ TextureImporter:
         y: 201
         width: 16
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_33
@@ -513,7 +513,7 @@ TextureImporter:
         y: 203
         width: 15
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_34
@@ -523,7 +523,7 @@ TextureImporter:
         y: 203
         width: 15
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_35
@@ -533,7 +533,7 @@ TextureImporter:
         y: 202
         width: 15
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_36
@@ -543,7 +543,7 @@ TextureImporter:
         y: 202
         width: 14
         height: 21
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_37
@@ -553,7 +553,7 @@ TextureImporter:
         y: 203
         width: 15
         height: 18
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_38
@@ -563,7 +563,7 @@ TextureImporter:
         y: 202
         width: 16
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_39
@@ -573,7 +573,7 @@ TextureImporter:
         y: 202
         width: 14
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_40
@@ -583,7 +583,7 @@ TextureImporter:
         y: 200
         width: 14
         height: 21
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_41
@@ -593,7 +593,7 @@ TextureImporter:
         y: 200
         width: 14
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_42
@@ -603,7 +603,7 @@ TextureImporter:
         y: 200
         width: 15
         height: 21
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_43
@@ -613,7 +613,7 @@ TextureImporter:
         y: 200
         width: 15
         height: 21
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_44
@@ -623,7 +623,7 @@ TextureImporter:
         y: 200
         width: 16
         height: 21
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_45
@@ -633,7 +633,7 @@ TextureImporter:
         y: 200
         width: 14
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_46
@@ -643,7 +643,7 @@ TextureImporter:
         y: 197
         width: 15
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_47
@@ -653,7 +653,7 @@ TextureImporter:
         y: 197
         width: 14
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_48
@@ -663,7 +663,7 @@ TextureImporter:
         y: 167
         width: 15
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_49
@@ -673,7 +673,7 @@ TextureImporter:
         y: 167
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_50
@@ -683,7 +683,7 @@ TextureImporter:
         y: 167
         width: 16
         height: 27
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_51
@@ -693,7 +693,7 @@ TextureImporter:
         y: 167
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_52
@@ -703,7 +703,7 @@ TextureImporter:
         y: 167
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_53
@@ -713,7 +713,7 @@ TextureImporter:
         y: 168
         width: 16
         height: 27
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_54
@@ -723,7 +723,7 @@ TextureImporter:
         y: 167
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_55
@@ -733,7 +733,7 @@ TextureImporter:
         y: 165
         width: 16
         height: 25
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_56
@@ -743,7 +743,7 @@ TextureImporter:
         y: 165
         width: 16
         height: 31
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_57
@@ -753,7 +753,7 @@ TextureImporter:
         y: 166
         width: 16
         height: 29
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_58
@@ -763,7 +763,7 @@ TextureImporter:
         y: 164
         width: 16
         height: 29
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_59
@@ -773,7 +773,7 @@ TextureImporter:
         y: 164
         width: 16
         height: 15
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_60
@@ -783,7 +783,7 @@ TextureImporter:
         y: 164
         width: 16
         height: 21
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_61
@@ -793,7 +793,7 @@ TextureImporter:
         y: 164
         width: 26
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_62
@@ -803,7 +803,7 @@ TextureImporter:
         y: 164
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_63
@@ -813,7 +813,7 @@ TextureImporter:
         y: 164
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_64
@@ -823,7 +823,7 @@ TextureImporter:
         y: 164
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_65
@@ -833,7 +833,7 @@ TextureImporter:
         y: 164
         width: 18
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_66
@@ -843,7 +843,7 @@ TextureImporter:
         y: 164
         width: 18
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_67
@@ -853,7 +853,7 @@ TextureImporter:
         y: 165
         width: 18
         height: 27
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_68
@@ -863,7 +863,7 @@ TextureImporter:
         y: 164
         width: 19
         height: 26
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_69
@@ -873,7 +873,7 @@ TextureImporter:
         y: 164
         width: 15
         height: 27
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_70
@@ -883,7 +883,7 @@ TextureImporter:
         y: 164
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_71
@@ -893,7 +893,7 @@ TextureImporter:
         y: 165
         width: 15
         height: 24
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_72
@@ -903,7 +903,7 @@ TextureImporter:
         y: 140
         width: 23
         height: 21
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_73
@@ -913,7 +913,7 @@ TextureImporter:
         y: 143
         width: 26
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_74
@@ -923,7 +923,7 @@ TextureImporter:
         y: 141
         width: 26
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_75
@@ -933,7 +933,7 @@ TextureImporter:
         y: 141
         width: 25
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_76
@@ -943,7 +943,7 @@ TextureImporter:
         y: 134
         width: 20
         height: 26
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_77
@@ -953,7 +953,7 @@ TextureImporter:
         y: 134
         width: 19
         height: 27
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_78
@@ -963,7 +963,7 @@ TextureImporter:
         y: 134
         width: 19
         height: 27
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_79
@@ -973,7 +973,7 @@ TextureImporter:
         y: 134
         width: 20
         height: 26
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_80
@@ -983,7 +983,7 @@ TextureImporter:
         y: 134
         width: 20
         height: 27
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_81
@@ -993,7 +993,7 @@ TextureImporter:
         y: 134
         width: 20
         height: 27
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_82
@@ -1003,7 +1003,7 @@ TextureImporter:
         y: 132
         width: 16
         height: 29
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_83
@@ -1013,7 +1013,7 @@ TextureImporter:
         y: 132
         width: 20
         height: 29
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_84
@@ -1023,7 +1023,7 @@ TextureImporter:
         y: 131
         width: 16
         height: 29
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_85
@@ -1033,7 +1033,7 @@ TextureImporter:
         y: 131
         width: 21
         height: 29
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_86
@@ -1043,7 +1043,7 @@ TextureImporter:
         y: 131
         width: 16
         height: 29
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_87
@@ -1053,7 +1053,7 @@ TextureImporter:
         y: 131
         width: 16
         height: 29
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_88
@@ -1063,7 +1063,7 @@ TextureImporter:
         y: 131
         width: 16
         height: 29
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_89
@@ -1073,7 +1073,7 @@ TextureImporter:
         y: 131
         width: 16
         height: 29
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_90
@@ -1083,7 +1083,7 @@ TextureImporter:
         y: 132
         width: 22
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_91
@@ -1093,7 +1093,7 @@ TextureImporter:
         y: 132
         width: 18
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_92
@@ -1103,7 +1103,7 @@ TextureImporter:
         y: 104
         width: 16
         height: 20
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_93
@@ -1113,7 +1113,7 @@ TextureImporter:
         y: 104
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_94
@@ -1123,7 +1123,7 @@ TextureImporter:
         y: 104
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_95
@@ -1133,7 +1133,7 @@ TextureImporter:
         y: 104
         width: 16
         height: 26
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_96
@@ -1143,7 +1143,7 @@ TextureImporter:
         y: 104
         width: 15
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_97
@@ -1153,7 +1153,7 @@ TextureImporter:
         y: 106
         width: 16
         height: 22
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_98
@@ -1163,7 +1163,7 @@ TextureImporter:
         y: 102
         width: 16
         height: 27
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_99
@@ -1173,7 +1173,7 @@ TextureImporter:
         y: 101
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_100
@@ -1183,7 +1183,7 @@ TextureImporter:
         y: 101
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_101
@@ -1193,7 +1193,7 @@ TextureImporter:
         y: 99
         width: 28
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_102
@@ -1203,7 +1203,7 @@ TextureImporter:
         y: 98
         width: 29
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_103
@@ -1213,7 +1213,7 @@ TextureImporter:
         y: 98
         width: 27
         height: 26
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_104
@@ -1223,7 +1223,7 @@ TextureImporter:
         y: 96
         width: 24
         height: 31
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_105
@@ -1233,7 +1233,7 @@ TextureImporter:
         y: 95
         width: 24
         height: 32
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_106
@@ -1243,7 +1243,7 @@ TextureImporter:
         y: 89
         width: 16
         height: 41
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_107
@@ -1253,7 +1253,7 @@ TextureImporter:
         y: 95
         width: 15
         height: 27
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_108
@@ -1263,7 +1263,7 @@ TextureImporter:
         y: 93
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_109
@@ -1273,7 +1273,7 @@ TextureImporter:
         y: 96
         width: 32
         height: 26
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_110
@@ -1283,7 +1283,7 @@ TextureImporter:
         y: 96
         width: 16
         height: 32
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_111
@@ -1293,7 +1293,7 @@ TextureImporter:
         y: 77
         width: 15
         height: 10
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_112
@@ -1303,7 +1303,7 @@ TextureImporter:
         y: 71
         width: 14
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_113
@@ -1313,7 +1313,7 @@ TextureImporter:
         y: 76
         width: 16
         height: 11
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_114
@@ -1323,7 +1323,7 @@ TextureImporter:
         y: 74
         width: 16
         height: 6
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_115
@@ -1333,7 +1333,7 @@ TextureImporter:
         y: 71
         width: 16
         height: 13
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_116
@@ -1343,7 +1343,7 @@ TextureImporter:
         y: 71
         width: 16
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_117
@@ -1353,7 +1353,7 @@ TextureImporter:
         y: 72
         width: 10
         height: 15
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_118
@@ -1363,7 +1363,7 @@ TextureImporter:
         y: 72
         width: 6
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_119
@@ -1373,7 +1373,7 @@ TextureImporter:
         y: 73
         width: 16
         height: 14
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_120
@@ -1383,7 +1383,7 @@ TextureImporter:
         y: 73
         width: 13
         height: 15
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_121
@@ -1393,7 +1393,7 @@ TextureImporter:
         y: 72
         width: 10
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_122
@@ -1403,7 +1403,7 @@ TextureImporter:
         y: 72
         width: 11
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_123
@@ -1413,7 +1413,7 @@ TextureImporter:
         y: 72
         width: 16
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_124
@@ -1423,7 +1423,7 @@ TextureImporter:
         y: 72
         width: 16
         height: 10
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_125
@@ -1433,7 +1433,7 @@ TextureImporter:
         y: 72
         width: 14
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_126
@@ -1443,7 +1443,7 @@ TextureImporter:
         y: 72
         width: 16
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_127
@@ -1453,7 +1453,7 @@ TextureImporter:
         y: 73
         width: 40
         height: 8
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_128
@@ -1463,7 +1463,7 @@ TextureImporter:
         y: 75
         width: 16
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_129
@@ -1473,7 +1473,7 @@ TextureImporter:
         y: 76
         width: 16
         height: 14
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_130
@@ -1483,7 +1483,7 @@ TextureImporter:
         y: 75
         width: 14
         height: 16
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mario_131
@@ -1493,7 +1493,7 @@ TextureImporter:
         y: 12
         width: 16
         height: 28
-      alignment: 0
+      alignment: 7
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 

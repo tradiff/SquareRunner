@@ -85,7 +85,7 @@ public class CharacterController2D : MonoBehaviour
     public void Jump()
     {
         // TODO: Moving platform Support
-        AddForce(new Vector2(0, Parameters.JumpMagnitude));
+        AddForce(new Vector2(_velocity.x, Parameters.JumpMagnitude));
         _jumpIn = Parameters.JumpFrequency;
     }
 

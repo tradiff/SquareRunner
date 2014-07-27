@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\ChunkGenerators\BumpyGrassChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\ChunkGenerators\FlatGrassChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\ChunkGenerators\IChunkGenerator.cs" />
@@ -55,6 +56,7 @@
      <Compile Include="Assets\Scripts\PlayerControl\ControllerParameters2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\ControllerState2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\Player.cs" />
+     <Compile Include="Assets\Scripts\RedMushroom.cs" />
      <Compile Include="Assets\Scripts\WorldChunk.cs" />
      <Compile Include="Assets\Scripts\WorldGenerator.cs" />
   </ItemGroup>
