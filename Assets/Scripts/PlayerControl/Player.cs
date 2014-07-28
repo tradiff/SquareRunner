@@ -14,13 +14,14 @@ public class Player : MonoBehaviour
     private Animator _animator;
 
     public bool IsBig = false;
+    public bool IsDead = false;
+
 
     public void Start()
     {
         _controller = GetComponent<CharacterController2D>();
         _animator = GetComponent<Animator>();
         _isFacingRight = transform.localScale.x > 0;
-        _animator.SetTrigger("Run");
     }
 
     public void Update()
@@ -34,6 +35,12 @@ public class Player : MonoBehaviour
         _animator.SetBool("IsFalling", _controller.Velocity.y < 0);
         _animator.SetBool("IsBig", IsBig);
 
+        GameManager.Instance.distanceTraveled = transform.position.x;
+
+        if (IsDead)
+        {
+            Debug.Break();
+        }
     }
 
     private void HandleInput()
@@ -41,33 +48,23 @@ public class Player : MonoBehaviour
         // always be running
         _normalizedHorizontalSpeed = 1;
 
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    _normalizedHorizontalSpeed = 1;
-        //    if (!_isFacingRight)
-        //        Flip();
-        //}
-        //else if (Input.GetKey(KeyCode.A))
-        //{
-        //    _normalizedHorizontalSpeed = -1;
-        //    if (_isFacingRight)
-        //        Flip();
-        //}
-        //else
-        //{
-        //    _normalizedHorizontalSpeed = 0;
-        //}
-
-        if (_controller.CanJump && Input.GetKeyDown(KeyCode.Space))
+        if (_controller.CanJump && 
+            (Input.GetKeyDown(KeyCode.Space) || BeganTouch()))
         {
             _controller.Jump();
         }
     }
 
-    private void Flip()
+    private  bool BeganTouch()
     {
-        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        _isFacingRight = transform.localScale.x > 0;
+        if (Input.touchCount > 0)
+        {
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 
