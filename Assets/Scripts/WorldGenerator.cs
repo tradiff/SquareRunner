@@ -15,28 +15,38 @@ public class WorldGenerator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        GameManager.Instance.WorldGenerator = this;
         worldChunkPrefab = Resources.Load("WorldChunkPrefab");
+        Reset();
 
-        chunkGenerators.Add(new FlatGrassChunkGenerator());
-
-        GenerateWorldChunk(-50);
         //chunkWidth = getBounds(newestChunk).size.x;
     }
 
     void FixedUpdate()
     {
-        if (Time.fixedTime > .1 && !bumpyAdded)
+        if (GameManager.Instance.distanceTraveled > 10 && !bumpyAdded)
         {
             bumpyAdded = true;
             chunkGenerators.Add(new BumpyGrassChunkGenerator());
         }
 
         //Debug.Log(newestChunk.transform.position.x);
+        if (newestChunk == null)
+        {
+            GenerateWorldChunk(-50);
+        }
         if (Camera.main.transform.position.x > newestChunk.transform.position.x)
         {
             var chunkRight = newestChunk.transform.position.x + chunkWidth;
             GenerateWorldChunk(chunkRight);
         }
+    }
+
+    public void Reset()
+    {
+        newestChunk = null;
+        chunkGenerators.Clear();
+        chunkGenerators.Add(new FlatGrassChunkGenerator());
     }
 
     private void GenerateWorldChunk(float positionX)

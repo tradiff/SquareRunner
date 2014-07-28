@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
         if (IsDead)
         {
-            Debug.Break();
+            GameManager.Instance.Reset();
         }
     }
 

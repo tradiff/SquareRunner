@@ -23,7 +23,7 @@ namespace Assets.Scripts.ChunkGenerators
             {
                 var tile = (GameObject)UnityEngine.Object.Instantiate(groundPrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
                 tile.transform.parent = chunk.transform;
-                tile.transform.localPosition = new Vector3(1 * i, 3, 0);
+                tile.transform.localPosition = new Vector3(1 * i, 2, 0);
             }
 
             if (Random.Range(0, 3) == 0)

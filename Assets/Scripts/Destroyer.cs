@@ -9,7 +9,8 @@ public class Destroyer : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Break();
+            Debug.Log("Player collided with destroyer");
+            GameManager.Instance.Reset();
             return;
         }
 
