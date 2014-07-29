@@ -6,6 +6,6 @@ namespace Assets.Scripts.ChunkGenerators
 {
     interface IChunkGenerator
     {
-        GameObject Generate(GameObject chunk, float chunkWidth);
+        void Generate(GameObject chunk, float chunkWidth, bool buffered);
     }
 }

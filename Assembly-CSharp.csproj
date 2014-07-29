@@ -53,8 +53,9 @@
      <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\GameHud.cs" />
+     <Compile Include="Assets\Scripts\GameHud_FPS.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\OneWayPlatform.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\ControllerParameters2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\ControllerState2D.cs" />

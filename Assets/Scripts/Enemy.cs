@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collide!");
         var player = other.GetComponent<Player>();
         if (player == null)
             return;

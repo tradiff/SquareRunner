@@ -9,12 +9,14 @@ public class Player : MonoBehaviour
 
     private float MaxSpeed = 18;
     private float SpeedAccellerationOnGround = 10f;
-    private float SpeedAccellerationInAir = 10f;
 
     private Animator _animator;
 
     public bool IsBig = false;
     public bool IsDead = false;
+    private bool holdingJump = false;
+    private int jumpTime = 0;
+    private int maxJumpTime = 10;
 
 
     public void Start()
@@ -28,8 +30,7 @@ public class Player : MonoBehaviour
     {
         HandleInput();
 
-        var movementFactor = _controller.State.IsGrounded ? SpeedAccellerationOnGround : SpeedAccellerationInAir;
-        _controller.SetHorizontalForce(Mathf.Lerp(_controller.Velocity.x, _normalizedHorizontalSpeed * MaxSpeed, Time.deltaTime * movementFactor));
+        _controller.SetHorizontalForce(Mathf.Lerp(_controller.Velocity.x, _normalizedHorizontalSpeed * MaxSpeed, Time.deltaTime * SpeedAccellerationOnGround));
 
         _animator.SetBool("IsGrounded", _controller.State.IsGrounded);
         _animator.SetBool("IsFalling", _controller.Velocity.y < 0);
@@ -48,14 +49,36 @@ public class Player : MonoBehaviour
         // always be running
         _normalizedHorizontalSpeed = 1;
 
-        if (_controller.CanJump && 
-            (Input.GetKeyDown(KeyCode.Space) || BeganTouch()))
+        if (holdingJump && jumpKey() && jumpTime-- > 0)
         {
             _controller.Jump();
         }
+        else
+        {
+            holdingJump = false;
+        }
+
+        if (_controller.State.IsGrounded && jumpKeyDown())
+        {
+            _controller.Jump();
+            holdingJump = true;
+            jumpTime = maxJumpTime;
+        }
+
     }
 
-    private  bool BeganTouch()
+
+    private bool jumpKeyDown()
+    {
+        return Input.GetKeyDown(KeyCode.Space) || TouchDown();
+    }
+
+    private bool jumpKey()
+    {
+        return Input.GetKey(KeyCode.Space) || Touch();
+    }
+
+    private bool Touch()
     {
         if (Input.touchCount > 0)
         {
@@ -63,6 +86,14 @@ public class Player : MonoBehaviour
             {
                 return true;
             }
+        }
+        return false;
+    }
+    private bool TouchDown()
+    {
+        if (Input.touchCount > 0)
+        {
+            return true;
         }
         return false;
     }

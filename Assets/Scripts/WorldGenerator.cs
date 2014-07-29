@@ -18,8 +18,6 @@ public class WorldGenerator : MonoBehaviour
         GameManager.Instance.WorldGenerator = this;
         worldChunkPrefab = Resources.Load("WorldChunkPrefab");
         Reset();
-
-        //chunkWidth = getBounds(newestChunk).size.x;
     }
 
     void FixedUpdate()
@@ -30,15 +28,14 @@ public class WorldGenerator : MonoBehaviour
             chunkGenerators.Add(new BumpyGrassChunkGenerator());
         }
 
-        //Debug.Log(newestChunk.transform.position.x);
         if (newestChunk == null)
         {
-            GenerateWorldChunk(-50);
+            GenerateWorldChunk(-50, true);
         }
         if (Camera.main.transform.position.x > newestChunk.transform.position.x)
         {
             var chunkRight = newestChunk.transform.position.x + chunkWidth;
-            GenerateWorldChunk(chunkRight);
+            GenerateWorldChunk(chunkRight, true);
         }
     }
 
@@ -47,17 +44,18 @@ public class WorldGenerator : MonoBehaviour
         newestChunk = null;
         chunkGenerators.Clear();
         chunkGenerators.Add(new FlatGrassChunkGenerator());
+        GenerateWorldChunk(-50, false);
+        GenerateWorldChunk(0, false);
     }
 
-    private void GenerateWorldChunk(float positionX)
+    private void GenerateWorldChunk(float positionX, bool buffered)
     {
         Debug.Log("new chunk");
         var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, 0, 0), new Quaternion(0, 0, 0, 0));
 
         IChunkGenerator gen = chunkGenerators[Random.Range(0, chunkGenerators.Count)];
-
         //IChunkGenerator gen = new BumpyGrassChunkGenerator();
-        gen.Generate(chunk, chunkWidth);
+        gen.Generate(chunk, chunkWidth, buffered);
 
 
         //for (int i = 0; i < chunkWidth; i++)
@@ -104,6 +102,11 @@ public class WorldGenerator : MonoBehaviour
     //    }
     //    return bounds;
     //}
+
+    public void StartChildCoroutine(IEnumerator coroutineMethod)
+    {
+        StartCoroutine(coroutineMethod);
+    }
 
 
 }
