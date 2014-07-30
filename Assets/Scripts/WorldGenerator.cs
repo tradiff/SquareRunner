@@ -11,6 +11,7 @@ public class WorldGenerator : MonoBehaviour
     private float chunkWidth = 50;
     private List<IChunkGenerator> chunkGenerators = new List<IChunkGenerator>();
     private bool bumpyAdded = false;
+    private float nextBGposition = -50;
 
     void Start()
     {
@@ -69,6 +70,16 @@ public class WorldGenerator : MonoBehaviour
         var tile = (GameObject)UnityEngine.Object.Instantiate(prefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         tile.transform.parent = chunk.transform;
         tile.transform.localPosition = new Vector3(x, y, 0);
+    }
+
+    private int bgCount = 0;
+    public void CreateBG(GameObject chunk, Object prefab, float x, float y = -1)
+    {
+        //if (bgCount++ != 2) return;
+        var tile = (GameObject)UnityEngine.Object.Instantiate(prefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        tile.transform.parent = chunk.transform;
+        tile.transform.localPosition = new Vector3(7, -1, 0);
+        //nextBGposition = nextBGposition + chunkWidth;
     }
 
 

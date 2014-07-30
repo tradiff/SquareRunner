@@ -21,7 +21,7 @@ namespace Assets.Scripts.ChunkGenerators
 
         private IEnumerator GenerateCoroutine(GameObject chunk, float chunkWidth, bool buffered)
         {
-            worldGenerator.CreateTile(chunk, bgPrefab, 0, -1);
+            worldGenerator.CreateBG(chunk, bgPrefab, -1, -1);
             
             for (int i = 0; i < chunkWidth; i++)
             {

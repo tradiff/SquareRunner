@@ -8,6 +8,7 @@ public class GameManager
     public WorldGenerator WorldGenerator = null;
     public Player Player = null;
     public float distanceTraveled;
+    //public GameObject BackgroundHolderGameObject;
 
     public static GameManager Instance
     {
@@ -21,6 +22,7 @@ public class GameManager
     private GameManager()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        //BackgroundHolderGameObject = GameObject.FindGameObjectWithTag("BackgroundHolder");
     }
 
     public void Reset()

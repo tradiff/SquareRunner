@@ -176,7 +176,7 @@ TextureImporter:
     21300342: mega_tileset_170
     21300344: mega_tileset_171
     21300346: mega_tileset_172
-    21300348: mega_tileset_173
+    21300348: ghost_wall
     21300350: mega_tileset_174
     21300352: mega_tileset_175
     21300354: mega_tileset_176
@@ -194,7 +194,7 @@ TextureImporter:
     21300378: mega_tileset_188
     21300380: mega_tileset_189
     21300382: mega_tileset_190
-    21300384: mega_tileset_191
+    21300384: ghost_bg_wall
     21300386: mega_tileset_192
     21300388: mega_tileset_193
     21300390: mega_tileset_194
@@ -2503,15 +2503,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_173
+    - name: ghost_wall
       rect:
         serializedVersion: 2
         x: 52
         y: 462
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mega_tileset_174
       rect:
@@ -2683,15 +2683,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_191
+    - name: ghost_bg_wall
       rect:
         serializedVersion: 2
         x: 35
         y: 445
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mega_tileset_192
       rect:
