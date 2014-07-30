@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
             holdingJump = false;
         }
 
-        if (_controller.State.IsGrounded && jumpKeyDown())
+        if (_controller.State.IsGrounded && startJumpKey())
         {
             _controller.Jump();
             holdingJump = true;
@@ -68,17 +68,17 @@ public class Player : MonoBehaviour
     }
 
 
-    private bool jumpKeyDown()
+    private bool startJumpKey()
     {
-        return Input.GetKeyDown(KeyCode.Space) || TouchDown();
+        return Input.GetKeyDown(KeyCode.Space) || startTouch();
     }
 
     private bool jumpKey()
     {
-        return Input.GetKey(KeyCode.Space) || Touch();
+        return Input.GetKey(KeyCode.Space) || touch();
     }
 
-    private bool Touch()
+    private bool startTouch()
     {
         if (Input.touchCount > 0)
         {
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
         }
         return false;
     }
-    private bool TouchDown()
+    private bool touch()
     {
         if (Input.touchCount > 0)
         {
