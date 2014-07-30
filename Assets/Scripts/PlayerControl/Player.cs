@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     private CharacterController2D _controller;
     private float _normalizedHorizontalSpeed;
 
-    private float MaxSpeed = 18;
+    private float MaxSpeed = 10;
     private float SpeedAccellerationOnGround = 10f;
 
     private Animator _animator;

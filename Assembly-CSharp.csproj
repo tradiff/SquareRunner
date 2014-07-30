@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\BackgroundParallax.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\ChunkGenerators\BumpyGrassChunkGenerator.cs" />
+     <Compile Include="Assets\Scripts\ChunkGenerators\FlatGhostFloorGenerator.cs" />
      <Compile Include="Assets\Scripts\ChunkGenerators\FlatGrassChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\ChunkGenerators\IChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\Destroyer.cs" />

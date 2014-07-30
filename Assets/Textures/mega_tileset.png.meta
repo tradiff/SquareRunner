@@ -94,7 +94,7 @@ TextureImporter:
     21300178: mega_tileset_88
     21300180: mega_tileset_89
     21300182: mega_tileset_90
-    21300184: mega_tileset_91
+    21300184: ghost_floor
     21300186: mega_tileset_92
     21300188: mega_tileset_93
     21300190: mega_tileset_94
@@ -1680,18 +1680,18 @@ TextureImporter:
         y: 513
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_91
+    - name: ghost_floor
       rect:
         serializedVersion: 2
         x: 52
         y: 513
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mega_tileset_92
       rect:
@@ -3760,8 +3760,8 @@ TextureImporter:
         y: 371
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: grass_N
       rect:
@@ -3770,8 +3770,8 @@ TextureImporter:
         y: 371
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: grass_NE
       rect:
@@ -3780,8 +3780,8 @@ TextureImporter:
         y: 371
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mega_tileset_301
       rect:

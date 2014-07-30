@@ -4,52 +4,51 @@ using System.Collections.Generic;
 
 namespace Assets.Scripts.ChunkGenerators
 {
-    public class FlatGrassChunkGenerator : MonoBehaviour, IChunkGenerator
+    public class FlatGrassChunkGenerator : IChunkGenerator
     {
+        private WorldGenerator worldGenerator;
+        Object bgPrefab = Resources.Load("backgrounds/Background_Forest_Prefab");
         Object groundPrefab = Resources.Load("tiles/Grass_N_Prefab");
         Object redMushroomPrefab = Resources.Load("Red_Mushroom_Prefab");
         Object koopaGreenPrefab = Resources.Load("Koopa_Green_Prefab");
 
         public void Generate(GameObject chunk, float chunkWidth, bool buffered)
         {
-            GameManager.Instance.WorldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkWidth, buffered));
+            worldGenerator = GameManager.Instance.WorldGenerator;
+            worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkWidth, buffered));
         }
 
 
         private IEnumerator GenerateCoroutine(GameObject chunk, float chunkWidth, bool buffered)
         {
+            worldGenerator.CreateTile(chunk, bgPrefab, 0, -1);
             
             for (int i = 0; i < chunkWidth; i++)
             {
-                CreateTile(chunk, groundPrefab, i);
+                worldGenerator.CreateTile(chunk, groundPrefab, i);
                 if (buffered)
                     yield return new WaitForEndOfFrame();
             }
 
-            for (int i = 3; i < 40; i++)
-            {
-                CreateTile(chunk, groundPrefab, i, 2);
-                if (buffered)
-                    yield return new WaitForEndOfFrame();
-            }
+            worldGenerator.CreateTile(chunk, groundPrefab, 0, 2);
 
-            if (Random.Range(0, 3) == 0)
-            {
-                CreateTile(chunk, redMushroomPrefab, chunkWidth / 2, 1);
-            }
-            yield return null;
+            //for (int i = 3; i < 40; i++)
+            //{
+            //    worldGenerator.CreateTile(chunk, groundPrefab, i, 2);
+            //    if (buffered)
+            //        yield return new WaitForEndOfFrame();
+            //}
 
-            if (Random.Range(0, 0) == 0)
-            {
-                CreateTile(chunk, koopaGreenPrefab, chunkWidth / 2 + 3, 1); 
-            }
-        }
+            //if (Random.Range(0, 3) == 0)
+            //{
+            //    worldGenerator.CreateTile(chunk, redMushroomPrefab, chunkWidth / 2, 1);
+            //}
+            //yield return null;
 
-        private void CreateTile(GameObject chunk, Object prefab, float x, float y = -1)
-        {
-            var tile = (GameObject)UnityEngine.Object.Instantiate(prefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
-            tile.transform.parent = chunk.transform;
-            tile.transform.localPosition = new Vector3(x, y, 0);
+            //if (Random.Range(0, 0) == 0)
+            //{
+            //    worldGenerator.CreateTile(chunk, koopaGreenPrefab, chunkWidth / 2 + 3, 1); 
+            //}
         }
     }
 }

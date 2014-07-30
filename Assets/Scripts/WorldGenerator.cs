@@ -24,7 +24,7 @@ public class WorldGenerator : MonoBehaviour
         if (GameManager.Instance.distanceTraveled > 10 && !bumpyAdded)
         {
             bumpyAdded = true;
-            chunkGenerators.Add(new BumpyGrassChunkGenerator());
+            //chunkGenerators.Add(new BumpyGrassChunkGenerator());
         }
 
         if (newestChunk == null)
@@ -43,6 +43,7 @@ public class WorldGenerator : MonoBehaviour
         newestChunk = null;
         chunkGenerators.Clear();
         chunkGenerators.Add(new FlatGrassChunkGenerator());
+        chunkGenerators.Add(new FlatGhostFloorGenerator());
         GenerateWorldChunk(-50, false);
         GenerateWorldChunk(0, false);
     }
@@ -61,6 +62,13 @@ public class WorldGenerator : MonoBehaviour
     public void StartChildCoroutine(IEnumerator coroutineMethod)
     {
         StartCoroutine(coroutineMethod);
+    }
+
+    public void CreateTile(GameObject chunk, Object prefab, float x, float y = -1)
+    {
+        var tile = (GameObject)UnityEngine.Object.Instantiate(prefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        tile.transform.parent = chunk.transform;
+        tile.transform.localPosition = new Vector3(x, y, 0);
     }
 
 
