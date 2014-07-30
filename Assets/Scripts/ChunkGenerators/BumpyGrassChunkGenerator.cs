@@ -69,11 +69,11 @@ namespace Assets.Scripts.ChunkGenerators
 
         }
 
-        private void CreateTile(GameObject chunk, Object prefab, int i)
+        private void CreateTile(GameObject chunk, Object prefab, float x, float y = -1)
         {
             var tile = (GameObject)UnityEngine.Object.Instantiate(prefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
             tile.transform.parent = chunk.transform;
-            tile.transform.localPosition = new Vector3(1 * i, -1, 0);
+            tile.transform.localPosition = new Vector3(x, y, 0);
         }
     }
 }
