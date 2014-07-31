@@ -11,7 +11,7 @@ public class CameraFollow : MonoBehaviour
     {
         
         var newX = Mathf.Lerp(transform.position.x, player.position.x + 6, dampening * Time.deltaTime);
-        transform.position = new Vector3(newX, 3.4f, -10);
+        transform.position = new Vector3(newX, 4.0f, -10);
 
         //transform.position = new Vector3(player.position.x + 6, 3.4f, -10);
     }

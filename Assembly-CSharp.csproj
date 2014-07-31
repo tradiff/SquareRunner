@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\ChunkGenerators\FlatGhostFloorGenerator.cs" />
      <Compile Include="Assets\Scripts\ChunkGenerators\FlatGrassChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\ChunkGenerators\IChunkGenerator.cs" />
+     <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\GameHud.cs" />

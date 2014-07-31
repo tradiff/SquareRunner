@@ -11,6 +11,7 @@ namespace Assets.Scripts.ChunkGenerators
         Object groundPrefab = Resources.Load("tiles/Grass_N_Prefab");
         Object redMushroomPrefab = Resources.Load("Red_Mushroom_Prefab");
         Object koopaGreenPrefab = Resources.Load("Koopa_Green_Prefab");
+        Object coinPrefab = Resources.Load("entities/Coin_Prefab");
 
         public void Generate(GameObject chunk, float chunkWidth, bool buffered)
         {
@@ -32,23 +33,33 @@ namespace Assets.Scripts.ChunkGenerators
 
             worldGenerator.CreateTile(chunk, groundPrefab, 0, 2);
 
-            //for (int i = 3; i < 40; i++)
-            //{
-            //    worldGenerator.CreateTile(chunk, groundPrefab, i, 2);
-            //    if (buffered)
-            //        yield return new WaitForEndOfFrame();
-            //}
+            for (int i = 10; i < 20; i++)
+            {
+                worldGenerator.CreateTile(chunk, coinPrefab, i, 4);
+                worldGenerator.CreateTile(chunk, coinPrefab, i, 5);
+                if (buffered)
+                    yield return new WaitForEndOfFrame();
+            }
 
-            //if (Random.Range(0, 3) == 0)
-            //{
-            //    worldGenerator.CreateTile(chunk, redMushroomPrefab, chunkWidth / 2, 1);
-            //}
-            //yield return null;
+            if (Random.Range(0, 3) == 0)
+            {
+                for (int i = 3; i < 40; i++)
+                {
+                    worldGenerator.CreateTile(chunk, groundPrefab, i, 2);
+                    if (buffered)
+                        yield return new WaitForEndOfFrame();
+                }
+            }
 
-            //if (Random.Range(0, 0) == 0)
-            //{
-            //    worldGenerator.CreateTile(chunk, koopaGreenPrefab, chunkWidth / 2 + 3, 1); 
-            //}
+            if (Random.Range(0, 3) == 0)
+            {
+                worldGenerator.CreateTile(chunk, redMushroomPrefab, chunkWidth / 2, 1);
+            }
+
+            if (Random.Range(0, 0) == 0)
+            {
+                worldGenerator.CreateTile(chunk, koopaGreenPrefab, chunkWidth / 2 + 3, 1);
+            }
         }
     }
 }

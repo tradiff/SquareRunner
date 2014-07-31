@@ -21,6 +21,11 @@ public class GameHud : MonoBehaviour
                 GUILayout.Label("Distance: " + GameManager.Instance.distanceTraveled, Skin.GetStyle("DistanceText"));
             }
             GUILayout.EndVertical();
+            GUILayout.BeginVertical(Skin.GetStyle("GameHud"));
+            {
+                GUILayout.Label("Coins: " + GameManager.Instance.coins, Skin.GetStyle("CoinText"));
+            }
+            GUILayout.EndVertical();
         }
         GUILayout.EndArea();
 

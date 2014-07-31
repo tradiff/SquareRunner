@@ -24,7 +24,7 @@ public class WorldGenerator : MonoBehaviour
         if (GameManager.Instance.distanceTraveled > 10 && !bumpyAdded)
         {
             bumpyAdded = true;
-            //chunkGenerators.Add(new BumpyGrassChunkGenerator());
+            chunkGenerators.Add(new BumpyGrassChunkGenerator());
         }
 
         if (newestChunk == null)

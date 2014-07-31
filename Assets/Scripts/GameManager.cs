@@ -8,6 +8,7 @@ public class GameManager
     public WorldGenerator WorldGenerator = null;
     public Player Player = null;
     public float distanceTraveled;
+    public int coins;
     //public GameObject BackgroundHolderGameObject;
 
     public static GameManager Instance
@@ -32,6 +33,7 @@ public class GameManager
         //Debug.Break();
         Player.transform.position = new Vector3(0, 10, 0);
         distanceTraveled = 0;
+        coins = 0;
         var chunks = GameObject.FindGameObjectsWithTag("WorldChunkPrefab");
 
         foreach (var chunk in chunks)
