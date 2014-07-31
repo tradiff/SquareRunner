@@ -48,10 +48,10 @@ TextureImporter:
     21300086: mega_tileset_42
     21300088: mega_tileset_43
     21300090: mega_tileset_44
-    21300092: mega_tileset_45
-    21300094: mega_tileset_46
-    21300096: mega_tileset_47
-    21300098: mega_tileset_48
+    21300092: coin_1
+    21300094: coin_2
+    21300096: coin_3
+    21300098: coin_4
     21300100: mega_tileset_49
     21300102: mega_tileset_50
     21300104: red mushroom
@@ -1223,7 +1223,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_45
+    - name: coin_1
       rect:
         serializedVersion: 2
         x: 219
@@ -1233,7 +1233,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_46
+    - name: coin_2
       rect:
         serializedVersion: 2
         x: 232
@@ -1243,7 +1243,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_47
+    - name: coin_3
       rect:
         serializedVersion: 2
         x: 241
@@ -1253,7 +1253,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_48
+    - name: coin_4
       rect:
         serializedVersion: 2
         x: 248
