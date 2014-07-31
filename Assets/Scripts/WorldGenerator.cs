@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class WorldGenerator : MonoBehaviour
 {
     private Object worldChunkPrefab;
+    private Object platformPrefab;
 
     private GameObject newestChunk = null;
     public float chunkWidth = 50;
@@ -16,6 +17,7 @@ public class WorldGenerator : MonoBehaviour
     {
         GameManager.Instance.WorldGenerator = this;
         worldChunkPrefab = Resources.Load("WorldChunkPrefab");
+        platformPrefab = Resources.Load("Platform_Prefab");
         Reset();
     }
 
@@ -69,6 +71,14 @@ public class WorldGenerator : MonoBehaviour
         var tile = (GameObject)UnityEngine.Object.Instantiate(prefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         tile.transform.parent = chunk.transform;
         tile.transform.localPosition = new Vector3(x, y, 0);
+    }
+
+    public void CreatePlatform(GameObject chunk, Rect rect)
+    {
+        var tile = (GameObject)UnityEngine.Object.Instantiate(platformPrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        tile.transform.parent = chunk.transform;
+        tile.transform.localPosition = new Vector3(rect.x, rect.y, 0);
+        tile.transform.localScale = new Vector3(rect.width, tile.transform.localScale.y, tile.transform.localScale.z);
     }
 
     public void CreateBG(GameObject chunk, Object prefab, float x, float y = -1)

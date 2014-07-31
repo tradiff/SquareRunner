@@ -22,40 +22,29 @@ namespace Assets.Scripts.ChunkGenerators
         {
             worldGenerator.CreateBG(chunk, bgPrefab, -1, -1);
 
+            // pass-through walls
             for (int i = -1; i < 100; i++)
             {
                 worldGenerator.CreateTile(chunk, bgWallPrefab, 0, i);
                 worldGenerator.CreateTile(chunk, bgWallPrefab, 1, i);
             }
 
-            
-            for (int i = 0; i < chunkWidth; i++)
             {
-                worldGenerator.CreateTile(chunk, groundPrefab, i);
-                if (buffered)
-                    yield return new WaitForEndOfFrame();
+                worldGenerator.CreatePlatform(chunk, new Rect(0, -1, chunkWidth, 1));
+                for (int i = 0; i < chunkWidth; i++)
+                {
+                    worldGenerator.CreateTile(chunk, groundPrefab, i);
+                    if (buffered)
+                        yield return new WaitForEndOfFrame();
+                }
             }
 
-            worldGenerator.CreateTile(chunk, groundPrefab, 0, 2);
-            worldGenerator.CreateTile(chunk, groundPrefab, 1, 2);
+            {
+                worldGenerator.CreatePlatform(chunk, new Rect(0, 2, 2, 1));
+                worldGenerator.CreateTile(chunk, groundPrefab, 0, 2);
+                worldGenerator.CreateTile(chunk, groundPrefab, 1, 2);
+            }
 
-            //for (int i = 3; i < 40; i++)
-            //{
-            //    worldGenerator.CreateTile(chunk, groundPrefab, i, 2);
-            //    if (buffered)
-            //        yield return new WaitForEndOfFrame();
-            //}
-
-            //if (Random.Range(0, 3) == 0)
-            //{
-            //    worldGenerator.CreateTile(chunk, redMushroomPrefab, chunkWidth / 2, 1);
-            //}
-            //yield return null;
-
-            //if (Random.Range(0, 0) == 0)
-            //{
-            //    worldGenerator.CreateTile(chunk, koopaGreenPrefab, chunkWidth / 2 + 3, 1); 
-            //}
         }
 
     }

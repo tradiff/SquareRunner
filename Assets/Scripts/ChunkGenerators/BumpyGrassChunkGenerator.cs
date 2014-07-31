@@ -22,7 +22,10 @@ namespace Assets.Scripts.ChunkGenerators
 
 
             int i = 0;
+            int iPlatformStart = 0;
+            int iPlatformEnd = 0;
 
+            iPlatformStart = i;
             worldGenerator.CreateTile(chunk, groundPrefab, i++);
             if (buffered)
                 yield return new WaitForEndOfFrame();
@@ -35,10 +38,18 @@ namespace Assets.Scripts.ChunkGenerators
             worldGenerator.CreateTile(chunk, rightCornerPrefab, i++);
             if (buffered)
                 yield return new WaitForEndOfFrame();
+
+            iPlatformEnd = i;
+            worldGenerator.CreatePlatform(chunk, new Rect(iPlatformStart, -1, iPlatformEnd - iPlatformStart, 1));
+
+
             i++;
             i++;
             i++;
             i++;
+
+
+            iPlatformStart = i;
             worldGenerator.CreateTile(chunk, leftCornerPrefab, i++);
             if (buffered)
                 yield return new WaitForEndOfFrame();
@@ -55,10 +66,15 @@ namespace Assets.Scripts.ChunkGenerators
             worldGenerator.CreateTile(chunk, rightCornerPrefab, i++);
             if (buffered)
                 yield return new WaitForEndOfFrame();
+            iPlatformEnd = i;
+            worldGenerator.CreatePlatform(chunk, new Rect(iPlatformStart, -1, iPlatformEnd - iPlatformStart, 1));
             i++;
             i++;
             i++;
             i++;
+
+
+            iPlatformStart = i;
             worldGenerator.CreateTile(chunk, leftCornerPrefab, i++);
             if (buffered)
                 yield return new WaitForEndOfFrame();
@@ -69,6 +85,8 @@ namespace Assets.Scripts.ChunkGenerators
                 if (buffered)
                     yield return new WaitForEndOfFrame();
             }
+            iPlatformEnd = i;
+            worldGenerator.CreatePlatform(chunk, new Rect(iPlatformStart, -1, iPlatformEnd - iPlatformStart, 1));
 
         }
     }
