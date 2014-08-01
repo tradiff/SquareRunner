@@ -7,6 +7,7 @@ namespace Assets.Scripts.ChunkGenerators
     public class BumpyGrassChunkGenerator : IChunkGenerator
     {
         private WorldGenerator worldGenerator;
+        Object bgPrefab = Resources.Load("backgrounds/Background_Forest_Prefab");
         Object groundPrefab = Resources.Load("tiles/Grass_N_Prefab");
         Object rightCornerPrefab = Resources.Load("tiles/Grass_NE_Prefab");
         Object leftCornerPrefab = Resources.Load("tiles/Grass_NW_Prefab");
@@ -19,6 +20,7 @@ namespace Assets.Scripts.ChunkGenerators
 
         private IEnumerator GenerateCoroutine(GameObject chunk, float chunkWidth, bool buffered)
         {
+            worldGenerator.CreateBG(chunk, bgPrefab, -1, -1);
 
 
             int i = 0;
