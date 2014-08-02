@@ -50,13 +50,10 @@
      <Compile Include="Assets\Scripts\BackgroundParallax2.cs" />
      <Compile Include="Assets\Scripts\BackgroundParallax3.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\ChunkGenerators\BumpyGrassChunkGenerator.cs" />
-     <Compile Include="Assets\Scripts\ChunkGenerators\FlatGhostFloorGenerator.cs" />
-     <Compile Include="Assets\Scripts\ChunkGenerators\FlatGrassChunkGenerator.cs" />
-     <Compile Include="Assets\Scripts\ChunkGenerators\IChunkGenerator.cs" />
-     <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\Destroyer.cs" />
-     <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Entities\Coin.cs" />
+     <Compile Include="Assets\Scripts\Entities\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Entities\RedMushroom.cs" />
      <Compile Include="Assets\Scripts\GameHud.cs" />
      <Compile Include="Assets\Scripts\GameHud_FPS.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -65,9 +62,18 @@
      <Compile Include="Assets\Scripts\PlayerControl\ControllerParameters2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\ControllerState2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\Player.cs" />
-     <Compile Include="Assets\Scripts\RedMushroom.cs" />
      <Compile Include="Assets\Scripts\WorldChunk.cs" />
-     <Compile Include="Assets\Scripts\WorldGenerator.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\ChunkGenerator.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\BaseChunkShape.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\FlatShape.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\GapyShape1.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\GapyShape2.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\CoinGenerator.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\PowerupGenerator.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\TileSets\BaseTileSet.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\TileSets\ForestTileSet.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\TileSets\GhostTileSet.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\WorldGenerator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
