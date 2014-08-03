@@ -26,7 +26,7 @@ public class GameManager
         //BackgroundHolderGameObject = GameObject.FindGameObjectWithTag("BackgroundHolder");
     }
 
-    public void Reset()
+    public void ResetGame()
     {
         Debug.Log("Reset");
         Time.timeScale = 0;
@@ -34,14 +34,10 @@ public class GameManager
         Player.transform.position = new Vector3(0, 10, 0);
         distanceTraveled = 0;
         coins = 0;
-        var chunks = GameObject.FindGameObjectsWithTag("WorldChunkPrefab");
 
-        foreach (var chunk in chunks)
-        {
-            GameObject.Destroy(chunk);
-        }
-        this.WorldGenerator.Reset();
-        Player.IsDead = false;
+
+        this.WorldGenerator.ResetGame();
+        this.Player.Reset();
         Camera.main.transform.position = new Vector3(0, Camera.main.transform.position.y);
 
         Time.timeScale = 1;

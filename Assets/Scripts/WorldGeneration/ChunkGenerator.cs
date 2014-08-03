@@ -62,8 +62,8 @@ public class ChunkGenerator
                         break;
                 }
 
-                if (buffered && tileType != BaseChunkShape.TileTypes.Air)
-                    yield return new WaitForEndOfFrame();
+                //if (buffered && tileType != BaseChunkShape.TileTypes.Air)
+                //    yield return new WaitForEndOfFrame();
             }
         }
         yield return null;

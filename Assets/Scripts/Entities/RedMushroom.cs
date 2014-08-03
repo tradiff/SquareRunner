@@ -5,15 +5,13 @@ public class RedMushroom : MonoBehaviour
 {
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("collide ");
-
         var player = other.GetComponent<Player>();
         if (player == null)
             return;
 
+        Debug.Log("mushroom collide");
         player.IsBig = true;
         Destroy(gameObject);
-
     }
 
     // Use this for initialization

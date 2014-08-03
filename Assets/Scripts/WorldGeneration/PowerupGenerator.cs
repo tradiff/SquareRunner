@@ -4,8 +4,7 @@ using System.Collections;
 public class PowerupGenerator
 {
     private WorldGenerator worldGenerator;
-    public Object redMushroomPrefab = Resources.Load("Red_Mushroom_Prefab");
-    //public Object koopaGreenPrefab = Resources.Load("Koopa_Green_Prefab");
+    public Object redMushroomPrefab = Resources.Load("entities/Red_Mushroom_Prefab");
 
     public PowerupGenerator()
     {

@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 
         if (IsDead)
         {
-            GameManager.Instance.Reset();
+            GameManager.Instance.ResetGame();
         }
     }
 
@@ -75,6 +75,12 @@ public class Player : MonoBehaviour
             jumpTime = maxJumpTime;
         }
 
+    }
+
+    public void Reset()
+    {
+        IsBig = false;
+        IsDead = false;
     }
 
 
