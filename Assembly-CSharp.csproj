@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Entities\Coin.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy.cs" />
      <Compile Include="Assets\Scripts\Entities\RedMushroom.cs" />
+     <Compile Include="Assets\Scripts\ExtensionMethods.cs" />
      <Compile Include="Assets\Scripts\GameHud.cs" />
      <Compile Include="Assets\Scripts\GameHud_FPS.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\Scripts\WorldGeneration\EnemyGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\PowerupGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\TileSets\BaseTileSet.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\TileSets\CaveTileSet.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\TileSets\ForestTileSet.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\TileSets\GhostTileSet.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\WorldGenerator.cs" />

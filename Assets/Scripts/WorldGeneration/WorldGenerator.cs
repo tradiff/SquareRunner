@@ -43,6 +43,7 @@ public class WorldGenerator : MonoBehaviour
 
         tileSets.Add(new ForestTileSet());
         tileSets.Add(new GhostTileSet());
+        tileSets.Add(new CaveTileSet());
 
         ResetGame();
     }

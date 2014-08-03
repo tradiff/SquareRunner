@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public abstract class BaseTileSet
 {
@@ -15,4 +16,6 @@ public abstract class BaseTileSet
     public Sprite groundSE;
 
     public Object coinPrefab = Resources.Load("entities/Coin_Prefab");
+
+    public List<string> enemyTier1List = new List<string>();
 }

@@ -14,18 +14,23 @@ public class Destroyer : MonoBehaviour
             return;
         }
 
-        if (other.tag == "Entity")
-        {
-            return;
-        }
-
-        if (other.gameObject.transform.parent)
-        {
-            Destroy(other.gameObject.transform.parent.gameObject);
-        }
-        else
+        if (other.tag == "WorldChunkPrefab")
         {
             Destroy(other.gameObject);
         }
+
+        if (other.tag == "Entity")
+        {
+            Destroy(other.gameObject);
+        }
+
+        //if (other.gameObject.transform.parent)
+        //{
+        //    Destroy(other.gameObject.transform.parent.gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(other.gameObject);
+        //}
     }
 }

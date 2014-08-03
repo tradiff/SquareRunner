@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 public class ForestTileSet : BaseTileSet
@@ -19,5 +20,7 @@ public class ForestTileSet : BaseTileSet
         groundSW = megaTiles.FirstOrDefault(sprite => sprite.name == "grass_SW");
         groundS = megaTiles.FirstOrDefault(sprite => sprite.name == "grass_S");
         groundSE = megaTiles.FirstOrDefault(sprite => sprite.name == "grass_SE");
+
+        enemyTier1List = new List<string> { "koopa_troopa_green", "koopa_troopa_red" };
     }
 }

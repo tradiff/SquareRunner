@@ -301,9 +301,9 @@ TextureImporter:
     21300592: mega_tileset_295
     21300594: mega_tileset_296
     21300596: mega_tileset_297
-    21300598: grass_NW
-    21300600: grass_N
-    21300602: grass_NE
+    21300598: grass2_NW
+    21300600: grass2_N
+    21300602: grass2_NE
     21300604: mega_tileset_301
     21300606: mega_tileset_302
     21300608: mega_tileset_303
@@ -324,9 +324,9 @@ TextureImporter:
     21300638: mega_tileset_318
     21300640: mega_tileset_319
     21300642: mega_tileset_320
-    21300644: grass_W
-    21300646: grass_C
-    21300648: grass_E
+    21300644: grass2_W
+    21300646: grass2_C
+    21300648: grass2_E
     21300650: mega_tileset_324
     21300652: mega_tileset_325
     21300654: mega_tileset_326
@@ -344,14 +344,14 @@ TextureImporter:
     21300678: mega_tileset_338
     21300680: mega_tileset_339
     21300682: mega_tileset_340
-    21300684: grass_SW
-    21300686: grass_S
-    21300688: grass_SE
+    21300684: grass2_SW
+    21300686: grass2_S
+    21300688: grass2_SE
     21300690: mega_tileset_344
     21300692: mega_tileset_345
-    21300694: mega_tileset_346
-    21300696: mega_tileset_347
-    21300698: mega_tileset_348
+    21300694: cave_NW
+    21300696: cave_N
+    21300698: cave_NE
     21300700: mega_tileset_349
     21300702: mega_tileset_350
     21300704: mega_tileset_351
@@ -362,14 +362,14 @@ TextureImporter:
     21300714: mega_tileset_356
     21300716: mega_tileset_357
     21300718: mega_tileset_358
-    21300720: grass_alt_NW
-    21300722: grass_alt_N
-    21300724: grass_alt_NE
+    21300720: grass_NW
+    21300722: grass_N
+    21300724: grass_NE
     21300726: mega_tileset_362
     21300728: mega_tileset_363
-    21300730: mega_tileset_364
-    21300732: mega_tileset_365
-    21300734: mega_tileset_366
+    21300730: cave_W
+    21300732: cave_C
+    21300734: cave_E
     21300736: mega_tileset_367
     21300738: mega_tileset_368
     21300740: mega_tileset_369
@@ -381,13 +381,13 @@ TextureImporter:
     21300752: mega_tileset_375
     21300754: mega_tileset_376
     21300756: mega_tileset_377
-    21300758: grass_alt_W
-    21300760: grass_alt_center
-    21300762: grass_alt_E
+    21300758: grass_W
+    21300760: grass_C
+    21300762: grass_E
     21300764: mega_tileset_381
-    21300766: mega_tileset_382
-    21300768: mega_tileset_383
-    21300770: mega_tileset_384
+    21300766: cave_SW
+    21300768: cave_S
+    21300770: cave_SE
     21300772: mega_tileset_385
     21300774: mega_tileset_386
     21300776: mega_tileset_387
@@ -400,9 +400,9 @@ TextureImporter:
     21300790: mega_tileset_394
     21300792: mega_tileset_395
     21300794: mega_tileset_396
-    21300796: grass_alt_SW
-    21300798: grass_alt_S
-    21300800: grass_alt_SE
+    21300796: grass_SW
+    21300798: grass_S
+    21300800: grass_SE
     21300802: mega_tileset_400
     21300804: mega_tileset_401
     21300806: mega_tileset_402
@@ -3753,7 +3753,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_NW
+    - name: grass2_NW
       rect:
         serializedVersion: 2
         x: 427
@@ -3763,7 +3763,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_N
+    - name: grass2_N
       rect:
         serializedVersion: 2
         x: 444
@@ -3773,7 +3773,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_NE
+    - name: grass2_NE
       rect:
         serializedVersion: 2
         x: 462
@@ -3983,7 +3983,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_W
+    - name: grass2_W
       rect:
         serializedVersion: 2
         x: 427
@@ -3993,7 +3993,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_C
+    - name: grass2_C
       rect:
         serializedVersion: 2
         x: 444
@@ -4003,7 +4003,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_E
+    - name: grass2_E
       rect:
         serializedVersion: 2
         x: 461
@@ -4183,7 +4183,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_SW
+    - name: grass2_SW
       rect:
         serializedVersion: 2
         x: 427
@@ -4193,7 +4193,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_S
+    - name: grass2_S
       rect:
         serializedVersion: 2
         x: 444
@@ -4203,7 +4203,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_SE
+    - name: grass2_SE
       rect:
         serializedVersion: 2
         x: 461
@@ -4233,35 +4233,35 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_346
+    - name: cave_NW
       rect:
         serializedVersion: 2
         x: 36
         y: 317
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_347
+    - name: cave_N
       rect:
         serializedVersion: 2
         x: 53
         y: 317
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_348
+    - name: cave_NE
       rect:
         serializedVersion: 2
         x: 70
         y: 317
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mega_tileset_349
       rect:
@@ -4363,7 +4363,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_alt_NW
+    - name: grass_NW
       rect:
         serializedVersion: 2
         x: 427
@@ -4373,7 +4373,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_alt_N
+    - name: grass_N
       rect:
         serializedVersion: 2
         x: 444
@@ -4383,7 +4383,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_alt_NE
+    - name: grass_NE
       rect:
         serializedVersion: 2
         x: 461
@@ -4413,35 +4413,35 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_364
+    - name: cave_W
       rect:
         serializedVersion: 2
         x: 36
         y: 300
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_365
+    - name: cave_C
       rect:
         serializedVersion: 2
         x: 53
         y: 300
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_366
+    - name: cave_E
       rect:
         serializedVersion: 2
         x: 70
         y: 300
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mega_tileset_367
       rect:
@@ -4553,7 +4553,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_alt_W
+    - name: grass_W
       rect:
         serializedVersion: 2
         x: 427
@@ -4563,7 +4563,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_alt_center
+    - name: grass_C
       rect:
         serializedVersion: 2
         x: 444
@@ -4573,7 +4573,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_alt_E
+    - name: grass_E
       rect:
         serializedVersion: 2
         x: 461
@@ -4593,35 +4593,35 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_382
+    - name: cave_SW
       rect:
         serializedVersion: 2
         x: 36
         y: 283
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_383
+    - name: cave_S
       rect:
         serializedVersion: 2
         x: 53
         y: 283
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_384
+    - name: cave_SE
       rect:
         serializedVersion: 2
         x: 70
         y: 283
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mega_tileset_385
       rect:
@@ -4743,7 +4743,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_alt_SW
+    - name: grass_SW
       rect:
         serializedVersion: 2
         x: 427
@@ -4753,7 +4753,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_alt_S
+    - name: grass_S
       rect:
         serializedVersion: 2
         x: 444
@@ -4763,7 +4763,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grass_alt_SE
+    - name: grass_SE
       rect:
         serializedVersion: 2
         x: 461

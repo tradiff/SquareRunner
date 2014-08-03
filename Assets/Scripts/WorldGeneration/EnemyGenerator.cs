@@ -15,8 +15,19 @@ public class EnemyGenerator
     {
         //if (Random.Range(0, 2) == 0)
         //{
-        var obj = worldGenerator.CreateTile(chunk, enemyTier1Prefab, 27, 4);
-        var animator = obj.GetComponentInChildren<Animator>();
+        SpawnEnemyTier1(chunk, tileSet, 27, 4);
+        SpawnEnemyTier1(chunk, tileSet, 29, 4);
         //}
     }
+
+    public void SpawnEnemyTier1(GameObject chunk, BaseTileSet tileSet, int x, int y)
+    {
+        var obj = worldGenerator.CreateTile(chunk, enemyTier1Prefab, x, y);
+        var animator = obj.GetComponentInChildren<Animator>();
+
+        var enemy = tileSet.enemyTier1List.RandomElement();
+        animator.Play(enemy);
+    }
+
+
 }
