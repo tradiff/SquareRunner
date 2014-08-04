@@ -639,9 +639,9 @@ TextureImporter:
     21301268: mega_tileset_633
     21301270: mega_tileset_634
     21301272: mega_tileset_635
-    21301274: mega_tileset_636
-    21301276: mega_tileset_637
-    21301278: mega_tileset_638
+    21301274: castle_NW
+    21301276: castle_N
+    21301278: castle_NE
     21301280: mega_tileset_639
     21301282: mega_tileset_640
     21301284: mega_tileset_641
@@ -654,9 +654,9 @@ TextureImporter:
     21301298: mega_tileset_648
     21301300: mega_tileset_649
     21301302: mega_tileset_650
-    21301304: mega_tileset_651
-    21301306: mega_tileset_652
-    21301308: mega_tileset_653
+    21301304: castle_W
+    21301306: castle_C
+    21301308: castle_E
     21301310: mega_tileset_654
     21301312: mega_tileset_655
     21301314: mega_tileset_656
@@ -668,9 +668,9 @@ TextureImporter:
     21301326: mega_tileset_662
     21301328: mega_tileset_663
     21301330: mega_tileset_664
-    21301332: mega_tileset_665
-    21301334: mega_tileset_666
-    21301336: mega_tileset_667
+    21301332: castle_SW
+    21301334: castle_S
+    21301336: castle_SE
     21301338: mega_tileset_668
     21301340: mega_tileset_669
     21301342: mega_tileset_670
@@ -7133,35 +7133,35 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_636
+    - name: castle_NW
       rect:
         serializedVersion: 2
         x: 375
         y: 114
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_637
+    - name: castle_N
       rect:
         serializedVersion: 2
         x: 392
         y: 114
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_638
+    - name: castle_NE
       rect:
         serializedVersion: 2
         x: 409
         y: 114
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mega_tileset_639
       rect:
@@ -7283,35 +7283,35 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_651
+    - name: castle_W
       rect:
         serializedVersion: 2
         x: 375
         y: 97
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_652
+    - name: castle_C
       rect:
         serializedVersion: 2
         x: 392
         y: 97
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_653
+    - name: castle_E
       rect:
         serializedVersion: 2
         x: 409
         y: 97
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mega_tileset_654
       rect:
@@ -7423,35 +7423,35 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_665
+    - name: castle_SW
       rect:
         serializedVersion: 2
         x: 375
         y: 80
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_666
+    - name: castle_S
       rect:
         serializedVersion: 2
         x: 392
         y: 80
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mega_tileset_667
+    - name: castle_SE
       rect:
         serializedVersion: 2
         x: 409
         y: 80
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: mega_tileset_668
       rect:

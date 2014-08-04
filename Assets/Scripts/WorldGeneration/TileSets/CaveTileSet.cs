@@ -20,7 +20,9 @@ public class CaveTileSet : BaseTileSet
         groundSW = megaTiles.FirstOrDefault(sprite => sprite.name == "cave_SW");
         groundS = megaTiles.FirstOrDefault(sprite => sprite.name == "cave_S");
         groundSE = megaTiles.FirstOrDefault(sprite => sprite.name == "cave_SE");
+        transitionTile = megaTiles.FirstOrDefault(sprite => sprite.name == "ghost_bg_wall");
 
-        enemyTier1List = new List<string> { "koopa_troopa_green", "koopa_troopa_red" };
+        enemyTier1List = new List<string> { "buzzy_beetle"};
+        this.Weight = 1;
     }
 }

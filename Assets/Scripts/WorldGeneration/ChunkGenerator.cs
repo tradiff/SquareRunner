@@ -19,6 +19,22 @@ public class ChunkGenerator
     {
         worldGenerator.CreateBG(chunk, tileSet.bgPrefab);
 
+        if (tileSet.NeedsTransition)
+        {
+            for (int y = 0; y < chunkShape.Map.GetLength(1); y++)
+            {
+                var tile = worldGenerator.CreateTile(chunk, tileSet.transitionTile, -1, y);
+                var sr = tile.GetComponentInChildren<SpriteRenderer>();
+                sr.sortingLayerName = "Background";
+                sr.sortingOrder = 2;
+                var tile2 = worldGenerator.CreateTile(chunk, tileSet.transitionTile, worldGenerator.chunkWidth, y);
+                var sr2 = tile2.GetComponentInChildren<SpriteRenderer>();
+                sr2.sortingLayerName = "Background";
+                sr2.sortingOrder = 2;
+
+            }
+        }
+
         for (int x = 0; x < chunkShape.Map.GetLength(0); x++)
         {
             for (int y = 0; y < chunkShape.Map.GetLength(1); y++)

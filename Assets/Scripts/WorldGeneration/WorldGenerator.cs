@@ -18,6 +18,7 @@ public class WorldGenerator : MonoBehaviour
     private PowerupGenerator powerupGenerator;
     private EnemyGenerator enemyGenerator;
     private bool readyForChunks;
+    private BaseTileSet lastTileSet;
 
     void Start()
     {
@@ -44,6 +45,7 @@ public class WorldGenerator : MonoBehaviour
         tileSets.Add(new ForestTileSet());
         tileSets.Add(new GhostTileSet());
         tileSets.Add(new CaveTileSet());
+        tileSets.Add(new CastleTileSet());
 
         ResetGame();
     }
@@ -86,14 +88,19 @@ public class WorldGenerator : MonoBehaviour
         var eligibleChunkShapes = chunkShapes.Where(x => GameManager.Instance.distanceTraveled >= x.Difficulty - 1).ToList();
 
         var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, 0, 0), new Quaternion(0, 0, 0, 0));
-        var shape = eligibleChunkShapes[Random.Range(0, eligibleChunkShapes.Count)];
-        var tileSet = tileSets[Random.Range(0, tileSets.Count)];
+        var shape = eligibleChunkShapes.RandomElement();
+        BaseTileSet tileSet;
+        if (lastTileSet == null || lastTileSet.IsSpecial)
+            tileSet = new ForestTileSet();
+        else
+            tileSet = tileSets.Choose();
         chunkGenerator.Generate(chunk, chunkWidth, shape, tileSet, buffered);
         coinGenerator.Generate(chunk, chunkWidth, shape, tileSet, buffered);
         powerupGenerator.Generate(chunk, chunkWidth, shape, tileSet, buffered);
         enemyGenerator.Generate(chunk, chunkWidth, shape, tileSet, buffered);
 
         lastChunkPosX = (int)positionX;
+        lastTileSet = tileSet;
         Debug.Log("lastChunkPosX = " + lastChunkPosX);
     }
 
@@ -125,7 +132,7 @@ public class WorldGenerator : MonoBehaviour
         return null;
     }
 
-    public void CreateTile(GameObject chunk, Sprite sprite, float x, float y = -1)
+    public GameObject CreateTile(GameObject chunk, Sprite sprite, float x, float y = -1)
     {
         var tile = CreateTile(chunk, tilePrefab, x, y);
         if (tile != null)
@@ -133,6 +140,7 @@ public class WorldGenerator : MonoBehaviour
             var sr = tile.GetComponentInChildren<SpriteRenderer>();
             sr.sprite = sprite;
         }
+        return tile;
     }
 
     public void CreatePlatform(GameObject chunk, Rect rect)

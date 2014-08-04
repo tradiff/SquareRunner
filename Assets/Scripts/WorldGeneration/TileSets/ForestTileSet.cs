@@ -7,6 +7,7 @@ public class ForestTileSet : BaseTileSet
 {
     public ForestTileSet()
     {
+        NeedsTransition = false;
         bgPrefab = Resources.Load("backgrounds/Background_Forest_Prefab");
 
         var megaTiles = Resources.LoadAll<Sprite>("Textures/mega_tileset");
@@ -22,5 +23,7 @@ public class ForestTileSet : BaseTileSet
         groundSE = megaTiles.FirstOrDefault(sprite => sprite.name == "grass_SE");
 
         enemyTier1List = new List<string> { "koopa_troopa_green", "koopa_troopa_red" };
+        this.Weight = 10;
+        this.IsSpecial = false;
     }
 }
