@@ -53,6 +53,8 @@
      <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\Entities\Coin.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Entities\EnemyTier1.cs" />
+     <Compile Include="Assets\Scripts\Entities\Ghost.cs" />
      <Compile Include="Assets\Scripts\Entities\RedMushroom.cs" />
      <Compile Include="Assets\Scripts\ExtensionMethods.cs" />
      <Compile Include="Assets\Scripts\GameHud.cs" />
