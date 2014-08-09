@@ -17,7 +17,7 @@ public class ChunkGenerator
 
     public IEnumerator GenerateCoroutine(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
-        //worldGenerator.CreateBG(chunk, tileSet.bgPrefab);
+        worldGenerator.CreateBG(chunk, biome.backgroundPrefab);
 
         //if (tileSet.NeedsTransition)
         //{
