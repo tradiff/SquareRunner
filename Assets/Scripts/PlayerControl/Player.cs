@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     private float MaxSpeed = 10;
     private float SpeedAccellerationOnGround = 10f;
+    private Animator _animator;
 
     public bool IsBig = false;
     public bool IsDead = false;
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
     public void Start()
     {
         _controller = GetComponent<CharacterController2D>();
+        _animator = GetComponentInChildren<Animator>();
+
         _isFacingRight = transform.localScale.x > 0;
     }
 
@@ -28,6 +31,11 @@ public class Player : MonoBehaviour
         HandleInput();
 
         _controller.SetHorizontalForce(Mathf.Lerp(_controller.Velocity.x, _normalizedHorizontalSpeed * MaxSpeed, Time.deltaTime * SpeedAccellerationOnGround));
+
+        _animator.SetBool("IsGrounded", _controller.State.IsGrounded);
+        _animator.SetBool("IsFalling", _controller.Velocity.y < 0);
+        //_animator.SetBool("IsBig", IsBig);
+
 
         GameManager.Instance.distanceTraveled = transform.position.x;
 

@@ -31,6 +31,8 @@ public class GameManager
         Debug.Log("Reset");
         Time.timeScale = 0;
         //Debug.Break();
+        Debug.Log(Player);
+        Debug.Log(Player.transform);
         Player.transform.position = new Vector3(0, 10, 0);
         distanceTraveled = 0;
         coins = 0;

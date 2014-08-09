@@ -35,6 +35,20 @@ public class ChunkGenerator
         //    }
         //}
 
+        // ragged top
+        for (int x = 0; x < chunkShape.Map.GetLength(0); x++)
+        {
+            for (int y = chunkShape.Map.GetLength(1) - 2; y < chunkShape.Map.GetLength(1); y++)
+            {
+                if (Random.RandomRange(0, 2) == 0)
+                {
+                    worldGenerator.CreateTile(chunk, tileSet.groundN, x, y);
+                }
+            }
+        }
+
+
+
         for (int x = 0; x < chunkShape.Map.GetLength(0); x++)
         {
             for (int y = 0; y < chunkShape.Map.GetLength(1); y++)

@@ -8,7 +8,7 @@ public abstract class BaseChunkShape
 
     public BaseChunkShape()
     {
-        Map = new TileTypes[(int)GameManager.Instance.WorldGenerator.chunkWidth, 50];
+        Map = new TileTypes[(int)GameManager.Instance.WorldGenerator.chunkWidth, 10];
     }
 
     public enum TileTypes
