@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: a3bb5d1216ffa3e49be7672ff5deff01
+guid: 1646a790dd05759498bb46bba1cd57ae
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hero
+    21300000: tile
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
