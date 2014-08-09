@@ -44,6 +44,7 @@ public class WorldGenerator : MonoBehaviour
 
         biomes.Add(new GrassBiome());
         biomes.Add(new CaveBiome());
+        biomes.Add(new StormyBiome());
 
         ResetGame();
     }
@@ -88,7 +89,7 @@ public class WorldGenerator : MonoBehaviour
         var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, 0, 0), new Quaternion(0, 0, 0, 0));
         var shape = eligibleChunkShapes.RandomElement();
         BaseBiome biome;
-        if (lastBiome == null || lastBiome.IsSpecial)
+        if (buffered == false || lastBiome == null || lastBiome.IsSpecial)
             biome = new GrassBiome();
         else
             biome = biomes.Choose();

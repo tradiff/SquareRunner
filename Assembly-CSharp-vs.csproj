@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\IWeighted.cs" />
      <Compile Include="Assets\Scripts\OneWayPlatform.cs" />
+     <Compile Include="Assets\Scripts\ParticleSortingLayer.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\ControllerParameters2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\ControllerState2D.cs" />
@@ -70,6 +71,7 @@
      <Compile Include="Assets\Scripts\WorldGeneration\Biomes\BaseBiome.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\Biomes\CaveBiome.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\Biomes\GrassBiome.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\Biomes\StormyBiome.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\BaseChunkShape.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\FlatShape.cs" />
@@ -84,6 +86,7 @@
      <Compile Include="Assets\Scripts\WorldGeneration\TileSets\ForestTileSet.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\TileSets\GhostTileSet.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\WorldGenerator.cs" />
+     <None Include="Assets\Anime Speed Lines\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

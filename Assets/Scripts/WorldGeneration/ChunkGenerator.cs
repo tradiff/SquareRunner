@@ -42,7 +42,7 @@ public class ChunkGenerator
             {
                 if (Random.RandomRange(0, 2) == 0)
                 {
-                    var tile = worldGenerator.CreateTile(chunk, Color.red, x, y);
+                    var tile = worldGenerator.CreateTile(chunk, new Color(0.2f, 0.2f, 0.2f), x, y);
                 }
             }
         }
