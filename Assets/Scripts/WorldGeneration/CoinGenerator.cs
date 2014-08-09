@@ -10,12 +10,12 @@ public class CoinGenerator
         worldGenerator = GameManager.Instance.WorldGenerator;
     }
 
-    public void Generate(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseTileSet tileSet, bool buffered)
+    public void Generate(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
-        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkWidth, chunkShape, tileSet, buffered));
+        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkWidth, chunkShape, biome, buffered));
     }
 
-    public IEnumerator GenerateCoroutine(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseTileSet tileSet, bool buffered)
+    public IEnumerator GenerateCoroutine(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
         if (Random.Range(0, 3) == 0)
         {
@@ -27,8 +27,8 @@ public class CoinGenerator
             {
                 for (int i = 10; i < 20; i++)
                 {
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 4);
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 5);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 4);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 5);
                     if (buffered)
                         yield return new WaitForEndOfFrame();
                 }
@@ -37,9 +37,9 @@ public class CoinGenerator
             {
                 for (int i = 10; i < 20; i++)
                 {
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 4);
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 5);
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 6);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 4);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 5);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 6);
                     if (buffered)
                         yield return new WaitForEndOfFrame();
                 }
@@ -48,10 +48,10 @@ public class CoinGenerator
             {
                 for (int i = 10; i < 20; i++)
                 {
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 4);
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 5);
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 6);
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 7);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 4);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 5);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 6);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 7);
                     if (buffered)
                         yield return new WaitForEndOfFrame();
                 }
@@ -60,11 +60,11 @@ public class CoinGenerator
             {
                 for (int i = 10; i < 20; i++)
                 {
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 4);
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 5);
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 6);
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 7);
-                    worldGenerator.CreateTile(chunk, tileSet.coinPrefab, i, 8);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 4);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 5);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 6);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 7);
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 8);
                     if (buffered)
                         yield return new WaitForEndOfFrame();
                 }

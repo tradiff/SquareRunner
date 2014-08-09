@@ -11,11 +11,11 @@ public class PowerupGenerator
         worldGenerator = GameManager.Instance.WorldGenerator;
     }
 
-    public void Generate(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseTileSet tileSet, bool buffered)
+    public void Generate(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
         if (Random.Range(0, 10) == 0)
         {
-            worldGenerator.CreateTile(chunk, redMushroomPrefab, 25, 4);
+            worldGenerator.CreateTile(chunk, redMushroomPrefab, 35, 4);
         }
     }
 }

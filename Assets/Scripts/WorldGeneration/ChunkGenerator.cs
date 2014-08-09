@@ -10,12 +10,12 @@ public class ChunkGenerator
         worldGenerator = GameManager.Instance.WorldGenerator;
     }
 
-    public void Generate(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseTileSet tileSet, bool buffered)
+    public void Generate(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
-        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkWidth, chunkShape, tileSet, buffered));
+        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkWidth, chunkShape, biome, buffered));
     }
 
-    public IEnumerator GenerateCoroutine(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseTileSet tileSet, bool buffered)
+    public IEnumerator GenerateCoroutine(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
         //worldGenerator.CreateBG(chunk, tileSet.bgPrefab);
 
@@ -42,7 +42,7 @@ public class ChunkGenerator
             {
                 if (Random.RandomRange(0, 2) == 0)
                 {
-                    worldGenerator.CreateTile(chunk, tileSet.groundN, x, y);
+                    var tile = worldGenerator.CreateTile(chunk, Color.red, x, y);
                 }
             }
         }
@@ -58,35 +58,9 @@ public class ChunkGenerator
                 {
                     case BaseChunkShape.TileTypes.Air:
                         break;
-                    case BaseChunkShape.TileTypes.GroundNW:
-                        worldGenerator.CreatePlatform(chunk, new Rect(x, y, 1, 1));
-                        worldGenerator.CreateTile(chunk, tileSet.groundNW, x, y);
-                        break;
                     case BaseChunkShape.TileTypes.GroundN:
                         worldGenerator.CreatePlatform(chunk, new Rect(x, y, 1, 1));
-                        worldGenerator.CreateTile(chunk, tileSet.groundN, x, y);
-                        break;
-                    case BaseChunkShape.TileTypes.GroundNE:
-                        worldGenerator.CreatePlatform(chunk, new Rect(x, y, 1, 1));
-                        worldGenerator.CreateTile(chunk, tileSet.groundNE, x, y);
-                        break;
-                    case BaseChunkShape.TileTypes.GroundW:
-                        worldGenerator.CreateTile(chunk, tileSet.groundW, x, y);
-                        break;
-                    case BaseChunkShape.TileTypes.GroundC:
-                        worldGenerator.CreateTile(chunk, tileSet.groundC, x, y);
-                        break;
-                    case BaseChunkShape.TileTypes.GroundE:
-                        worldGenerator.CreateTile(chunk, tileSet.groundE, x, y);
-                        break;
-                    case BaseChunkShape.TileTypes.GroundSW:
-                        worldGenerator.CreateTile(chunk, tileSet.groundSW, x, y);
-                        break;
-                    case BaseChunkShape.TileTypes.GroundS:
-                        worldGenerator.CreateTile(chunk, tileSet.groundS, x, y);
-                        break;
-                    case BaseChunkShape.TileTypes.GroundSE:
-                        worldGenerator.CreateTile(chunk, tileSet.groundSE, x, y);
+                        worldGenerator.CreateTile(chunk, biome.tileColor, x, y);
                         break;
                     default:
                         break;

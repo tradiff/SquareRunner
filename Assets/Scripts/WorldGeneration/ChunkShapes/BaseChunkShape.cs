@@ -14,15 +14,7 @@ public abstract class BaseChunkShape
     public enum TileTypes
     {
         Air = 0,
-        GroundNW = 1,
-        GroundN = 2,
-        GroundNE = 3,
-        GroundW = 4,
-        GroundC = 5,
-        GroundE = 6,
-        GroundSW = 7,
-        GroundS = 8,
-        GroundSE = 9
+        GroundN = 1
     }
 
 }

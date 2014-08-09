@@ -67,6 +67,9 @@
      <Compile Include="Assets\Scripts\PlayerControl\ControllerState2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\Player.cs" />
      <Compile Include="Assets\Scripts\WorldChunk.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\Biomes\BaseBiome.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\Biomes\CaveBiome.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\Biomes\GrassBiome.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\BaseChunkShape.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\FlatShape.cs" />

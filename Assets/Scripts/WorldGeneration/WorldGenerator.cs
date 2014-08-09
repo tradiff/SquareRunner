@@ -12,13 +12,13 @@ public class WorldGenerator : MonoBehaviour
     private int lastChunkPosX;
     public float chunkWidth;
     private List<BaseChunkShape> chunkShapes;
-    private List<BaseTileSet> tileSets;
+    private List<BaseBiome> biomes;
     private ChunkGenerator chunkGenerator;
     private CoinGenerator coinGenerator;
     private PowerupGenerator powerupGenerator;
     private EnemyGenerator enemyGenerator;
     private bool readyForChunks;
-    private BaseTileSet lastTileSet;
+    private BaseBiome lastBiome;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class WorldGenerator : MonoBehaviour
         readyForChunks = false;
         chunkWidth = 50;
         chunkShapes = new List<BaseChunkShape>();
-        tileSets = new List<BaseTileSet>();
+        biomes = new List<BaseBiome>();
         chunkGenerator = new ChunkGenerator();
         coinGenerator = new CoinGenerator();
         powerupGenerator = new PowerupGenerator();
@@ -42,10 +42,8 @@ public class WorldGenerator : MonoBehaviour
         chunkShapes.Add(new GapyShape1());
         chunkShapes.Add(new GapyShape2());
 
-        tileSets.Add(new ForestTileSet());
-        tileSets.Add(new GhostTileSet());
-        tileSets.Add(new CaveTileSet());
-        tileSets.Add(new CastleTileSet());
+        biomes.Add(new GrassBiome());
+        biomes.Add(new CaveBiome());
 
         ResetGame();
     }
@@ -89,18 +87,18 @@ public class WorldGenerator : MonoBehaviour
 
         var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, 0, 0), new Quaternion(0, 0, 0, 0));
         var shape = eligibleChunkShapes.RandomElement();
-        BaseTileSet tileSet;
-        if (lastTileSet == null || lastTileSet.IsSpecial)
-            tileSet = new ForestTileSet();
+        BaseBiome biome;
+        if (lastBiome == null || lastBiome.IsSpecial)
+            biome = new GrassBiome();
         else
-            tileSet = tileSets.Choose();
-        chunkGenerator.Generate(chunk, chunkWidth, shape, tileSet, buffered);
-        coinGenerator.Generate(chunk, chunkWidth, shape, tileSet, buffered);
-        powerupGenerator.Generate(chunk, chunkWidth, shape, tileSet, buffered);
-        enemyGenerator.Generate(chunk, chunkWidth, shape, tileSet, buffered);
+            biome = biomes.Choose();
+        chunkGenerator.Generate(chunk, chunkWidth, shape, biome, buffered);
+        coinGenerator.Generate(chunk, chunkWidth, shape, biome, buffered);
+        powerupGenerator.Generate(chunk, chunkWidth, shape, biome, buffered);
+        enemyGenerator.Generate(chunk, chunkWidth, shape, biome, buffered);
 
         lastChunkPosX = (int)positionX;
-        lastTileSet = tileSet;
+        lastBiome = biome;
         Debug.Log("lastChunkPosX = " + lastChunkPosX);
     }
 
@@ -132,13 +130,12 @@ public class WorldGenerator : MonoBehaviour
         return null;
     }
 
-    public GameObject CreateTile(GameObject chunk, Sprite sprite, float x, float y = -1)
+    public GameObject CreateTile(GameObject chunk, Color color, float x, float y = -1)
     {
         var tile = CreateTile(chunk, tilePrefab, x, y);
         if (tile != null)
         {
-            //var sr = tile.GetComponentInChildren<SpriteRenderer>();
-            //sr.sprite = sprite;
+            tile.GetComponentInChildren<SpriteRenderer>().color = color;
         }
         return tile;
     }

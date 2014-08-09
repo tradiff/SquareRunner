@@ -13,41 +13,21 @@ public class GapyShape1 : BaseChunkShape
             {
                 if (y == 0) // ground
                 {
-                    if (x >= 0 && x <= 9)
+                    if (x >= 0 && x <= 10)
                     {
                         this.Map[x, y] = TileTypes.GroundN;
                     }
 
-                    if (x == 10)
-                    {
-                        this.Map[x, y] = TileTypes.GroundNE;
-                    }
-
                     // gap
 
-                    if (x == 14)
-                    {
-                        this.Map[x, y] = TileTypes.GroundNW;
-                    }
-
-                    if (x >= 15 && x <= 16)
+                    if (x >= 14 && x <= 17)
                     {
                         this.Map[x, y] = TileTypes.GroundN;
                     }
 
-                    if (x == 17)
-                    {
-                        this.Map[x, y] = TileTypes.GroundNE;
-                    }
-
                     // gap
 
-                    if (x == 20)
-                    {
-                        this.Map[x, y] = TileTypes.GroundNW;
-                    }
-
-                    if (x > 20)
+                    if (x >= 20)
                     {
                         this.Map[x, y] = TileTypes.GroundN;
                     }
