@@ -137,8 +137,8 @@ public class WorldGenerator : MonoBehaviour
         var tile = CreateTile(chunk, tilePrefab, x, y);
         if (tile != null)
         {
-            var sr = tile.GetComponentInChildren<SpriteRenderer>();
-            sr.sprite = sprite;
+            //var sr = tile.GetComponentInChildren<SpriteRenderer>();
+            //sr.sprite = sprite;
         }
         return tile;
     }

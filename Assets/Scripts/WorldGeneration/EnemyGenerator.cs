@@ -23,10 +23,6 @@ public class EnemyGenerator
     public void SpawnEnemyTier1(GameObject chunk, BaseTileSet tileSet, int x, int y)
     {
         var obj = worldGenerator.CreateTile(chunk, enemyTier1Prefab, x, y);
-        var animator = obj.GetComponentInChildren<Animator>();
-
-        var enemy = tileSet.enemyTier1List.RandomElement();
-        animator.Play(enemy);
     }
 
 
