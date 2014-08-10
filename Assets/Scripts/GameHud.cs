@@ -3,31 +3,41 @@ using System.Collections;
 
 public class GameHud : MonoBehaviour
 {
-    public GUISkin Skin;
+    TypogenicText distanceText;
+    TypogenicText coinsText;
 
     public void Start()
     {
-        //Skin = (GUISkin)Resources.Load("GameSkin");
+        distanceText = transform.Find("Distance").GetComponent<TypogenicText>();
+        coinsText = transform.Find("Coins").GetComponent<TypogenicText>();
     }
 
-    public void OnGUI()
+    public void Update()
     {
-        GUI.skin = Skin;
+        distanceText.Text = "Distance: " + GameManager.Instance.distanceTraveled;
+        coinsText.Text = "Coins: " + GameManager.Instance.coins;
 
-        GUILayout.BeginArea(new Rect(0, 0, Screen.width, Screen.height));
-        {
-            GUILayout.BeginVertical(Skin.GetStyle("GameHud"));
-            {
-                GUILayout.Label("Distance: " + GameManager.Instance.distanceTraveled, Skin.GetStyle("DistanceText"));
-            }
-            GUILayout.EndVertical();
-            GUILayout.BeginVertical(Skin.GetStyle("GameHud"));
-            {
-                GUILayout.Label("Coins: " + GameManager.Instance.coins, Skin.GetStyle("CoinText"));
-            }
-            GUILayout.EndVertical();
-        }
-        GUILayout.EndArea();
 
     }
+
+    //public void OnGUI()
+    //{
+    //    GUI.skin = Skin;
+
+    //    GUILayout.BeginArea(new Rect(0, 0, Screen.width, Screen.height));
+    //    {
+    //        GUILayout.BeginVertical(Skin.GetStyle("GameHud"));
+    //        {
+    //            GUILayout.Label("Distance: " + GameManager.Instance.distanceTraveled, Skin.GetStyle("DistanceText"));
+    //        }
+    //        GUILayout.EndVertical();
+    //        GUILayout.BeginVertical(Skin.GetStyle("GameHud"));
+    //        {
+    //            GUILayout.Label("Coins: " + GameManager.Instance.coins, Skin.GetStyle("CoinText"));
+    //        }
+    //        GUILayout.EndVertical();
+    //    }
+    //    GUILayout.EndArea();
+
+    //}
 }

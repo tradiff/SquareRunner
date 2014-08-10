@@ -59,7 +59,6 @@
      <Compile Include="Assets\Scripts\Entities\RedMushroom.cs" />
      <Compile Include="Assets\Scripts\ExtensionMethods.cs" />
      <Compile Include="Assets\Scripts\GameHud.cs" />
-     <Compile Include="Assets\Scripts\GameHud_FPS.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\IWeighted.cs" />
      <Compile Include="Assets\Scripts\OneWayPlatform.cs" />
@@ -82,7 +81,23 @@
      <Compile Include="Assets\Scripts\WorldGeneration\EnemyGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\PowerupGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\WorldGenerator.cs" />
+     <Compile Include="Assets\Typogenic\Demos\StarWarsIntro.cs" />
+     <Compile Include="Assets\Typogenic\Scripts\SerializedDictionary.cs" />
+     <Compile Include="Assets\Typogenic\Scripts\TypogenicFont.cs" />
+     <Compile Include="Assets\Typogenic\Scripts\TypogenicText.cs" />
+     <None Include="Assets\Typogenic\Readme.txt" />
+     <None Include="Assets\Fonts\Gui\font.fnt" />
      <None Include="Assets\Anime Speed Lines\Readme.txt" />
+     <None Include="Assets\Typogenic\Shaders\TypogenicLit.shader" />
+     <None Include="Assets\Typogenic\Demos\Curly Stars\Curly Stars.fnt" />
+     <None Include="Assets\Typogenic\Demos\Arial\Arial.fnt" />
+     <None Include="Assets\Typogenic\Changelog.txt" />
+     <None Include="Assets\Typogenic\Shaders\TypogenicUnlit.shader" />
+     <None Include="Assets\Typogenic\Shaders\TypogenicLitTextured.shader" />
+     <None Include="Assets\Typogenic\Shaders\TypogenicUnlitTextured.shader" />
+     <None Include="Assets\Typogenic\Demos\News Cycle\News Cycle.fnt" />
+     <None Include="Assets\Typogenic\Demos\Heydings\Heydings.fnt" />
+     <None Include="Assets\Typogenic\LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
