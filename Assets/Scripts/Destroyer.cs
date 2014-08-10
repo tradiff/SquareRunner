@@ -10,7 +10,7 @@ public class Destroyer : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Player collided with destroyer");
-            GameManager.Instance.ResetGame();
+            other.GetComponent<Player>().IsDead = true;
             return;
         }
 

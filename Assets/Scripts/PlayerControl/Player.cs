@@ -39,9 +39,9 @@ public class Player : MonoBehaviour
 
         GameManager.Instance.distanceTraveled = transform.position.x;
 
-        if (IsDead)
+        if (IsDead && GameManager.Instance.GameState !=  GameManager.GameStates.RecapScreen)
         {
-            GameManager.Instance.ResetGame();
+            GameManager.Instance.EndGame();
         }
     }
 
@@ -76,6 +76,13 @@ public class Player : MonoBehaviour
             jumpTime = maxJumpTime;
         }
 
+    }
+
+    public void SetEnabled(bool enabled)
+    {
+        this.enabled = enabled;
+        if (_controller != null)
+            _controller.enabled = enabled;
     }
 
     public void Reset()

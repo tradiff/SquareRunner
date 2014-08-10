@@ -48,7 +48,7 @@ public class WorldGenerator : MonoBehaviour
         biomes.Add(new CaveBiome());
         biomes.Add(new StormyBiome());
 
-        ResetGame();
+        GameManager.Instance.ResetGame();
     }
 
     void FixedUpdate()

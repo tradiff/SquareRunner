@@ -61,3 +61,15 @@ Cmd: compileSnippet
   api=4 type=0 insize=2158 outsize=1193 kw=OUTLINED_ON GLOBAL_MULTIPLIER_ON GLOW_OFF ok=1
 Cmd: compileSnippet
   api=4 type=1 insize=2158 outsize=2582 kw=OUTLINED_ON GLOBAL_MULTIPLIER_ON GLOW_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=2158 outsize=2142 kw=OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=2158 outsize=1599 kw=GLOW_ON GLOBAL_MULTIPLIER_ON OUTLINED_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=2158 outsize=1240 kw=GLOBAL_MULTIPLIER_ON GLOW_OFF OUTLINED_OFF ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=2158 outsize=1204 kw=GLOBAL_MULTIPLIER_ON GLOW_OFF OUTLINED_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=2158 outsize=6 kw=OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=2158 outsize=7 kw=GLOW_ON GLOBAL_MULTIPLIER_ON OUTLINED_OFF ok=1

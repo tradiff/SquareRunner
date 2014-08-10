@@ -1,0 +1,9 @@
+Base path: C:/Program Files (x86)/Unity/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-2-12592
+Cmd: getPlatforms
+Cmd: compileSnippet
+  api=9 type=0 insize=2158 outsize=2034 kw=OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=2158 outsize=6 kw=OUTLINED_ON GLOBAL_MULTIPLIER_OFF GLOW_OFF ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=2158 outsize=6 kw=GLOBAL_MULTIPLIER_OFF GLOW_OFF OUTLINED_OFF ok=1
