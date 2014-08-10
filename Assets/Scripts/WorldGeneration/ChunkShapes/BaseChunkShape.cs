@@ -1,20 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public abstract class BaseChunkShape
 {
     public int Difficulty = 0;
-    public TileTypes[,] Map;
-
+    public List<FeatureDefinition> Map = new List<FeatureDefinition>();
+ 
     public BaseChunkShape()
     {
-        Map = new TileTypes[(int)GameManager.Instance.WorldGenerator.chunkWidth, 10];
     }
 
     public enum TileTypes
     {
         Air = 0,
         GroundN = 1
+    }
+
+    public class FeatureDefinition
+    {
+        public Rect Rect;
+        public TileTypes TileType;
     }
 
 }

@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Entities\Coin.cs" />
      <Compile Include="Assets\Scripts\Entities\Enemy.cs" />
      <Compile Include="Assets\Scripts\Entities\EnemyTier1.cs" />
+     <Compile Include="Assets\Scripts\Entities\EnemyVine.cs" />
      <Compile Include="Assets\Scripts\Entities\Ghost.cs" />
      <Compile Include="Assets\Scripts\Entities\RedMushroom.cs" />
      <Compile Include="Assets\Scripts\ExtensionMethods.cs" />
@@ -80,11 +81,6 @@
      <Compile Include="Assets\Scripts\WorldGeneration\CoinGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\EnemyGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\PowerupGenerator.cs" />
-     <Compile Include="Assets\Scripts\WorldGeneration\TileSets\BaseTileSet.cs" />
-     <Compile Include="Assets\Scripts\WorldGeneration\TileSets\CastleTileSet.cs" />
-     <Compile Include="Assets\Scripts\WorldGeneration\TileSets\CaveTileSet.cs" />
-     <Compile Include="Assets\Scripts\WorldGeneration\TileSets\ForestTileSet.cs" />
-     <Compile Include="Assets\Scripts\WorldGeneration\TileSets\GhostTileSet.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\WorldGenerator.cs" />
      <None Include="Assets\Anime Speed Lines\Readme.txt" />
   </ItemGroup>

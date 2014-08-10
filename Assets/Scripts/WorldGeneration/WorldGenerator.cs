@@ -11,6 +11,7 @@ public class WorldGenerator : MonoBehaviour
 
     private int lastChunkPosX;
     public float chunkWidth;
+    public float chunkHeight;
     private List<BaseChunkShape> chunkShapes;
     private List<BaseBiome> biomes;
     private ChunkGenerator chunkGenerator;
@@ -28,6 +29,7 @@ public class WorldGenerator : MonoBehaviour
         ///newestChunk = null;
         readyForChunks = false;
         chunkWidth = 50;
+        chunkHeight = 10;
         chunkShapes = new List<BaseChunkShape>();
         biomes = new List<BaseBiome>();
         chunkGenerator = new ChunkGenerator();
@@ -87,7 +89,12 @@ public class WorldGenerator : MonoBehaviour
         var eligibleChunkShapes = chunkShapes.Where(x => GameManager.Instance.distanceTraveled >= x.Difficulty - 1).ToList();
 
         var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, 0, 0), new Quaternion(0, 0, 0, 0));
-        var shape = eligibleChunkShapes.RandomElement();
+        BaseChunkShape shape;
+        if (buffered == false)
+            shape = new FlatShape();
+        else
+            shape = eligibleChunkShapes.RandomElement();
+
         BaseBiome biome;
         if (buffered == false || lastBiome == null || lastBiome.IsSpecial)
             biome = new GrassBiome();
@@ -141,6 +148,17 @@ public class WorldGenerator : MonoBehaviour
         return tile;
     }
 
+    public void CreateTiles(GameObject chunk, Color color, Rect rect)
+    {
+        if (chunk != null)
+        {
+            var tile = (GameObject)UnityEngine.Object.Instantiate(tilePrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+            tile.transform.parent = chunk.transform;
+            tile.transform.localPosition = new Vector3(rect.x, rect.y, 0);
+            tile.transform.localScale = new Vector3(rect.width, rect.height, tile.transform.localScale.z);
+        }
+    }
+
     public void CreatePlatform(GameObject chunk, Rect rect)
     {
         if (chunk != null)
@@ -148,7 +166,7 @@ public class WorldGenerator : MonoBehaviour
             var tile = (GameObject)UnityEngine.Object.Instantiate(platformPrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
             tile.transform.parent = chunk.transform;
             tile.transform.localPosition = new Vector3(rect.x, rect.y, 0);
-            tile.transform.localScale = new Vector3(rect.width, tile.transform.localScale.y, tile.transform.localScale.z);
+            tile.transform.localScale = new Vector3(rect.width, rect.height, tile.transform.localScale.z);
         }
     }
 
