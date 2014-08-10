@@ -51,8 +51,8 @@
      <Compile Include="Assets\Typogenic\Editor\TypogenicMaterialEditor.cs" />
      <Compile Include="Assets\Typogenic\Editor\TypogenicTextEditor.cs" />
      <None Include="Assets\Typogenic\Readme.txt" />
-     <None Include="Assets\Fonts\Gui\font.fnt" />
      <None Include="Assets\Anime Speed Lines\Readme.txt" />
+     <None Include="Assets\Fonts\SquadOne\SquadaOne-Regular.fnt" />
      <None Include="Assets\Typogenic\Shaders\TypogenicLit.shader" />
      <None Include="Assets\Typogenic\Demos\Curly Stars\Curly Stars.fnt" />
      <None Include="Assets\Typogenic\Demos\Arial\Arial.fnt" />
