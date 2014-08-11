@@ -3,7 +3,7 @@ using System.Diagnostics.SymbolStore;
 using UnityEngine;
 using System.Collections;
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
     public WorldGenerator WorldGenerator = null;
     public Player Player = null;
@@ -17,18 +17,18 @@ public class GameManager
     {
         get
         {
-            return _instance ?? (_instance = new GameManager());
+            return _instance;
         }
     }
     private static GameManager _instance;
 
-    private GameManager()
+    void Awake()
     {
+        _instance = this;
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         LevelRecapScreen = GameObject.Find("LevelRecap");
         PauseScreen = GameObject.Find("PauseScreen");
         Debug.Log(LevelRecapScreen);
-        //BackgroundHolderGameObject = GameObject.FindGameObjectWithTag("BackgroundHolder");
     }
 
     public void EndGame()
