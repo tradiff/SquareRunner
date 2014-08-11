@@ -18,27 +18,10 @@ public class LevelRecapScreen : MonoBehaviour
 
             distanceText.Text = string.Format("{0:N0}m", GameManager.Instance.distanceTraveled);
 
-            if (startJumpKey())
+            if (InputManager.Instance.StartTouch())
             {
                 GameManager.Instance.ResetGame();
             }
         }
-    }
-
-    private bool startJumpKey()
-    {
-        return Input.GetKeyDown(KeyCode.Space) || startTouch();
-    }
-
-    private bool startTouch()
-    {
-        if (Input.touchCount > 0)
-        {
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }

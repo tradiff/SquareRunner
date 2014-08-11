@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         //    _normalizedHorizontalSpeed = 1;
         //}
 
-        if (holdingJump && jumpKey() && jumpTime-- > 0)
+        if (holdingJump && InputManager.Instance.Touching() && jumpTime-- > 0)
         {
             _controller.Jump();
         }
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
             holdingJump = false;
         }
 
-        if (_controller.State.IsGrounded && startJumpKey())
+        if (_controller.State.IsGrounded && InputManager.Instance.StartTouch())
         {
             _controller.Jump();
             holdingJump = true;
@@ -92,35 +92,35 @@ public class Player : MonoBehaviour
     }
 
 
-    private bool startJumpKey()
-    {
-        return Input.GetKeyDown(KeyCode.Space) || startTouch();
-    }
+    //private bool startJumpKey()
+    //{
+    //    return Input.GetKeyDown(KeyCode.Space) || startTouch();
+    //}
 
-    private bool jumpKey()
-    {
-        return Input.GetKey(KeyCode.Space) || touch();
-    }
+    //private bool jumpKey()
+    //{
+    //    return Input.GetKey(KeyCode.Space) || touch();
+    //}
 
-    private bool startTouch()
-    {
-        if (Input.touchCount > 0)
-        {
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-    private bool touch()
-    {
-        if (Input.touchCount > 0)
-        {
-            return true;
-        }
-        return false;
-    }
+    //private bool startTouch()
+    //{
+    //    if (Input.touchCount > 0)
+    //    {
+    //        if (Input.GetTouch(0).phase == TouchPhase.Began)
+    //        {
+    //            return true;
+    //        }
+    //    }
+    //    return false;
+    //}
+    //private bool touch()
+    //{
+    //    if (Input.touchCount > 0)
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
 
 
 }
