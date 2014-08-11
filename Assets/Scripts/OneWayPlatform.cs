@@ -3,10 +3,8 @@ using System.Collections;
 
 public class OneWayPlatform : MonoBehaviour
 {
-    void Start()
-    {
-        transform.parent.GetComponent<BoxCollider2D>().enabled = true;
-    }
+    const int PLATFORM_LAYER = 8;
+    const int DISABLED_PLATFORM_LAYER = 9;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,7 +12,7 @@ public class OneWayPlatform : MonoBehaviour
         if (player == null)
             return;
 
-        transform.parent.GetComponent<BoxCollider2D>().enabled = false;
+        transform.parent.gameObject.layer = DISABLED_PLATFORM_LAYER;
     }
 
     public void OnTriggerExit2D(Collider2D other)
@@ -23,6 +21,6 @@ public class OneWayPlatform : MonoBehaviour
         if (player == null)
             return;
 
-        transform.parent.GetComponent<BoxCollider2D>().enabled = true;
+        transform.parent.gameObject.layer = PLATFORM_LAYER;
     }
 }
