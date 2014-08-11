@@ -1,75 +1,11 @@
 Base path: C:/Program Files (x86)/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-1-12776
+Pipe name: \\.\pipe\UnityShaderCompiler-1-8200
 Cmd: getPlatforms
 Cmd: preprocess
   insize=2705 outsize=1602 ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=46674 outsize=2720 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=46674 outsize=3939 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=30382 outsize=2988 kw=POINT OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=30382 outsize=4240 kw=POINT OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
 Cmd: preprocess
   insize=3172 outsize=1056 ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=2327 outsize=1258 kw=OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=2327 outsize=3395 kw=OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
 Cmd: preprocess
   insize=2581 outsize=1540 ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=46090 outsize=2753 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=46090 outsize=3931 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=29598 outsize=3021 kw=POINT OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=29598 outsize=4232 kw=POINT OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
 Cmd: preprocess
   insize=2937 outsize=994 ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=2158 outsize=1193 kw=OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=2158 outsize=3313 kw=OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=46090 outsize=2753 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF OUTLINED_ON GLOBAL_MULTIPLIER_OFF GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=46090 outsize=3110 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF OUTLINED_ON GLOBAL_MULTIPLIER_OFF GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=29598 outsize=1997 kw=DIRECTIONAL OUTLINED_ON GLOBAL_MULTIPLIER_OFF GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=29598 outsize=2997 kw=DIRECTIONAL OUTLINED_ON GLOBAL_MULTIPLIER_OFF GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=2158 outsize=1193 kw=GLOBAL_MULTIPLIER_OFF GLOW_OFF OUTLINED_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=2158 outsize=1623 kw=GLOBAL_MULTIPLIER_OFF GLOW_OFF OUTLINED_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=2158 outsize=1193 kw=OUTLINED_ON GLOBAL_MULTIPLIER_OFF GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=2158 outsize=2517 kw=OUTLINED_ON GLOBAL_MULTIPLIER_OFF GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=46674 outsize=2720 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF OUTLINED_ON GLOBAL_MULTIPLIER_OFF GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=46674 outsize=3118 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF OUTLINED_ON GLOBAL_MULTIPLIER_OFF GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=30382 outsize=1965 kw=DIRECTIONAL OUTLINED_ON GLOBAL_MULTIPLIER_OFF GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=30382 outsize=3005 kw=DIRECTIONAL OUTLINED_ON GLOBAL_MULTIPLIER_OFF GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=2158 outsize=1193 kw=OUTLINED_ON GLOBAL_MULTIPLIER_ON GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=2158 outsize=2582 kw=OUTLINED_ON GLOBAL_MULTIPLIER_ON GLOW_OFF ok=1
-Cmd: compileSnippet
-  api=5 type=0 insize=2158 outsize=2142 kw=OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
-Cmd: compileSnippet
-  api=5 type=0 insize=2158 outsize=1599 kw=GLOW_ON GLOBAL_MULTIPLIER_ON OUTLINED_OFF ok=1
-Cmd: compileSnippet
-  api=5 type=0 insize=2158 outsize=1240 kw=GLOBAL_MULTIPLIER_ON GLOW_OFF OUTLINED_OFF ok=1
-Cmd: compileSnippet
-  api=9 type=0 insize=2158 outsize=1204 kw=GLOBAL_MULTIPLIER_ON GLOW_OFF OUTLINED_OFF ok=1
-Cmd: compileSnippet
-  api=5 type=1 insize=2158 outsize=6 kw=OUTLINED_ON GLOW_ON GLOBAL_MULTIPLIER_ON ok=1
-Cmd: compileSnippet
-  api=9 type=1 insize=2158 outsize=7 kw=GLOW_ON GLOBAL_MULTIPLIER_ON OUTLINED_OFF ok=1

@@ -32,46 +32,16 @@ public class GameHud : MonoBehaviour
             {
                 GameManager.Instance.PauseGame(true);
             }
-
-            //Ray ray = hudCamera.ScreenPointToRay(touchPosition.Value);
-            //RaycastHit hit = new RaycastHit();
-            //if (Physics.Raycast(ray, out hit))
-            //{
-            //    Debug.Log("we hit something");
-            //    var go = hit.transform.gameObject;
-            //    Debug.Log("Touch Detected on : " + go.name);
-            //}
-
-
-
-            //if (pauseButton.renderer.bounds.Contains((Vector2)touch))
-            //{
-            //    Debug.Log("Pause button");
-
-            //}
         }
 
 
     }
 
-    //public void OnGUI()
-    //{
-    //    GUI.skin = Skin;
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
 
-    //    GUILayout.BeginArea(new Rect(0, 0, Screen.width, Screen.height));
-    //    {
-    //        GUILayout.BeginVertical(Skin.GetStyle("GameHud"));
-    //        {
-    //            GUILayout.Label("Distance: " + GameManager.Instance.distanceTraveled, Skin.GetStyle("DistanceText"));
-    //        }
-    //        GUILayout.EndVertical();
-    //        GUILayout.BeginVertical(Skin.GetStyle("GameHud"));
-    //        {
-    //            GUILayout.Label("Coins: " + GameManager.Instance.coins, Skin.GetStyle("CoinText"));
-    //        }
-    //        GUILayout.EndVertical();
-    //    }
-    //    GUILayout.EndArea();
+            GameManager.Instance.PauseGame(true);
+    }
 
-    //}
 }
