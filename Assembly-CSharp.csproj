@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\LevelRecapScreen.cs" />
      <Compile Include="Assets\Scripts\OneWayPlatform.cs" />
      <Compile Include="Assets\Scripts\ParticleSortingLayer.cs" />
+     <Compile Include="Assets\Scripts\PauseScreen.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\ControllerParameters2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\ControllerState2D.cs" />

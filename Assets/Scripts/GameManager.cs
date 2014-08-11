@@ -10,6 +10,7 @@ public class GameManager
     public float distanceTraveled;
     public int coins;
     public GameObject LevelRecapScreen;
+    public GameObject PauseScreen;
     public GameStates GameState;
 
     public static GameManager Instance
@@ -25,15 +26,35 @@ public class GameManager
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         LevelRecapScreen = GameObject.Find("LevelRecap");
+        PauseScreen = GameObject.Find("PauseScreen");
         Debug.Log(LevelRecapScreen);
         //BackgroundHolderGameObject = GameObject.FindGameObjectWithTag("BackgroundHolder");
     }
 
     public void EndGame()
     {
+        Time.timeScale = 0;
         GameState = GameStates.RecapScreen;
         LevelRecapScreen.SetActive(true);
         Player.SetEnabled(false);
+    }
+
+    public void PauseGame(bool paused)
+    {
+        if (paused)
+        {
+            Time.timeScale = 0;
+            GameState = GameStates.Paused;
+            PauseScreen.SetActive(true);
+            Player.SetEnabled(false);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            GameState = GameStates.Playing;
+            PauseScreen.SetActive(false);
+            Player.SetEnabled(true);
+        }
     }
 
     public void ResetGame()
@@ -52,6 +73,7 @@ public class GameManager
         this.Player.Reset();
         Camera.main.transform.position = new Vector3(0, Camera.main.transform.position.y);
         LevelRecapScreen.SetActive(false);
+        PauseScreen.SetActive(false);
         GameState = GameStates.Playing;
         Player.SetEnabled(true);
 

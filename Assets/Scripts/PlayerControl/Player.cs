@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         {
             GameManager.Instance.EndGame();
         }
+
     }
 
     private void HandleInput()
