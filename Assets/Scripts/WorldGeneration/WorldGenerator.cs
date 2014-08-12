@@ -29,7 +29,7 @@ public class WorldGenerator : MonoBehaviour
         ///newestChunk = null;
         readyForChunks = false;
         chunkWidth = 50;
-        chunkHeight = 10;
+        chunkHeight = 14;
         chunkShapes = new List<BaseChunkShape>();
         biomes = new List<BaseBiome>();
         chunkGenerator = new ChunkGenerator();

@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
 
     public void Update()
     {
-        if (!Activated && Camera.main.transform.position.x > this.transform.position.x - 10)
+        if (!Activated && Camera.main.transform.position.x > this.transform.position.x - 15)
         {
             Activated = true;
         }

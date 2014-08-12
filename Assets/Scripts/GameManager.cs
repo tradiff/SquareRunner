@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
         Debug.Log(LevelRecapScreen);
     }
 
+
+
     public void EndGame()
     {
         Time.timeScale = 0;
