@@ -46,24 +46,24 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Typogenic\Editor\TypogenicFontEditor.cs" />
-     <Compile Include="Assets\Typogenic\Editor\TypogenicFontWizard.cs" />
-     <Compile Include="Assets\Typogenic\Editor\TypogenicMaterialEditor.cs" />
-     <Compile Include="Assets\Typogenic\Editor\TypogenicTextEditor.cs" />
-     <None Include="Assets\Typogenic\Readme.txt" />
-     <None Include="Assets\Anime Speed Lines\Readme.txt" />
+     <Compile Include="Assets\Lib\Typogenic\Editor\TypogenicFontEditor.cs" />
+     <Compile Include="Assets\Lib\Typogenic\Editor\TypogenicFontWizard.cs" />
+     <Compile Include="Assets\Lib\Typogenic\Editor\TypogenicMaterialEditor.cs" />
+     <Compile Include="Assets\Lib\Typogenic\Editor\TypogenicTextEditor.cs" />
+     <None Include="Assets\Lib\Typogenic\Readme.txt" />
+     <None Include="Assets\Lib\Anime Speed Lines\Readme.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Fonts\SquadOne\SquadaOne-Regular.fnt" />
-     <None Include="Assets\Typogenic\Shaders\TypogenicLit.shader" />
-     <None Include="Assets\Typogenic\Demos\Curly Stars\Curly Stars.fnt" />
-     <None Include="Assets\Typogenic\Demos\Arial\Arial.fnt" />
-     <None Include="Assets\Typogenic\Changelog.txt" />
-     <None Include="Assets\Typogenic\Shaders\TypogenicUnlit.shader" />
-     <None Include="Assets\Typogenic\Shaders\TypogenicLitTextured.shader" />
-     <None Include="Assets\Typogenic\Shaders\TypogenicUnlitTextured.shader" />
-     <None Include="Assets\Typogenic\Demos\News Cycle\News Cycle.fnt" />
-     <None Include="Assets\Typogenic\Demos\Heydings\Heydings.fnt" />
-     <None Include="Assets\Typogenic\LICENSE.txt" />
+     <None Include="Assets\Lib\Typogenic\Shaders\TypogenicLit.shader" />
+     <None Include="Assets\Lib\Typogenic\Demos\Curly Stars\Curly Stars.fnt" />
+     <None Include="Assets\Lib\Typogenic\Demos\Arial\Arial.fnt" />
+     <None Include="Assets\Lib\Typogenic\Changelog.txt" />
+     <None Include="Assets\Lib\Typogenic\Shaders\TypogenicUnlit.shader" />
+     <None Include="Assets\Lib\Typogenic\Shaders\TypogenicLitTextured.shader" />
+     <None Include="Assets\Lib\Typogenic\Shaders\TypogenicUnlitTextured.shader" />
+     <None Include="Assets\Lib\Typogenic\Demos\News Cycle\News Cycle.fnt" />
+     <None Include="Assets\Lib\Typogenic\Demos\Heydings\Heydings.fnt" />
+     <None Include="Assets\Lib\Typogenic\LICENSE.txt" />
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>

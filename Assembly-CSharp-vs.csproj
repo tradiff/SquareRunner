@@ -46,6 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Lib\Typogenic\Demos\StarWarsIntro.cs" />
+     <Compile Include="Assets\Lib\Typogenic\Scripts\SerializedDictionary.cs" />
+     <Compile Include="Assets\Lib\Typogenic\Scripts\TypogenicFont.cs" />
+     <Compile Include="Assets\Lib\Typogenic\Scripts\TypogenicText.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\Entities\Coin.cs" />
@@ -82,24 +86,20 @@
      <Compile Include="Assets\Scripts\WorldGeneration\EnemyGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\PowerupGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\WorldGenerator.cs" />
-     <Compile Include="Assets\Typogenic\Demos\StarWarsIntro.cs" />
-     <Compile Include="Assets\Typogenic\Scripts\SerializedDictionary.cs" />
-     <Compile Include="Assets\Typogenic\Scripts\TypogenicFont.cs" />
-     <Compile Include="Assets\Typogenic\Scripts\TypogenicText.cs" />
-     <None Include="Assets\Typogenic\Readme.txt" />
-     <None Include="Assets\Anime Speed Lines\Readme.txt" />
+     <None Include="Assets\Lib\Typogenic\Readme.txt" />
+     <None Include="Assets\Lib\Anime Speed Lines\Readme.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Fonts\SquadOne\SquadaOne-Regular.fnt" />
-     <None Include="Assets\Typogenic\Shaders\TypogenicLit.shader" />
-     <None Include="Assets\Typogenic\Demos\Curly Stars\Curly Stars.fnt" />
-     <None Include="Assets\Typogenic\Demos\Arial\Arial.fnt" />
-     <None Include="Assets\Typogenic\Changelog.txt" />
-     <None Include="Assets\Typogenic\Shaders\TypogenicUnlit.shader" />
-     <None Include="Assets\Typogenic\Shaders\TypogenicLitTextured.shader" />
-     <None Include="Assets\Typogenic\Shaders\TypogenicUnlitTextured.shader" />
-     <None Include="Assets\Typogenic\Demos\News Cycle\News Cycle.fnt" />
-     <None Include="Assets\Typogenic\Demos\Heydings\Heydings.fnt" />
-     <None Include="Assets\Typogenic\LICENSE.txt" />
+     <None Include="Assets\Lib\Typogenic\Shaders\TypogenicLit.shader" />
+     <None Include="Assets\Lib\Typogenic\Demos\Curly Stars\Curly Stars.fnt" />
+     <None Include="Assets\Lib\Typogenic\Demos\Arial\Arial.fnt" />
+     <None Include="Assets\Lib\Typogenic\Changelog.txt" />
+     <None Include="Assets\Lib\Typogenic\Shaders\TypogenicUnlit.shader" />
+     <None Include="Assets\Lib\Typogenic\Shaders\TypogenicLitTextured.shader" />
+     <None Include="Assets\Lib\Typogenic\Shaders\TypogenicUnlitTextured.shader" />
+     <None Include="Assets\Lib\Typogenic\Demos\News Cycle\News Cycle.fnt" />
+     <None Include="Assets\Lib\Typogenic\Demos\Heydings\Heydings.fnt" />
+     <None Include="Assets\Lib\Typogenic\LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
