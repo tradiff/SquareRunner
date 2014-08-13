@@ -54,9 +54,16 @@ public class ChunkGenerator : IChunkGenerator
             {
                 case BaseChunkShape.TileTypes.Air:
                     break;
-                case BaseChunkShape.TileTypes.GroundN:
+                case BaseChunkShape.TileTypes.Platform:
                     worldGenerator.CreatePlatform(chunk, feature.Rect);
                     worldGenerator.CreateTiles(chunk, biome.tileColor, feature.Rect);
+                    break;
+                case BaseChunkShape.TileTypes.Platform50p:
+                    if (Random.Range(0, 2) == 0)
+                    {
+                        worldGenerator.CreatePlatform(chunk, feature.Rect);
+                        worldGenerator.CreateTiles(chunk, biome.tileColor, feature.Rect);
+                    }
                     break;
                 default:
                     break;

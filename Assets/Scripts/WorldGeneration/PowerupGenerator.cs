@@ -13,9 +13,13 @@ public class PowerupGenerator : IChunkGenerator
 
     public void Generate(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
-        if (Random.Range(0, 10) == 0)
+        foreach (var feature in chunkShape.Map)
         {
-            worldGenerator.CreateTile(chunk, redMushroomPrefab, 35, 4);
+            if (feature.TileType == BaseChunkShape.TileTypes.Powerup)
+            {
+                // todo: replace with powerup prefab
+                worldGenerator.CreateTile(chunk, biome.coinPrefab, feature.Rect.xMin, feature.Rect.yMin);
+            }
         }
     }
 }

@@ -14,25 +14,37 @@ public class EnemyGenerator : IChunkGenerator
 
     public void Generate(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
-        var r = Random.Range(0, 3);
+        foreach (var feature in chunkShape.Map)
+        {
+            if (feature.TileType == BaseChunkShape.TileTypes.Tier1Enemy)
+            {
+                var r = Random.Range(0, 3);
+                Object prefab = null;
+                if (r == 0)
+                {
+                    prefab = enemyTier1Prefab;
+                }
+                if (r == 1)
+                {
+                    prefab = enemyVinePrefab;
+                }
 
-        if (r == 0)
-        {
-            SpawnEnemyTier1(chunk, biome, 27, 4);
-            SpawnEnemyTier1(chunk, biome, 29, 4);
-        }
-        if (r == 1)
-        {
-            worldGenerator.CreateTile(chunk, enemyVinePrefab, 29, 4);
+                if (prefab != null)
+                {
+                    for (var x = (int)feature.Rect.xMin; x < (int)feature.Rect.xMax; x += 2)
+                    {
+                        for (var y = (int)feature.Rect.yMin; y < (int)feature.Rect.yMax; y += 2)
+                        {
+                            worldGenerator.CreateTile(chunk, prefab, x, y);
+                        }
+                    }
+                }
+
+            }
         }
     }
 
-    public void SpawnEnemyTier1(GameObject chunk, BaseBiome biome, int x, int y)
-    {
-        var obj = worldGenerator.CreateTile(chunk, enemyTier1Prefab, x, y);
-    }
 
-    
 
 
 }

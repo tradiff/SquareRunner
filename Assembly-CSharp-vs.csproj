@@ -80,8 +80,10 @@
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\BaseChunkShape.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\FlatShape.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\FlatShape2.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\GapyShape1.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\GapyShape2.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\PowerupShape1.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\CoinGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\EnemyGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\IChunkGenerator.cs" />

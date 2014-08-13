@@ -17,62 +17,21 @@ public class CoinGenerator : IChunkGenerator
 
     public IEnumerator GenerateCoroutine(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
-        if (Random.Range(0, 3) == 0)
+        foreach (var feature in chunkShape.Map)
         {
-            // spawn coins
-
-            var patternIndex = Random.Range(0, 3);
-
-            if (patternIndex == 0)
+            if (feature.TileType == BaseChunkShape.TileTypes.Coin)
             {
-                for (int i = 10; i < 20; i++)
+                for (int x = (int)feature.Rect.xMin; x < (int)feature.Rect.xMax; x++)
                 {
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 4);
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 5);
-                    if (buffered)
-                        yield return new WaitForEndOfFrame();
+                    for (int y = (int) feature.Rect.yMin; y < (int) feature.Rect.yMax; y++)
+                    {
+                        worldGenerator.CreateTile(chunk, biome.coinPrefab, x, y);
+                    }
                 }
+                if (buffered)
+                    yield return new WaitForEndOfFrame();
             }
-            if (patternIndex == 1)
-            {
-                for (int i = 10; i < 20; i++)
-                {
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 4);
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 5);
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 6);
-                    if (buffered)
-                        yield return new WaitForEndOfFrame();
-                }
-            }
-            if (patternIndex == 2)
-            {
-                for (int i = 10; i < 20; i++)
-                {
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 4);
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 5);
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 6);
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 7);
-                    if (buffered)
-                        yield return new WaitForEndOfFrame();
-                }
-            }
-            if (patternIndex == 3)
-            {
-                for (int i = 10; i < 20; i++)
-                {
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 4);
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 5);
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 6);
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 7);
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, i, 8);
-                    if (buffered)
-                        yield return new WaitForEndOfFrame();
-                }
-            }
-
-
         }
-
     }
 
 

@@ -13,8 +13,12 @@ public abstract class BaseChunkShape
 
     public enum TileTypes
     {
-        Air = 0,
-        GroundN = 1
+        Air,
+        Platform,
+        Platform50p,
+        Tier1Enemy,
+        Coin,
+        Powerup
     }
 
     public class FeatureDefinition

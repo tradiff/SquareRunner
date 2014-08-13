@@ -41,6 +41,8 @@ public class WorldGenerator : MonoBehaviour
         tilePrefab = Resources.Load("Tile_Prefab");
 
         chunkShapes.Add(new FlatShape());
+        chunkShapes.Add(new FlatShape2());
+        chunkShapes.Add(new PowerupShape1());
         chunkShapes.Add(new GapyShape1());
         chunkShapes.Add(new GapyShape2());
 
@@ -103,7 +105,8 @@ public class WorldGenerator : MonoBehaviour
         chunkGenerator.Generate(chunk, shape, biome, buffered);
         coinGenerator.Generate(chunk, shape, biome, buffered);
         powerupGenerator.Generate(chunk, shape, biome, buffered);
-        enemyGenerator.Generate(chunk, shape, biome, buffered);
+        if (GameManager.Instance.distanceTraveled > 1)
+            enemyGenerator.Generate(chunk, shape, biome, buffered);
 
         lastChunkPosX = (int)positionX;
         lastBiome = biome;
