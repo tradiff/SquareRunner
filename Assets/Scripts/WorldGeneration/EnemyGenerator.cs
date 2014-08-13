@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyGenerator
+public class EnemyGenerator : IChunkGenerator
 {
     private WorldGenerator worldGenerator;
     public Object enemyTier1Prefab = Resources.Load("entities/Enemy_Tier1_Prefab");
@@ -12,7 +12,7 @@ public class EnemyGenerator
         worldGenerator = GameManager.Instance.WorldGenerator;
     }
 
-    public void Generate(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
+    public void Generate(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
         var r = Random.Range(0, 3);
 

@@ -100,10 +100,10 @@ public class WorldGenerator : MonoBehaviour
             biome = new GrassBiome();
         else
             biome = biomes.Choose();
-        chunkGenerator.Generate(chunk, chunkWidth, shape, biome, buffered);
-        coinGenerator.Generate(chunk, chunkWidth, shape, biome, buffered);
-        powerupGenerator.Generate(chunk, chunkWidth, shape, biome, buffered);
-        enemyGenerator.Generate(chunk, chunkWidth, shape, biome, buffered);
+        chunkGenerator.Generate(chunk, shape, biome, buffered);
+        coinGenerator.Generate(chunk, shape, biome, buffered);
+        powerupGenerator.Generate(chunk, shape, biome, buffered);
+        enemyGenerator.Generate(chunk, shape, biome, buffered);
 
         lastChunkPosX = (int)positionX;
         lastBiome = biome;

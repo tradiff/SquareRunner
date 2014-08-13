@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ChunkGenerator
+public class ChunkGenerator : IChunkGenerator
 {
     private WorldGenerator worldGenerator;
 
@@ -10,12 +10,12 @@ public class ChunkGenerator
         worldGenerator = GameManager.Instance.WorldGenerator;
     }
 
-    public void Generate(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
+    public void Generate(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
-        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkWidth, chunkShape, biome, buffered));
+        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkShape, biome, buffered));
     }
 
-    public IEnumerator GenerateCoroutine(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
+    public IEnumerator GenerateCoroutine(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
         Debug.Log("generating " + chunkShape.Map.Count);
         worldGenerator.CreateBG(chunk, biome.backgroundPrefab);

@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\GapyShape2.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\CoinGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\EnemyGenerator.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\IChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\PowerupGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\WorldGenerator.cs" />
      <None Include="Assets\Lib\Typogenic\Readme.txt" />

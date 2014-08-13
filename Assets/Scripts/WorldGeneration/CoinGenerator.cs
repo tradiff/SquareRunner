@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CoinGenerator
+public class CoinGenerator : IChunkGenerator
 {
     private WorldGenerator worldGenerator;
 
@@ -10,12 +10,12 @@ public class CoinGenerator
         worldGenerator = GameManager.Instance.WorldGenerator;
     }
 
-    public void Generate(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
+    public void Generate(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
-        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkWidth, chunkShape, biome, buffered));
+        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkShape, biome, buffered));
     }
 
-    public IEnumerator GenerateCoroutine(GameObject chunk, float chunkWidth, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
+    public IEnumerator GenerateCoroutine(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
         if (Random.Range(0, 3) == 0)
         {
