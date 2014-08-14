@@ -12,6 +12,7 @@ public class Coin : MonoBehaviour
 
         Debug.Log("coin collide");
         GameManager.Instance.coins++;
+        AudioSource.PlayClipAtPoint(GameManager.Instance.CoinSound, transform.position);
         Destroy(gameObject);
 
     }

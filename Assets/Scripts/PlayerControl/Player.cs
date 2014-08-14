@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
 
         if (IsDead && GameManager.Instance.GameState !=  GameManager.GameStates.RecapScreen)
         {
+            AudioSource.PlayClipAtPoint(GameManager.Instance.DieSound, transform.position, 50f);
             GameManager.Instance.EndGame();
         }
 
@@ -75,6 +76,7 @@ public class Player : MonoBehaviour
             _controller.Jump();
             holdingJump = true;
             jumpTime = maxJumpTime;
+            AudioSource.PlayClipAtPoint(GameManager.Instance.JumpSound, transform.position);
         }
 
     }

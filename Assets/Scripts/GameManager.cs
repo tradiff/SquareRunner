@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
     public GameObject PauseScreen;
     public GameStates GameState;
 
+    public AudioClip StartSound;
+    public AudioClip JumpSound;
+    public AudioClip DieSound;
+    public AudioClip CoinSound;
+
     public static GameManager Instance
     {
         get
@@ -80,6 +85,7 @@ public class GameManager : MonoBehaviour
         Player.SetEnabled(true);
 
         Time.timeScale = 1;
+        AudioSource.PlayClipAtPoint(GameManager.Instance.StartSound, transform.position);
     }
 
     public enum GameStates
