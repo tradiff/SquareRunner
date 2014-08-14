@@ -40,11 +40,11 @@ public class WorldGenerator : MonoBehaviour
         platformPrefab = Resources.Load("Platform_Prefab");
         tilePrefab = Resources.Load("Tile_Prefab");
 
-        chunkShapes.Add(new FlatShape());
-        chunkShapes.Add(new FlatShape2());
+        //chunkShapes.Add(new FlatShape());
+        //chunkShapes.Add(new FlatShape2());
         chunkShapes.Add(new PowerupShape1());
-        chunkShapes.Add(new GapyShape1());
-        chunkShapes.Add(new GapyShape2());
+        //chunkShapes.Add(new GapyShape1());
+        //chunkShapes.Add(new GapyShape2());
 
         biomes.Add(new GrassBiome());
         biomes.Add(new CaveBiome());

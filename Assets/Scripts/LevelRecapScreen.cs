@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[ExecuteInEditMode()]  
+//[ExecuteInEditMode()]  
 public class LevelRecapScreen : MonoBehaviour
 {
     TypogenicText distanceText;

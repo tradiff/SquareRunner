@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-[ExecuteInEditMode()]  
+//[ExecuteInEditMode()]  
 public class PauseScreen : MonoBehaviour
 {
     private Vector3 scale;

@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\IWeighted.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
      <Compile Include="Assets\Scripts\LevelRecapScreen.cs" />
+     <Compile Include="Assets\Scripts\Liquid.cs" />
      <Compile Include="Assets\Scripts\OneWayPlatform.cs" />
      <Compile Include="Assets\Scripts\ParticleSortingLayer.cs" />
      <Compile Include="Assets\Scripts\PauseScreen.cs" />
