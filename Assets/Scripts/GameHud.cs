@@ -6,7 +6,6 @@ public class GameHud : MonoBehaviour
     TypogenicText distanceText;
     TypogenicText coinsText;
     GameObject pauseButton;
-    Camera hudCamera;
 
     public void Start()
     {
@@ -22,14 +21,14 @@ public class GameHud : MonoBehaviour
         if (InputManager.Instance.StartTouch())
         {
             var screenPos = InputManager.Instance.GetTouch();
-            Vector3 wp = hudCamera.ScreenToWorldPoint(screenPos);
+            Vector3 wp = GameManager.Instance.HudCamera.ScreenToWorldPoint(screenPos);
             Vector2 touchPos = new Vector2(wp.x, wp.y);
 
             Debug.Log("touch: " + touchPos + " pause bounds: " + pauseButton.renderer.bounds);
             Collider2D collider2d = Physics2D.OverlapPoint(touchPos);
             if (collider2d == pauseButton.collider2D)
             {
-                GameManager.Instance.PauseGame(true);
+                GameManager.Instance.ChangeState(GameManager.GameStates.Paused);
             }
         }
 
@@ -39,8 +38,8 @@ public class GameHud : MonoBehaviour
     void OnApplicationPause(bool pauseStatus)
     {
         if (pauseStatus)
-
-            GameManager.Instance.PauseGame(true);
+            if (GameManager.Instance.GameState == GameManager.GameStates.Playing)
+                GameManager.Instance.ChangeState(GameManager.GameStates.Paused);
     }
 
 }

@@ -34,21 +34,27 @@ public class GameManager : MonoBehaviour
         _instance = this;
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         LevelRecapScreen = GameObject.Find("LevelRecap");
+        PauseScreen = GameObject.Find("PauseScreen");
         SettingsScreen = GameObject.Find("SettingsScreen");
         HudCamera = GameObject.Find("HUD Camera").GetComponent<Camera>();
         Debug.Log(LevelRecapScreen);
     }
 
-
-
-    public void EndGame()
+    void Update()
     {
-        GameState = GameStates.RecapScreen;
-        AudioSource.PlayClipAtPoint(GameManager.Instance.DieSound, transform.position, 50f);
-        Player.SetEnabled(false);
-        Time.timeScale = 0;
-        StartCoroutine(ShowLevelRecapScreen());
+        
     }
+
+
+
+    //public void EndGame()
+    //{
+    //    GameState = GameStates.RecapScreen;
+    //    SoundManager.Instance.PlaySound(SoundManager.Sounds.Die);
+    //    Player.SetEnabled(false);
+    //    Time.timeScale = 0;
+    //    StartCoroutine(ShowLevelRecapScreen());
+    //}
 
     private IEnumerator ShowLevelRecapScreen()
     {
@@ -57,22 +63,37 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void PauseGame(bool paused)
+    public void ChangeState(GameStates newState)
     {
-        if (paused)
+        // reset
+        var newTimeScale = 0;
+        Player.SetEnabled(false);
+        LevelRecapScreen.SetActive(false);
+        PauseScreen.SetActive(false);
+        SettingsScreen.SetActive(false);
+
+        switch (newState)
         {
-            Time.timeScale = 0;
-            GameState = GameStates.Paused;
-            PauseScreen.SetActive(true);
-            Player.SetEnabled(false);
+            case GameStates.StartScreen:
+                Application.LoadLevel("StartScreen");
+                break;
+            case GameStates.Playing:
+                newTimeScale = 1;
+                Player.SetEnabled(true);
+                break;
+            case GameStates.Paused:
+                PauseScreen.SetActive(true);
+                break;
+            case GameStates.RecapScreen:
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.Die);
+                StartCoroutine(ShowLevelRecapScreen()); // delay for the sound to finish
+                break;
+            case GameStates.SetttingsScreen:
+                SettingsScreen.SetActive(true);
+                break;
         }
-        else
-        {
-            Time.timeScale = 1;
-            GameState = GameStates.Playing;
-            PauseScreen.SetActive(false);
-            Player.SetEnabled(true);
-        }
+        GameState = newState;
+        Time.timeScale = newTimeScale;
     }
 
     public void ResetGame()
@@ -90,13 +111,11 @@ public class GameManager : MonoBehaviour
         this.WorldGenerator.ResetGame();
         this.Player.Reset();
         Camera.main.transform.position = new Vector3(0, Camera.main.transform.position.y);
-        LevelRecapScreen.SetActive(false);
-        PauseScreen.SetActive(false);
-        GameState = GameStates.Playing;
+        ChangeState(GameStates.Playing);
         Player.SetEnabled(true);
 
         Time.timeScale = 1;
-        AudioSource.PlayClipAtPoint(GameManager.Instance.StartSound, transform.position);
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.Start);
     }
 
     public enum GameStates

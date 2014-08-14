@@ -1,26 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[ExecuteInEditMode()]  
 public class PauseScreen : MonoBehaviour
 {
-
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.GameState == GameManager.GameStates.Paused)
-        {
-            if (InputManager.Instance.StartTouch())
-            {
-                Debug.Log("Resuming");
-                GameManager.Instance.PauseGame(false);
-            }
-        }
+    }
 
+
+    void OnGUI()
+    {
+        if (GUI.Button(new Rect(150, 240, 70, 30), "quit"))
+            GameManager.Instance.ChangeState(GameManager.GameStates.StartScreen);
+        if (GUI.Button(new Rect(230, 240, 70, 30), "settings"))
+            GameManager.Instance.ChangeState(GameManager.GameStates.SetttingsScreen);
+        if (GUI.Button(new Rect(310, 240, 70, 30), "resume"))
+            GameManager.Instance.ChangeState(GameManager.GameStates.Playing);
     }
 }
