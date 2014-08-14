@@ -11,9 +11,9 @@ public class Enemy : MonoBehaviour
         if (player == null)
             return;
 
-        if (player.IsBig)
+        if (player.HasHat)
         {
-            player.IsBig = false;
+            player.HasHat = false;
         }
         else
         {

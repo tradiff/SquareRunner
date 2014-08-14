@@ -11,17 +11,19 @@ public class Player : MonoBehaviour
     private float SpeedAccellerationOnGround = 10f;
     private Animator _animator;
 
-    public bool IsBig = false;
+    public bool HasHat = false;
     public bool IsDead = false;
     private bool holdingJump = false;
     private int jumpTime = 0;
     private int maxJumpTime = 10;
+    private GameObject _hatGO;
 
 
-    public void Start()
+    public void Awake()
     {
         _controller = GetComponent<CharacterController2D>();
         _animator = GetComponentInChildren<Animator>();
+        _hatGO = transform.FindChild("HeroSprite/hat").gameObject;
 
         _isFacingRight = transform.localScale.x > 0;
     }
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour
 
         _animator.SetBool("IsGrounded", _controller.State.IsGrounded);
         _animator.SetBool("IsFalling", _controller.Velocity.y < 0);
+        _hatGO.SetActive(HasHat);
         //_animator.SetBool("IsBig", IsBig);
 
 
@@ -90,40 +93,7 @@ public class Player : MonoBehaviour
 
     public void Reset()
     {
-        IsBig = false;
+        HasHat = false;
         IsDead = false;
     }
-
-
-    //private bool startJumpKey()
-    //{
-    //    return Input.GetKeyDown(KeyCode.Space) || startTouch();
-    //}
-
-    //private bool jumpKey()
-    //{
-    //    return Input.GetKey(KeyCode.Space) || touch();
-    //}
-
-    //private bool startTouch()
-    //{
-    //    if (Input.touchCount > 0)
-    //    {
-    //        if (Input.GetTouch(0).phase == TouchPhase.Began)
-    //        {
-    //            return true;
-    //        }
-    //    }
-    //    return false;
-    //}
-    //private bool touch()
-    //{
-    //    if (Input.touchCount > 0)
-    //    {
-    //        return true;
-    //    }
-    //    return false;
-    //}
-
-
 }

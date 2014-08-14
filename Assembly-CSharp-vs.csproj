@@ -57,7 +57,7 @@
      <Compile Include="Assets\Scripts\Entities\EnemyTier1.cs" />
      <Compile Include="Assets\Scripts\Entities\EnemyVine.cs" />
      <Compile Include="Assets\Scripts\Entities\Ghost.cs" />
-     <Compile Include="Assets\Scripts\Entities\RedMushroom.cs" />
+     <Compile Include="Assets\Scripts\Entities\PU_Hat.cs" />
      <Compile Include="Assets\Scripts\ExtensionMethods.cs" />
      <Compile Include="Assets\Scripts\GameHud.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />

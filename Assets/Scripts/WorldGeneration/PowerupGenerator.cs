@@ -4,7 +4,7 @@ using System.Collections;
 public class PowerupGenerator : IChunkGenerator
 {
     private WorldGenerator worldGenerator;
-    public Object redMushroomPrefab = Resources.Load("entities/Red_Mushroom_Prefab");
+    public Object powerupHatPrefab = Resources.Load("entities/Powerurp_Hat_Prefab");
 
     public PowerupGenerator()
     {
@@ -17,8 +17,7 @@ public class PowerupGenerator : IChunkGenerator
         {
             if (feature.TileType == BaseChunkShape.TileTypes.Powerup)
             {
-                // todo: replace with powerup prefab
-                worldGenerator.CreateTile(chunk, biome.coinPrefab, feature.Rect.xMin, feature.Rect.yMin);
+                worldGenerator.CreateTile(chunk, powerupHatPrefab, feature.Rect.xMin, feature.Rect.yMin);
             }
         }
     }

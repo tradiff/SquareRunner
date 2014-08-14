@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RedMushroom : MonoBehaviour
+public class PU_Hat : MonoBehaviour
 {
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -9,8 +9,8 @@ public class RedMushroom : MonoBehaviour
         if (player == null)
             return;
 
-        Debug.Log("mushroom collide");
-        player.IsBig = true;
+        Debug.Log("PU_Hat collide");
+        player.HasHat = true;
         Destroy(gameObject);
     }
 
