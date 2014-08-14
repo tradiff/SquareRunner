@@ -13,7 +13,6 @@ public class GameHud : MonoBehaviour
         distanceText = transform.Find("Distance").GetComponent<TypogenicText>();
         coinsText = transform.Find("Coins").GetComponent<TypogenicText>();
         pauseButton = transform.Find("PauseButton").gameObject;
-        hudCamera = GameObject.Find("HUD Camera").GetComponent<Camera>();
     }
 
     public void Update()

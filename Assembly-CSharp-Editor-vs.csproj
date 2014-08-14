@@ -50,6 +50,7 @@
      <Compile Include="Assets\Lib\Typogenic\Editor\TypogenicFontWizard.cs" />
      <Compile Include="Assets\Lib\Typogenic\Editor\TypogenicMaterialEditor.cs" />
      <Compile Include="Assets\Lib\Typogenic\Editor\TypogenicTextEditor.cs" />
+     <Compile Include="Assets\Sorting View\Editor\SortingView.cs" />
      <None Include="Assets\Lib\Typogenic\Readme.txt" />
      <None Include="Assets\Lib\Anime Speed Lines\Readme.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />

@@ -50,6 +50,7 @@
      <Compile Include="Assets\Lib\Typogenic\Scripts\SerializedDictionary.cs" />
      <Compile Include="Assets\Lib\Typogenic\Scripts\TypogenicFont.cs" />
      <Compile Include="Assets\Lib\Typogenic\Scripts\TypogenicText.cs" />
+     <Compile Include="Assets\Scripts\Button.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\Entities\Coin.cs" />
@@ -71,6 +72,7 @@
      <Compile Include="Assets\Scripts\PlayerControl\ControllerParameters2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\ControllerState2D.cs" />
      <Compile Include="Assets\Scripts\PlayerControl\Player.cs" />
+     <Compile Include="Assets\Scripts\SettingsScreen.cs" />
      <Compile Include="Assets\Scripts\StartScreen.cs" />
      <Compile Include="Assets\Scripts\WorldChunk.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\Biomes\BaseBiome.cs" />

@@ -42,9 +42,8 @@ public class Player : MonoBehaviour
 
         GameManager.Instance.distanceTraveled = transform.position.x;
 
-        if (IsDead && GameManager.Instance.GameState !=  GameManager.GameStates.RecapScreen)
+        if (IsDead && GameManager.Instance.GameState != GameManager.GameStates.RecapScreen)
         {
-            AudioSource.PlayClipAtPoint(GameManager.Instance.DieSound, transform.position, 50f);
             GameManager.Instance.EndGame();
         }
 

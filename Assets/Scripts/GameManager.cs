@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
     public int coins;
     public GameObject LevelRecapScreen;
     public GameObject PauseScreen;
+    public GameObject SettingsScreen;
     public GameStates GameState;
 
     public AudioClip StartSound;
     public AudioClip JumpSound;
     public AudioClip DieSound;
     public AudioClip CoinSound;
+    public Camera HudCamera;
 
     public static GameManager Instance
     {
@@ -32,7 +34,8 @@ public class GameManager : MonoBehaviour
         _instance = this;
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         LevelRecapScreen = GameObject.Find("LevelRecap");
-        PauseScreen = GameObject.Find("PauseScreen");
+        SettingsScreen = GameObject.Find("SettingsScreen");
+        HudCamera = GameObject.Find("HUD Camera").GetComponent<Camera>();
         Debug.Log(LevelRecapScreen);
     }
 
@@ -40,11 +43,19 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        Time.timeScale = 0;
         GameState = GameStates.RecapScreen;
-        LevelRecapScreen.SetActive(true);
+        AudioSource.PlayClipAtPoint(GameManager.Instance.DieSound, transform.position, 50f);
         Player.SetEnabled(false);
+        Time.timeScale = 0;
+        StartCoroutine(ShowLevelRecapScreen());
     }
+
+    private IEnumerator ShowLevelRecapScreen()
+    {
+        yield return StartCoroutine(ExtensionMethods.WaitForRealSeconds(1.3f));
+        LevelRecapScreen.SetActive(true);
+    }
+
 
     public void PauseGame(bool paused)
     {
@@ -93,6 +104,7 @@ public class GameManager : MonoBehaviour
         StartScreen,
         Playing,
         Paused,
-        RecapScreen
+        RecapScreen,
+        SetttingsScreen
     }
 }
