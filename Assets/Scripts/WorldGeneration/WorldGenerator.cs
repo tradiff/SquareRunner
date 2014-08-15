@@ -45,11 +45,12 @@ public class WorldGenerator : MonoBehaviour
         chunkShapes.Add(new PowerupShape1());
         chunkShapes.Add(new GapyShape1());
         chunkShapes.Add(new GapyShape2());
+        chunkShapes.Add(new ChrisShape1());
 
-        //biomes.Add(new GrassBiome());
-        //biomes.Add(new CaveBiome());
-        //biomes.Add(new StormyBiome());
-        //biomes.Add(new LavaCaveBiome());
+        biomes.Add(new GrassBiome());
+        biomes.Add(new CaveBiome());
+        biomes.Add(new StormyBiome());
+        biomes.Add(new LavaCaveBiome());
         biomes.Add(new WesternBiome());
 
         GameManager.Instance.ResetGame();

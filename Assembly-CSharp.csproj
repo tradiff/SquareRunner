@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\WorldGeneration\Biomes\WesternBiome.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\BaseChunkShape.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\ChrisShape1.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\FlatShape.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\FlatShape2.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\GapyShape1.cs" />

@@ -20,8 +20,8 @@ public class PowerupShape1 : BaseChunkShape
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 32, xMax = 38, yMin = 6, yMax = 7 }, TileType = TileTypes.Platform });
 
 
-        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 11, xMax = 14, yMin = 7, yMax = 9 }, TileType = TileTypes.Coin });
-        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 20, xMax = 29, yMin = 7, yMax = 9 }, TileType = TileTypes.Coin });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 10, xMax = 14, yMin = 7, yMax = 9 }, TileType = TileTypes.Coin });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 19, xMax = 29, yMin = 7, yMax = 9 }, TileType = TileTypes.Coin });
 
 
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 11, yMin = 1, width = 1, height = 1 }, TileType = TileTypes.Tier1Enemy });
