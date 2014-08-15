@@ -52,17 +52,17 @@ public class Player : MonoBehaviour
     private void HandleInput()
     {
         // always be running
-        //_normalizedHorizontalSpeed = 1;
-        _normalizedHorizontalSpeed = 0;
+        _normalizedHorizontalSpeed = 1;
+        //_normalizedHorizontalSpeed = 0;
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            _normalizedHorizontalSpeed = -1;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            _normalizedHorizontalSpeed = 1;
-        }
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    _normalizedHorizontalSpeed = -1;
+        //}
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    _normalizedHorizontalSpeed = 1;
+        //}
 
         if (holdingJump && InputManager.Instance.Touching() && jumpTime-- > 0)
         {

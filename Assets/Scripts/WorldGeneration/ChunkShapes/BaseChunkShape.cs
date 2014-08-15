@@ -18,7 +18,8 @@ public abstract class BaseChunkShape
         Platform50p,
         Tier1Enemy,
         Coin,
-        Powerup
+        Powerup,
+        Liquid
     }
 
     public class FeatureDefinition

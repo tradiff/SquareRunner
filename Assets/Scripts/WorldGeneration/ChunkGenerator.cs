@@ -4,6 +4,7 @@ using System.Collections;
 public class ChunkGenerator : IChunkGenerator
 {
     private WorldGenerator worldGenerator;
+    public Object liquidPrefab = Resources.Load("Liquid_Prefab");
 
     public ChunkGenerator()
     {
@@ -18,7 +19,8 @@ public class ChunkGenerator : IChunkGenerator
     public IEnumerator GenerateCoroutine(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
         Debug.Log("generating " + chunkShape.Map.Count);
-        worldGenerator.CreateBG(chunk, biome.backgroundPrefab);
+        if (biome.backgroundPrefab != null)
+            worldGenerator.CreateBG(chunk, biome.backgroundPrefab);
 
         //if (tileSet.NeedsTransition)
         //{
@@ -53,6 +55,15 @@ public class ChunkGenerator : IChunkGenerator
             switch (feature.TileType)
             {
                 case BaseChunkShape.TileTypes.Air:
+                    break;
+                case BaseChunkShape.TileTypes.Liquid:
+                    for (int x = (int)feature.Rect.xMin; x < (int)feature.Rect.xMax; x++)
+                    {
+                        for (int y = (int)feature.Rect.yMin; y < (int)feature.Rect.yMax; y++)
+                        {
+                            worldGenerator.CreateTile(chunk, liquidPrefab, x, y);
+                        }
+                    }
                     break;
                 case BaseChunkShape.TileTypes.Platform:
                     worldGenerator.CreatePlatform(chunk, feature.Rect);

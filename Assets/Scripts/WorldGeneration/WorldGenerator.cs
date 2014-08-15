@@ -40,15 +40,17 @@ public class WorldGenerator : MonoBehaviour
         platformPrefab = Resources.Load("Platform_Prefab");
         tilePrefab = Resources.Load("Tile_Prefab");
 
-        //chunkShapes.Add(new FlatShape());
-        //chunkShapes.Add(new FlatShape2());
+        chunkShapes.Add(new FlatShape());
+        chunkShapes.Add(new FlatShape2());
         chunkShapes.Add(new PowerupShape1());
-        //chunkShapes.Add(new GapyShape1());
-        //chunkShapes.Add(new GapyShape2());
+        chunkShapes.Add(new GapyShape1());
+        chunkShapes.Add(new GapyShape2());
 
-        biomes.Add(new GrassBiome());
-        biomes.Add(new CaveBiome());
-        biomes.Add(new StormyBiome());
+        //biomes.Add(new GrassBiome());
+        //biomes.Add(new CaveBiome());
+        //biomes.Add(new StormyBiome());
+        //biomes.Add(new LavaCaveBiome());
+        biomes.Add(new WesternBiome());
 
         GameManager.Instance.ResetGame();
     }
@@ -159,6 +161,7 @@ public class WorldGenerator : MonoBehaviour
             tile.transform.parent = chunk.transform;
             tile.transform.localPosition = new Vector3(rect.x, rect.y, 0);
             tile.transform.localScale = new Vector3(rect.width, rect.height, tile.transform.localScale.z);
+            tile.GetComponentInChildren<SpriteRenderer>().color = color;
         }
     }
 

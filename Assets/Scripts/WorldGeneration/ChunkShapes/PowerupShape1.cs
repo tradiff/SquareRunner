@@ -8,6 +8,7 @@ public class PowerupShape1 : BaseChunkShape
         this.Difficulty = 1;
 
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 0, xMax = 14, yMin = 0, yMax = 1 }, TileType = TileTypes.Platform });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 14, xMax = 19, yMin = 0, yMax = 1 }, TileType = TileTypes.Liquid });
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 19, xMax = 50, yMin = 0, yMax = 1 }, TileType = TileTypes.Platform });
 
 
