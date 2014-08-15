@@ -11,6 +11,10 @@ public class GapyShape2 : BaseChunkShape
         this.Map.Add(new FeatureDefinition { Rect = new Rect(20, 0, GameManager.Instance.WorldGenerator.chunkWidth - 20, 1), TileType = TileTypes.Platform });
 
 
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 27, width = 1, yMin = 1, height = 3 }, TileType = TileTypes.Spike });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 28, xMax = 35, yMin = 1, height = 3 }, TileType = TileTypes.Platform });
+
+
 
     }
 

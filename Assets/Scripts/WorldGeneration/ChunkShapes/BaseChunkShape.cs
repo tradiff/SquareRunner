@@ -19,7 +19,8 @@ public abstract class BaseChunkShape
         Tier1Enemy,
         Coin,
         Powerup,
-        Liquid
+        Liquid,
+        Spike
     }
 
     public class FeatureDefinition
