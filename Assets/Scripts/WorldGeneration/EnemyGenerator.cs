@@ -15,6 +15,11 @@ public class EnemyGenerator : IChunkGenerator
 
     public void Generate(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
+        if (GameManager.Instance.Area == GameManager.Areas.Bonus)
+        {
+            return;
+        }
+
         foreach (var feature in chunkShape.Map)
         {
             if (feature.TileType == BaseChunkShape.TileTypes.Tier1Enemy)

@@ -17,19 +17,35 @@ public class CoinGenerator : IChunkGenerator
 
     public IEnumerator GenerateCoroutine(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
-        foreach (var feature in chunkShape.Map)
+        if (biome.GetType() == typeof(BonusBiome))
         {
-            if (feature.TileType == BaseChunkShape.TileTypes.Coin)
+            for (int x = 0; x < 50; x++)
             {
-                for (int x = (int)feature.Rect.xMin; x < (int)feature.Rect.xMax; x++)
+                for (int y = 1; y < 7; y++)
                 {
-                    for (int y = (int) feature.Rect.yMin; y < (int) feature.Rect.yMax; y++)
-                    {
-                        worldGenerator.CreateTile(chunk, biome.coinPrefab, x, y);
-                    }
+                    worldGenerator.CreateTile(chunk, biome.coinPrefab, x, y);
+                    if (buffered)
+                        yield return new WaitForEndOfFrame();
                 }
-                if (buffered)
-                    yield return new WaitForEndOfFrame();
+            }
+
+        }
+        else
+        {
+            foreach (var feature in chunkShape.Map)
+            {
+                if (feature.TileType == BaseChunkShape.TileTypes.Coin)
+                {
+                    for (int x = (int)feature.Rect.xMin; x < (int)feature.Rect.xMax; x++)
+                    {
+                        for (int y = (int)feature.Rect.yMin; y < (int)feature.Rect.yMax; y++)
+                        {
+                            worldGenerator.CreateTile(chunk, biome.coinPrefab, x, y);
+                        }
+                    }
+                    if (buffered)
+                        yield return new WaitForEndOfFrame();
+                }
             }
         }
     }

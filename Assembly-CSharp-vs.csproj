@@ -57,11 +57,14 @@
      <Compile Include="Assets\Scripts\Entities\EnemyTier1.cs" />
      <Compile Include="Assets\Scripts\Entities\EnemyVine.cs" />
      <Compile Include="Assets\Scripts\Entities\Ghost.cs" />
+     <Compile Include="Assets\Scripts\Entities\PU_BonusWarp.cs" />
      <Compile Include="Assets\Scripts\Entities\PU_Hat.cs" />
      <Compile Include="Assets\Scripts\Entities\Spike.cs" />
      <Compile Include="Assets\Scripts\ExtensionMethods.cs" />
      <Compile Include="Assets\Scripts\GameHud.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Gradient.cs" />
+     <Compile Include="Assets\Scripts\GradientBackground.cs" />
      <Compile Include="Assets\Scripts\IWeighted.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
      <Compile Include="Assets\Scripts\LevelRecapScreen.cs" />
@@ -78,6 +81,7 @@
      <Compile Include="Assets\Scripts\StartScreen.cs" />
      <Compile Include="Assets\Scripts\WorldChunk.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\Biomes\BaseBiome.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\Biomes\BonusBiome.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\Biomes\CaveBiome.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\Biomes\GrassBiome.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\Biomes\LavaCaveBiome.cs" />
@@ -86,6 +90,7 @@
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkGenerator.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\BaseChunkShape.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\ChrisShape1.cs" />
+     <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\EmptyShape.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\FlatShape.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\FlatShape2.cs" />
      <Compile Include="Assets\Scripts\WorldGeneration\ChunkShapes\GapyShape1.cs" />

@@ -5,15 +5,17 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    public WorldGenerator WorldGenerator = null;
-    public Player Player = null;
     public float distanceTraveled;
     public int coins;
+    public GameStates GameState;
+    public Areas Area;
+    private Vector3 lastNormalPlayPosition;
+
+    public WorldGenerator WorldGenerator = null;
+    public Player Player = null;
     public GameObject LevelRecapScreen;
     public GameObject PauseScreen;
     public GameObject SettingsScreen;
-    public GameStates GameState;
-
     public AudioClip StartSound;
     public AudioClip JumpSound;
     public AudioClip DieSound;
@@ -45,16 +47,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-
-
-    //public void EndGame()
-    //{
-    //    GameState = GameStates.RecapScreen;
-    //    SoundManager.Instance.PlaySound(SoundManager.Sounds.Die);
-    //    Player.SetEnabled(false);
-    //    Time.timeScale = 0;
-    //    StartCoroutine(ShowLevelRecapScreen());
-    //}
 
     private IEnumerator ShowLevelRecapScreen()
     {
@@ -96,11 +88,28 @@ public class GameManager : MonoBehaviour
         Time.timeScale = newTimeScale;
     }
 
+    public void ChangeArea(Areas newArea)
+    {
+        var oldArea = this.Area;
+        this.Area = newArea;
+        if (newArea == Areas.Bonus)
+        {
+            WorldGenerator.GenerateBonusChunks();
+            lastNormalPlayPosition = Player.transform.position;
+            Player.transform.position = new Vector3(0, Player.transform.position.y + 100, Player.transform.position.z);
+        }
+        if (newArea == Areas.Normal)
+        {
+            WorldGenerator.DestroyBonusChunks();
+            Player.transform.position = new Vector3(lastNormalPlayPosition.x, 10, Player.transform.position.z);
+        }
+
+    }
+
     public void ResetGame()
     {
         Debug.Log("Reset");
         Time.timeScale = 0;
-        //Debug.Break();
         Debug.Log(Player);
         Debug.Log(Player.transform);
         Player.transform.position = new Vector3(0, 10, 0);
@@ -125,5 +134,11 @@ public class GameManager : MonoBehaviour
         Paused,
         RecapScreen,
         SetttingsScreen
+    }
+
+    public enum Areas
+    {
+        Normal,
+        Bonus
     }
 }

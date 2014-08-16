@@ -26,7 +26,6 @@ public class WorldGenerator : MonoBehaviour
         GameManager.Instance.WorldGenerator = this;
 
         lastChunkPosX = -1;
-        ///newestChunk = null;
         readyForChunks = false;
         chunkWidth = 50;
         chunkHeight = 14;
@@ -60,6 +59,8 @@ public class WorldGenerator : MonoBehaviour
     {
         if (!readyForChunks) return;
 
+        if (GameManager.Instance.Area == GameManager.Areas.Bonus) return;
+
         if (lastChunkPosX == -1)
         {
             Debug.Log("lastChunkPosX was null?!");
@@ -70,6 +71,23 @@ public class WorldGenerator : MonoBehaviour
             Debug.Log("camera has moved.  making a new chunk");
             GenerateWorldChunk(lastChunkPosX + (int)chunkWidth, true);
         }
+    }
+
+    List<GameObject> bonusWorldChunks = new List<GameObject>();
+    public void GenerateBonusChunks()
+    {
+        bonusWorldChunks.Add(GenerateBonusWorldChunk(0, new FlatShape()));
+        bonusWorldChunks.Add(GenerateBonusWorldChunk(50, null));
+        bonusWorldChunks.Add(GenerateBonusWorldChunk(100, null));
+        bonusWorldChunks.Add(GenerateBonusWorldChunk(150, new EmptyShape()));
+    }
+    public void DestroyBonusChunks()
+    {
+        foreach (var item in bonusWorldChunks)
+        {
+            Destroy(item);
+        }
+        bonusWorldChunks.Clear();
     }
 
     public void ResetGame()
@@ -88,12 +106,29 @@ public class WorldGenerator : MonoBehaviour
         readyForChunks = true;
     }
 
-    private void GenerateWorldChunk(float positionX, bool buffered)
+    private GameObject GenerateBonusWorldChunk(float positionX, BaseChunkShape shape)
     {
         Debug.Log("new chunk at " + positionX);
         var eligibleChunkShapes = chunkShapes.Where(x => GameManager.Instance.distanceTraveled >= x.Difficulty - 1).ToList();
 
-        var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, 0, 0), new Quaternion(0, 0, 0, 0));
+        var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, GameManager.Instance.Area == GameManager.Areas.Bonus ? 100 : 0, 0), new Quaternion(0, 0, 0, 0));
+        if (shape == null)
+            shape = eligibleChunkShapes.RandomElement();
+
+        BaseBiome biome = new BonusBiome();
+
+        chunkGenerator.Generate(chunk, shape, biome, false);
+        coinGenerator.Generate(chunk, shape, biome, false);
+        powerupGenerator.Generate(chunk, shape, biome, false);
+        return chunk;
+    }
+
+    private GameObject GenerateWorldChunk(float positionX, bool buffered)
+    {
+        Debug.Log("new chunk at " + positionX);
+        var eligibleChunkShapes = chunkShapes.Where(x => GameManager.Instance.distanceTraveled >= x.Difficulty - 1).ToList();
+
+        var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, GameManager.Instance.Area == GameManager.Areas.Bonus ? 100 : 0, 0), new Quaternion(0, 0, 0, 0));
         BaseChunkShape shape;
         if (buffered == false)
             shape = new FlatShape();
@@ -105,6 +140,7 @@ public class WorldGenerator : MonoBehaviour
             biome = new GrassBiome();
         else
             biome = biomes.Choose();
+
         chunkGenerator.Generate(chunk, shape, biome, buffered);
         coinGenerator.Generate(chunk, shape, biome, buffered);
         powerupGenerator.Generate(chunk, shape, biome, buffered);
@@ -114,18 +150,10 @@ public class WorldGenerator : MonoBehaviour
         lastChunkPosX = (int)positionX;
         lastBiome = biome;
         Debug.Log("lastChunkPosX = " + lastChunkPosX);
+        return chunk;
     }
 
-    //private void GenerateWorldChunk(float positionX, bool buffered)
-    //{
-    //    Debug.Log("new chunk");
-    //    var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, 0, 0), new Quaternion(0, 0, 0, 0));
 
-    //    IChunkGenerator gen = chunkGenerators[Random.Range(0, chunkGenerators.Count)];
-    //    gen.Generate(chunk, chunkWidth, buffered);
-
-    //    newestChunk = chunk;
-    //}
 
     public void StartChildCoroutine(IEnumerator coroutineMethod)
     {

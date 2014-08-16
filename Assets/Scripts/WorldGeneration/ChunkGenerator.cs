@@ -22,22 +22,6 @@ public class ChunkGenerator : IChunkGenerator
         if (biome.backgroundPrefab != null)
             worldGenerator.CreateBG(chunk, biome.backgroundPrefab);
 
-        //if (tileSet.NeedsTransition)
-        //{
-        //    for (int y = 0; y < chunkShape.Map.GetLength(1); y++)
-        //    {
-        //        var tile = worldGenerator.CreateTile(chunk, tileSet.transitionTile, -1, y);
-        //        var sr = tile.GetComponentInChildren<SpriteRenderer>();
-        //        sr.sortingLayerName = "Background";
-        //        sr.sortingOrder = 2;
-        //        var tile2 = worldGenerator.CreateTile(chunk, tileSet.transitionTile, worldGenerator.chunkWidth, y);
-        //        var sr2 = tile2.GetComponentInChildren<SpriteRenderer>();
-        //        sr2.sortingLayerName = "Background";
-        //        sr2.sortingOrder = 2;
-
-        //    }
-        //}
-
         // ragged top
         for (int x = 0; x < worldGenerator.chunkWidth; x++)
         {

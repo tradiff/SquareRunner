@@ -95,4 +95,16 @@ public class Player : MonoBehaviour
         HasHat = false;
         IsDead = false;
     }
+
+    public void HitDestroyer()
+    {
+        if (GameManager.Instance.Area == GameManager.Areas.Bonus)
+        {
+            GameManager.Instance.ChangeArea(GameManager.Areas.Normal);
+        }
+        else
+        {
+            this.IsDead = true;
+        }
+    }
 }
