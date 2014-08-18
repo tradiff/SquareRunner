@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private int jumpTime = 0;
     private int maxJumpTime = 10;
     private GameObject _hatGO;
+    public Vector3 lastPosition;
 
 
     public void Awake()
@@ -37,10 +38,12 @@ public class Player : MonoBehaviour
         _animator.SetBool("IsGrounded", _controller.State.IsGrounded);
         _animator.SetBool("IsFalling", _controller.Velocity.y < 0);
         _hatGO.SetActive(HasHat);
-        //_animator.SetBool("IsBig", IsBig);
 
-
-        GameManager.Instance.distanceTraveled = transform.position.x;
+        var distanceMultiplier = 1;
+        if (GameManager.Instance.Area == GameManager.Areas.Bonus)
+            distanceMultiplier = 4;
+        GameManager.Instance.distanceTraveled += (transform.position.x - lastPosition.x) * distanceMultiplier;
+        lastPosition = transform.position;
 
         if (IsDead && GameManager.Instance.GameState != GameManager.GameStates.RecapScreen)
         {
