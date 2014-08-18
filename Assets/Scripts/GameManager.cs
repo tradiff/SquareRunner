@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(Player);
         Debug.Log(Player.transform);
         Player.transform.position = new Vector3(0, 10, 0);
+        Player.lastPosition = Player.transform.position;
         distanceTraveled = 0;
         coins = 0;
 
