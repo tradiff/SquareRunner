@@ -8,6 +8,7 @@ public class WorldGenerator : MonoBehaviour
     private Object worldChunkPrefab;
     private Object platformPrefab;
     private Object tilePrefab;
+    private Object speedIncreasePrefab;
 
     private int lastChunkPosX;
     public float chunkWidth;
@@ -38,6 +39,7 @@ public class WorldGenerator : MonoBehaviour
         worldChunkPrefab = Resources.Load("WorldChunkPrefab");
         platformPrefab = Resources.Load("Platform_Prefab");
         tilePrefab = Resources.Load("Tile_Prefab");
+        speedIncreasePrefab = Resources.Load("SpeedChangeTrigger_Prefab");
 
         chunkShapes.Add(new FlatShape());
         chunkShapes.Add(new FlatShape2());
@@ -101,6 +103,7 @@ public class WorldGenerator : MonoBehaviour
         }
 
         //lastChunkPosX = 0;
+        speedIncreaseCount = 0;
         GenerateWorldChunk(-50, false);
         GenerateWorldChunk(0, false);
         readyForChunks = true;
@@ -123,14 +126,44 @@ public class WorldGenerator : MonoBehaviour
         return chunk;
     }
 
+
+    private bool speedInreaseTesting = false;
+    private int speedIncreaseCount = 0;
     private GameObject GenerateWorldChunk(float positionX, bool buffered)
     {
         Debug.Log("new chunk at " + positionX);
+        bool speedIncreaseChunk = false;
+
+        if (speedInreaseTesting)
+        {
+            if (speedIncreaseCount == 0 && GameManager.Instance.distanceTraveled > 100)
+                speedIncreaseChunk = true;
+            if (speedIncreaseCount == 1 && GameManager.Instance.distanceTraveled > 200)
+                speedIncreaseChunk = true;
+            if (speedIncreaseCount == 2 && GameManager.Instance.distanceTraveled > 300)
+                speedIncreaseChunk = true;
+            if (speedIncreaseCount == 3 && GameManager.Instance.distanceTraveled > 400)
+                speedIncreaseChunk = true;
+        }
+        else
+        {
+            if (speedIncreaseCount == 0 && GameManager.Instance.distanceTraveled > 300)
+                speedIncreaseChunk = true;
+            if (speedIncreaseCount == 1 && GameManager.Instance.distanceTraveled > 500)
+                speedIncreaseChunk = true;
+            if (speedIncreaseCount == 2 && GameManager.Instance.distanceTraveled > 750)
+                speedIncreaseChunk = true;
+            if (speedIncreaseCount == 3 && GameManager.Instance.distanceTraveled > 1000)
+                speedIncreaseChunk = true;
+        }
+
+
+
         var eligibleChunkShapes = chunkShapes.Where(x => GameManager.Instance.distanceTraveled >= x.Difficulty - 1).ToList();
 
         var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, GameManager.Instance.Area == GameManager.Areas.Bonus ? 100 : 0, 0), new Quaternion(0, 0, 0, 0));
         BaseChunkShape shape;
-        if (buffered == false)
+        if (buffered == false || speedIncreaseChunk == true)
             shape = new FlatShape();
         else
             shape = eligibleChunkShapes.RandomElement();
@@ -144,8 +177,14 @@ public class WorldGenerator : MonoBehaviour
         chunkGenerator.Generate(chunk, shape, biome, buffered);
         coinGenerator.Generate(chunk, shape, biome, buffered);
         powerupGenerator.Generate(chunk, shape, biome, buffered);
-        if (GameManager.Instance.distanceTraveled > 1)
+        if (GameManager.Instance.distanceTraveled > 1 && !speedIncreaseChunk)
             enemyGenerator.Generate(chunk, shape, biome, buffered);
+
+        if (speedIncreaseChunk)
+        {
+            this.CreateTile(chunk, speedIncreasePrefab, 2, 0);
+            speedIncreaseCount++;
+        }
 
         lastChunkPosX = (int)positionX;
         lastBiome = biome;

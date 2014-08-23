@@ -16,7 +16,7 @@ public class GameHud : MonoBehaviour
 
     public void Update()
     {
-        distanceText.Text = string.Format("{0:N0}m", GameManager.Instance.distanceTraveled);
+        distanceText.Text = string.Format("{0:N0}m  Speed: {1:N2}x", GameManager.Instance.distanceTraveled, GameManager.Instance.speed);
         coinsText.Text = "Coins: " + GameManager.Instance.coins;
         if (InputManager.Instance.StartTouch())
         {

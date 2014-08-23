@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     private AudioClip JumpSound;
     private AudioClip DieSound;
     private AudioClip CoinSound;
+    private AudioClip SpeedIncreaseSound;
 
     private GameObject musicGO;
 
@@ -26,6 +27,7 @@ public class SoundManager : MonoBehaviour
         JumpSound = Resources.Load("sounds/PulseSho-Mark_E_B-8071_hifi") as AudioClip;
         DieSound = Resources.Load("sounds/Tweedle_-Intermed-609_hifi") as AudioClip;
         CoinSound = Resources.Load("sounds/Arcade_S-wwwbeat-8529_hifi") as AudioClip;
+        SpeedIncreaseSound = Resources.Load("sounds/power_up-Public_D-408_hifi") as AudioClip;
 
         musicGO = GameObject.Find("Music");
         UpdateMusic();
@@ -53,6 +55,9 @@ public class SoundManager : MonoBehaviour
             case Sounds.Coin:
                 audioClip = CoinSound;
                 break;
+            case Sounds.SpeedIncrease:
+                audioClip = SpeedIncreaseSound;
+                break;
         }
 
         if (PlayerPrefs.GetInt("SoundEnabled", 1) == 1)
@@ -77,6 +82,7 @@ public class SoundManager : MonoBehaviour
         Start,
         Jump,
         Die,
-        Coin
+        Coin,
+        SpeedIncrease
     }
 }

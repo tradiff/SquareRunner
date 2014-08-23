@@ -5,6 +5,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    public float speed = 1;
     public float distanceTraveled;
     public int coins;
     public GameStates GameState;
@@ -16,10 +17,6 @@ public class GameManager : MonoBehaviour
     public GameObject LevelRecapScreen;
     public GameObject PauseScreen;
     public GameObject SettingsScreen;
-    public AudioClip StartSound;
-    public AudioClip JumpSound;
-    public AudioClip DieSound;
-    public AudioClip CoinSound;
     public Camera HudCamera;
 
     public static GameManager Instance
@@ -44,7 +41,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+    }
+
+    public void IncreaseSpeed()
+    {
+        speed += 0.25f;
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.SpeedIncrease);
     }
 
 
@@ -116,6 +118,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(Player.transform);
         Player.transform.position = new Vector3(0, 10, 0);
         Player.lastPosition = Player.transform.position;
+        speed = 1;
         distanceTraveled = 0;
         coins = 0;
 
