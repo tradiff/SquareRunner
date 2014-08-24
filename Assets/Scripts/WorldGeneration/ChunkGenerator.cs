@@ -41,13 +41,11 @@ public class ChunkGenerator : IChunkGenerator
                 case BaseChunkShape.TileTypes.Air:
                     break;
                 case BaseChunkShape.TileTypes.Liquid:
-                    for (int x = (int)feature.Rect.xMin; x < (int)feature.Rect.xMax; x++)
-                    {
-                        for (int y = (int)feature.Rect.yMin; y < (int)feature.Rect.yMax; y++)
-                        {
-                            worldGenerator.CreateTile(chunk, liquidPrefab, x, y);
-                        }
-                    }
+                    var tile = worldGenerator.CreateTiles(chunk, liquidPrefab, feature.Rect);
+                    tile.GetComponentInChildren<SpriteRenderer>().color = biome.waterColor;
+                    var particleSystem = tile.GetComponentInChildren<ParticleSystem>();
+                    particleSystem.emissionRate = 3 * feature.Rect.width;
+                    particleSystem.startColor = biome.waterColor;
                     break;
                 case BaseChunkShape.TileTypes.Platform:
                     worldGenerator.CreatePlatform(chunk, feature.Rect);

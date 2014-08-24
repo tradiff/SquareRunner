@@ -221,16 +221,27 @@ public class WorldGenerator : MonoBehaviour
         return tile;
     }
 
-    public void CreateTiles(GameObject chunk, Color color, Rect rect)
+    public GameObject CreateTiles(GameObject chunk, Object prefab, Rect rect)
     {
         if (chunk != null)
         {
-            var tile = (GameObject)UnityEngine.Object.Instantiate(tilePrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+            var tile = (GameObject)UnityEngine.Object.Instantiate(prefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
             tile.transform.parent = chunk.transform;
             tile.transform.localPosition = new Vector3(rect.x, rect.y, 0);
             tile.transform.localScale = new Vector3(rect.width, rect.height, tile.transform.localScale.z);
+            return tile;
+        }
+        return null;
+    }
+
+    public GameObject CreateTiles(GameObject chunk, Color color, Rect rect)
+    {
+        var tile = CreateTiles(chunk, tilePrefab, rect);
+        if (tile != null)
+        {
             tile.GetComponentInChildren<SpriteRenderer>().color = color;
         }
+        return tile;
     }
 
     public void CreatePlatform(GameObject chunk, Rect rect)

@@ -8,6 +8,7 @@ public abstract class BaseBiome : IWeighted
 
     public Object coinPrefab = Resources.Load("entities/Coin_Prefab");
     public Color tileColor;
+    public Color waterColor = new Color(0.32f, 0.77f, 1f, 0.5f);
 
     public List<string> enemyTier1List = new List<string>();
 
