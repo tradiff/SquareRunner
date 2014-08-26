@@ -14,9 +14,7 @@ public class GameManager : MonoBehaviour
 
     public WorldGenerator WorldGenerator = null;
     public Player Player = null;
-    public GameObject LevelRecapScreen;
-    public GameObject PauseScreen;
-    public GameObject SettingsScreen;
+    public GameHud GameHud;
     public Camera HudCamera;
 
     public static GameManager Instance
@@ -32,11 +30,7 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        LevelRecapScreen = GameObject.Find("LevelRecap");
-        PauseScreen = GameObject.Find("PauseScreen");
-        SettingsScreen = GameObject.Find("SettingsScreen");
         HudCamera = GameObject.Find("HUD Camera").GetComponent<Camera>();
-        Debug.Log(LevelRecapScreen);
     }
 
     void Update()
@@ -53,7 +47,9 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShowLevelRecapScreen()
     {
         yield return StartCoroutine(ExtensionMethods.WaitForRealSeconds(1.3f));
-        LevelRecapScreen.SetActive(true);
+        GameHud.levelRecapScreen.alpha = 1;
+        GameHud.levelRecapScreen.interactable = true;
+        GameHud.levelRecapScreen.blocksRaycasts = true;
     }
 
 
@@ -62,9 +58,16 @@ public class GameManager : MonoBehaviour
         // reset
         var newTimeScale = 0;
         Player.SetEnabled(false);
-        LevelRecapScreen.SetActive(false);
-        PauseScreen.SetActive(false);
-        SettingsScreen.SetActive(false);
+        GameHud.pauseScreen.alpha = 0;
+        GameHud.pauseScreen.interactable = false;
+        GameHud.pauseScreen.blocksRaycasts = false;
+        GameHud.settingsScreen.alpha = 0;
+        GameHud.settingsScreen.interactable = false;
+        GameHud.settingsScreen.blocksRaycasts = false;
+        GameHud.levelRecapScreen.alpha = 0;
+        GameHud.levelRecapScreen.interactable = false;
+        GameHud.levelRecapScreen.blocksRaycasts = false;
+        
 
         switch (newState)
         {
@@ -76,14 +79,18 @@ public class GameManager : MonoBehaviour
                 Player.SetEnabled(true);
                 break;
             case GameStates.Paused:
-                PauseScreen.SetActive(true);
+                GameHud.pauseScreen.alpha = 1;
+                GameHud.pauseScreen.interactable = true;
+                GameHud.pauseScreen.blocksRaycasts = true;
                 break;
             case GameStates.RecapScreen:
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.Die);
                 StartCoroutine(ShowLevelRecapScreen()); // delay for the sound to finish
                 break;
             case GameStates.SetttingsScreen:
-                SettingsScreen.SetActive(true);
+                GameHud.settingsScreen.alpha = 1;
+                GameHud.settingsScreen.interactable = true;
+                GameHud.settingsScreen.blocksRaycasts = true;
                 break;
         }
         GameState = newState;
