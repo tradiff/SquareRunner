@@ -10,7 +10,7 @@ public class Destroyer : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Player collided with destroyer");
-            other.GetComponent<Player>().HitDestroyer();
+            other.GetComponent<Hero>().HitDestroyer();
             return;
         }
 

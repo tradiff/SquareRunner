@@ -13,9 +13,10 @@ public class GameManager : MonoBehaviour
     private Vector3 lastNormalPlayPosition;
 
     public WorldGenerator WorldGenerator = null;
-    public Player Player = null;
+    public Hero Player = null;
     public GameHud GameHud;
     public Camera HudCamera;
+    public GooglePlayManager GooglePlayManager;
 
     public static GameManager Instance
     {
@@ -29,8 +30,9 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Hero>();
         HudCamera = GameObject.Find("HUD Camera").GetComponent<Camera>();
+        GooglePlayManager = transform.GetComponent<GooglePlayManager>();
     }
 
     void Update()
