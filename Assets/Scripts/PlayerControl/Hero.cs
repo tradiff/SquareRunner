@@ -67,7 +67,29 @@ public class Hero : MonoBehaviour
         //    _normalizedHorizontalSpeed = 1;
         //}
 
-        if (holdingJump && InputManager.Instance.Touching() && jumpTime-- > 0)
+
+        bool jumpKey = false;
+        if (InputManager.Instance.Touching())
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                jumpKey = true;
+            }
+            else
+            {
+                var screenPos = InputManager.Instance.GetTouch();
+                Vector3 wp = GameManager.Instance.HudCamera.ScreenToWorldPoint(screenPos);
+                Vector2 touchPos = new Vector2(wp.x, wp.y);
+
+                Collider2D collider2d = Physics2D.OverlapPoint(touchPos);
+                if (collider2d == GameManager.Instance.TouchTarget.collider2D)
+                {
+                    jumpKey = true;
+                }
+            }
+        }
+
+        if (holdingJump && jumpKey && jumpTime-- > 0)
         {
             _controller.Jump();
         }
@@ -76,7 +98,7 @@ public class Hero : MonoBehaviour
             holdingJump = false;
         }
 
-        if (_controller.State.IsGrounded && InputManager.Instance.StartTouch())
+        if (_controller.State.IsGrounded && InputManager.Instance.StartTouch() && jumpKey)
         {
             _controller.Jump();
             holdingJump = true;

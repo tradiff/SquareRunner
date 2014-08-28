@@ -16,6 +16,8 @@ public class SettingsScreen : MonoBehaviour
         soundEnabled = PlayerPrefs.GetInt("SoundEnabled", 1) == 1;
         btnMusicToggleLabel = transform.Find("btnMusicToggle").GetComponentInChildren<Text>();
         btnSoundToggleLabel = transform.Find("btnSoundToggle").GetComponentInChildren<Text>();
+        btnMusicToggleLabel.text = musicEnabled ? "enabled" : "disabled";
+        btnSoundToggleLabel.text = soundEnabled ? "enabled" : "disabled";
     }
 
     public void MusicToggleClick()

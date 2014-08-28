@@ -17,6 +17,11 @@ public class InputManager
         if (Input.GetKey(KeyCode.Space))
             return true;
 
+        if (Input.GetMouseButton(0))
+        {
+            return true;
+        }
+
         if (Input.touchCount > 0)
         {
             return true;

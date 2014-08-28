@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameHud GameHud;
     public Camera HudCamera;
     public GooglePlayManager GooglePlayManager;
+    public GameObject TouchTarget;
 
     public static GameManager Instance
     {
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Hero>();
         HudCamera = GameObject.Find("HUD Camera").GetComponent<Camera>();
         GooglePlayManager = transform.GetComponent<GooglePlayManager>();
+        TouchTarget = GameObject.Find("TouchTarget");
     }
 
     void Update()
@@ -87,6 +89,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameStates.RecapScreen:
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.Die);
+                GooglePlayManager.ReportScore((int)this.distanceTraveled);
                 StartCoroutine(ShowLevelRecapScreen()); // delay for the sound to finish
                 break;
             case GameStates.SetttingsScreen:

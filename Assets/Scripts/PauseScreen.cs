@@ -10,9 +10,8 @@ public class PauseScreen : MonoBehaviour
     }
     public void SettingsClick()
     {
-        GameManager.Instance.GooglePlayManager.ShowLeaderBoards();
-        //Debug.Log("SettingsClick");
-        //GameManager.Instance.ChangeState(GameManager.GameStates.SetttingsScreen);
+        Debug.Log("SettingsClick");
+        GameManager.Instance.ChangeState(GameManager.GameStates.SetttingsScreen);
     }
     public void QuitClick()
     {

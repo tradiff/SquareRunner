@@ -18,24 +18,27 @@ public class GooglePlayManager : MonoBehaviour
             if (success)
             {
                 Debug.Log("authenticated to google");
-                Social.ReportScore(1, "CgkIp4ihjYEFEAIQAA", (bool success2) =>
-                {
-                    if (success2)
-                    {
-                        Debug.Log("reported score");
-                    }
-                    else
-                    {
-                        Debug.Log("failed to report score");
-                    }
-
-                });
             }
             else
             {
                 Debug.Log("failed to authenticate to google");
             }
 
+        });
+    }
+
+    public void ReportScore(int score)
+    {
+        Social.ReportScore(score, "CgkIp4ihjYEFEAIQAA", (bool success) =>
+        {
+            if (success)
+            {
+                Debug.Log("reported score");
+            }
+            else
+            {
+                Debug.Log("failed to report score");
+            }
         });
     }
 
