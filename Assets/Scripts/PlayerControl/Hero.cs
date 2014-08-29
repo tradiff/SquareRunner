@@ -15,8 +15,8 @@ public class Hero : MonoBehaviour
     public bool HasMagnet = false;
     public bool IsDead = false;
     private bool holdingJump = false;
-    private int jumpTime = 0;
-    private int maxJumpTime = 10;
+    private float jumpTime = 0;
+    private float maxJumpTime = .1666f;
     private GameObject _hatGO;
     private GameObject _magnetGO;
     public Vector3 lastPosition;
@@ -120,7 +120,7 @@ public class Hero : MonoBehaviour
             }
         }
 
-        if (holdingJump && jumpKey && jumpTime-- > 0)
+        if (holdingJump && jumpKey && (jumpTime-= Time.deltaTime) > 0)
         {
             _controller.Jump();
         }
