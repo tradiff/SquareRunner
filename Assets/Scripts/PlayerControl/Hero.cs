@@ -169,4 +169,19 @@ public class Hero : MonoBehaviour
         HasMagnet = true;
         magnetTime = maxMagnetTime;
     }
+
+    public void TakeHat()
+    {
+        HasHat = false;
+
+        // clear all enemies on screen
+        var entities = GameObject.FindGameObjectsWithTag("Entity");
+        foreach (var entity in entities)
+        {
+            if (entity.GetComponent<Enemy>())
+            {
+                Destroy(entity);
+            }
+        }
+    }
 }

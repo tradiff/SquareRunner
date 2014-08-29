@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
         if (player.HasHat)
         {
             player.HasHat = false;
+            player.TakeHat();
         }
         else
         {
