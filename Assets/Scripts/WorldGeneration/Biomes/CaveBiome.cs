@@ -9,7 +9,7 @@ public class CaveBiome : BaseBiome
     public CaveBiome()
     {
         this.Weight = 1;
-        this.tileColor = new Color(0.49f,0,1);
+        this.tileColor = new Color(0.25f, .26f, 0.35f);
         this.backgroundPrefab = Resources.Load("backgrounds/Background_PurpleAnime_Prefab");
     }
 }
