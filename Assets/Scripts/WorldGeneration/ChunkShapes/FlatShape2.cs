@@ -16,7 +16,7 @@ public class FlatShape2 : BaseChunkShape
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 27, xMax = 39, yMin = 4, height = 3 }, TileType = TileTypes.Coin });
 
 
-        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 12, xMax = 15, yMin = 1, height = 1 }, TileType = TileTypes.Tier1Enemy });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 16, xMax = 19, yMin = 1, height = 1 }, TileType = TileTypes.Tier1Enemy });
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 32, xMax = 35, yMin = 1, height = 1 }, TileType = TileTypes.Tier1Enemy });
     }
 }
