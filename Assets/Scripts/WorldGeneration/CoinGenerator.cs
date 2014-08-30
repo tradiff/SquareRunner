@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class CoinGenerator : IChunkGenerator
 {
@@ -19,14 +20,30 @@ public class CoinGenerator : IChunkGenerator
     {
         if (biome.GetType() == typeof(BonusBiome))
         {
+            var features = chunkShape.Map.Where(x => x.TileType == BaseChunkShape.TileTypes.OneWayPlatform || x.TileType == BaseChunkShape.TileTypes.OneWayPlatform50p || x.TileType == BaseChunkShape.TileTypes.Platform);
+            var overlap = false;
             for (int x = 0; x < 50; x++)
             {
                 for (int y = 1; y < 7; y++)
                 {
-                    var coin = worldGenerator.CreateTile(chunk, biome.coinPrefab, x, y);
-                    Component.Destroy(coin.GetComponentInChildren<Animator>());
-                    if (buffered)
-                        yield return new WaitForEndOfFrame();
+                    overlap = false;
+                    foreach (var feature in features)
+                    {
+                        if (feature.Rect.Contains(new Vector2(x,y)))
+                        {
+                            overlap = true;
+                            break;
+                        }
+                    }
+
+                    if (!overlap)
+                    {
+                        var coin = worldGenerator.CreateTile(chunk, biome.coinPrefab, x, y);
+                        Component.Destroy(coin.GetComponentInChildren<Animator>());
+                        if (buffered)
+                            yield return new WaitForEndOfFrame();
+                    }
+
                 }
             }
 
