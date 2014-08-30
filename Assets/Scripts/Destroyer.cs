@@ -11,7 +11,6 @@ public class Destroyer : MonoBehaviour
         {
             Debug.Log("Player collided with destroyer");
             other.GetComponent<Hero>().HitDestroyer();
-            return;
         }
 
         if (other.tag == "WorldChunkPrefab")

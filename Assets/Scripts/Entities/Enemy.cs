@@ -7,18 +7,18 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        var player = other.GetComponent<Hero>();
-        if (player == null)
-            return;
-
-        if (player.HasHat)
+        if (other.tag == "Player")
         {
-            player.HasHat = false;
-            player.TakeHat();
-        }
-        else
-        {
-            player.IsDead = true;
+            Debug.Log("Player collided with enemy");
+            var player = other.GetComponent<Hero>();
+            if (player.HasHat)
+            {
+                player.TakeHat();
+            }
+            else
+            {
+                player.IsDead = true;
+            }
         }
     }
 

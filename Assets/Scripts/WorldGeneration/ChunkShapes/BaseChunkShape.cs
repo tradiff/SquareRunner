@@ -20,7 +20,8 @@ public abstract class BaseChunkShape
         Coin,
         Powerup,
         Liquid,
-        Spike
+        Spike,
+        SpawnPoint
     }
 
     public class FeatureDefinition

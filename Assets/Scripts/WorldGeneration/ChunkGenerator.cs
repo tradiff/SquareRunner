@@ -5,6 +5,7 @@ public class ChunkGenerator : IChunkGenerator
 {
     private WorldGenerator worldGenerator;
     public Object liquidPrefab = Resources.Load("Liquid_Prefab");
+    public Object spawnPointPrefab = Resources.Load("entities/SpawnTarget_Prefab");
 
     public ChunkGenerator()
     {
@@ -57,6 +58,9 @@ public class ChunkGenerator : IChunkGenerator
                         worldGenerator.CreatePlatform(chunk, feature.Rect);
                         worldGenerator.CreateTiles(chunk, biome.tileColor, feature.Rect);
                     }
+                    break;
+                case BaseChunkShape.TileTypes.SpawnPoint:
+                    worldGenerator.CreateTile(chunk, spawnPointPrefab, feature.Rect.xMin, feature.Rect.yMin);
                     break;
                 default:
                     break;

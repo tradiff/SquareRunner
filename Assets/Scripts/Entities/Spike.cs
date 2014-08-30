@@ -10,6 +10,6 @@ public class Spike : MonoBehaviour
         if (player == null)
             return;
 
-        player.IsDead = true;
+        player.HitDestroyer();
     }
 }

@@ -24,5 +24,6 @@ public class ChrisShape1 : BaseChunkShape
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 33, xMax = 43, yMin = 2, height = 3 }, TileType = TileTypes.Coin });
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 45, xMax = 49, yMin = 2, height = 3 }, TileType = TileTypes.Coin });
 
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 5, width = 1, yMin = 10, height = 1 }, TileType = TileTypes.SpawnPoint });
     }
 }

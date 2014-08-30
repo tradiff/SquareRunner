@@ -160,8 +160,39 @@ public class Hero : MonoBehaviour
         }
         else
         {
-            this.IsDead = true;
+            if (this.HasHat)
+            {
+                this.HasHat = false;
+                Respawn();
+
+            }
+            else
+            {
+                this.IsDead = true;
+            }
         }
+    }
+
+    private void Respawn()
+    {
+        // find nearest spawn point
+        var spawns = GameObject.FindGameObjectsWithTag("SpawnTarget");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+
+        foreach (GameObject spawn in spawns)
+        {
+            Vector3 diff = spawn.transform.position - transform.position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = spawn;
+                distance = curDistance;
+            }
+        }
+
+        transform.position = closest.transform.position;
+        _controller.Jump();
     }
 
     public void GetMagnet()

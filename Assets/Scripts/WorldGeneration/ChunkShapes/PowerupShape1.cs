@@ -28,5 +28,7 @@ public class PowerupShape1 : BaseChunkShape
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 32, yMin = 1, width = 1, height = 1 }, TileType = TileTypes.Tier1Enemy });
 
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 35, yMin = 7 }, TileType = TileTypes.Powerup });
+
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 1, width = 1, yMin = 10, height = 1 }, TileType = TileTypes.SpawnPoint });
     }
 }
