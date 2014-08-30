@@ -23,7 +23,8 @@ public class CoinGenerator : IChunkGenerator
             {
                 for (int y = 1; y < 7; y++)
                 {
-                    worldGenerator.CreateTile(chunk, biome.coinPrefab, x, y);
+                    var coin = worldGenerator.CreateTile(chunk, biome.coinPrefab, x, y);
+                    Component.Destroy(coin.GetComponentInChildren<Animator>());
                     if (buffered)
                         yield return new WaitForEndOfFrame();
                 }
