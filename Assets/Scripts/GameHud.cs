@@ -22,7 +22,7 @@ public class GameHud : MonoBehaviour
 
     public void Update()
     {
-        distanceText.text = string.Format("{0:N0}m  Speed: {1:N2}x", GameManager.Instance.distanceTraveled, GameManager.Instance.speed);
+        distanceText.text = string.Format("{0:N0}m", GameManager.Instance.distanceTraveled);
         coinsText.text = "Coins: " + GameManager.Instance.coins;
     }
 

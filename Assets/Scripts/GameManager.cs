@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         speed += 0.25f;
         SoundManager.Instance.PlaySound(SoundManager.Sounds.SpeedIncrease);
+        Player.SpeedUpdated();
     }
 
 
@@ -142,6 +143,8 @@ public class GameManager : MonoBehaviour
         Camera.main.transform.position = new Vector3(0, Camera.main.transform.position.y);
         ChangeState(GameStates.Playing);
         Player.SetEnabled(true);
+        Player.SpeedUpdated();
+
 
         Time.timeScale = 1;
         SoundManager.Instance.PlaySound(SoundManager.Sounds.Start);

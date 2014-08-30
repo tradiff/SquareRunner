@@ -24,6 +24,7 @@ public class Hero : MonoBehaviour
     private float magnetTime = 0;
     private float maxMagnetTime = 30f;
     private GameObject _currentChunk;
+    private TrailRenderer _trail;
 
 
     public void Awake()
@@ -32,6 +33,7 @@ public class Hero : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
         _hatGO = transform.FindChild("HeroSprite/hat").gameObject;
         _magnetGO = transform.FindChild("HeroSprite/magnet").gameObject;
+        _trail = transform.GetComponentInChildren<TrailRenderer>();
         _isFacingRight = transform.localScale.x > 0;
     }
 
@@ -60,7 +62,7 @@ public class Hero : MonoBehaviour
 
         if (HasMagnet)
         {
-            if ((magnetTime-= Time.deltaTime) > 0)
+            if ((magnetTime -= Time.deltaTime) > 0)
             {
                 var coins = Physics2D.OverlapCircleAll(transform.position, _magnetRange, 1 << 12);
                 foreach (var coin in coins)
@@ -121,7 +123,7 @@ public class Hero : MonoBehaviour
             }
         }
 
-        if (holdingJump && jumpKey && (jumpTime-= Time.deltaTime) > 0)
+        if (holdingJump && jumpKey && (jumpTime -= Time.deltaTime) > 0)
         {
             _controller.Jump();
         }
@@ -152,6 +154,31 @@ public class Hero : MonoBehaviour
         HasHat = false;
         IsDead = false;
         HasMagnet = false;
+    }
+
+    public void SpeedUpdated()
+    {
+        _trail.material.SetColor("_TintColor", new Color(1f, 0, 0, 1f));
+        if (GameManager.Instance.speed == 1.0f)
+        {
+            _trail.material.SetColor("_TintColor", new Color(1f, 1f, 1f, 1f));
+        }
+        if (GameManager.Instance.speed == 1.25f)
+        {
+            _trail.material.SetColor("_TintColor", new Color(1f, 1f, 0f, 1f));
+        }
+        if (GameManager.Instance.speed == 1.50f)
+        {
+            _trail.material.SetColor("_TintColor", new Color(1f, 0f, 0f, 1f));
+        }
+        if (GameManager.Instance.speed == 1.75f)
+        {
+            _trail.material.SetColor("_TintColor", new Color(1f, 0f, 1f, 1f));
+        }
+        if (GameManager.Instance.speed == 2.00f)
+        {
+            _trail.material.SetColor("_TintColor", new Color(0f, 0f, 1f, 1f));
+        }
     }
 
     public void EnterChunk(GameObject chunk)
