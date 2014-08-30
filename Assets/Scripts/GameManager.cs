@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     public void ChangeState(GameStates newState)
     {
         // reset
-        var newTimeScale = 0;
+        float newTimeScale = 0;
         Player.SetEnabled(false);
         GameHud.pauseScreen.alpha = 0;
         GameHud.pauseScreen.interactable = false;

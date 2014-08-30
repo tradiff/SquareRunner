@@ -12,12 +12,12 @@ public class PowerupShape1 : BaseChunkShape
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 19, xMax = 50, yMin = 0, yMax = 1 }, TileType = TileTypes.Platform });
 
 
-        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 1, xMax = 5, yMin = 3, yMax = 4 }, TileType = TileTypes.Platform });
-        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 27, xMax = 34, yMin = 3, yMax = 4 }, TileType = TileTypes.Platform50p });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 1, xMax = 5, yMin = 3, yMax = 4 }, TileType = TileTypes.OneWayPlatform });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 27, xMax = 34, yMin = 3, yMax = 4 }, TileType = TileTypes.OneWayPlatform50p });
 
-        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 10, xMax = 14, yMin = 6, yMax = 7 }, TileType = TileTypes.Platform });
-        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 19, xMax = 29, yMin = 6, yMax = 7 }, TileType = TileTypes.Platform });
-        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 32, xMax = 38, yMin = 6, yMax = 7 }, TileType = TileTypes.Platform });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 10, xMax = 14, yMin = 6, yMax = 7 }, TileType = TileTypes.OneWayPlatform });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 19, xMax = 29, yMin = 6, yMax = 7 }, TileType = TileTypes.OneWayPlatform });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 32, xMax = 38, yMin = 6, yMax = 7 }, TileType = TileTypes.OneWayPlatform });
 
 
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 10, xMax = 14, yMin = 7, yMax = 9 }, TileType = TileTypes.Coin });

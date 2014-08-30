@@ -9,8 +9,8 @@ public class FlatShape2 : BaseChunkShape
 
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 0, xMax = 50, yMin = 0, height = 1}, TileType = TileTypes.Platform });
 
-        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 7, xMax = 19, yMin = 3, height = 1 }, TileType = TileTypes.Platform });
-        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 27, xMax = 39, yMin = 3, height = 1 }, TileType = TileTypes.Platform });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 7, xMax = 19, yMin = 3, height = 1 }, TileType = TileTypes.OneWayPlatform });
+        this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 27, xMax = 39, yMin = 3, height = 1 }, TileType = TileTypes.OneWayPlatform });
 
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 7, xMax = 19, yMin = 4, height = 3 }, TileType = TileTypes.Coin });
         this.Map.Add(new FeatureDefinition { Rect = new Rect { xMin = 27, xMax = 39, yMin = 4, height = 3 }, TileType = TileTypes.Coin });

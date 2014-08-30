@@ -7,6 +7,7 @@ public class WorldGenerator : MonoBehaviour
 {
     private Object worldChunkPrefab;
     private Object platformPrefab;
+    private Object _oneWayPlatformPrefab;
     private Object tilePrefab;
     private Object speedIncreasePrefab;
 
@@ -38,6 +39,7 @@ public class WorldGenerator : MonoBehaviour
         enemyGenerator = new EnemyGenerator();
         worldChunkPrefab = Resources.Load("WorldChunkPrefab");
         platformPrefab = Resources.Load("Platform_Prefab");
+        _oneWayPlatformPrefab = Resources.Load("OneWayPlatform_Prefab");
         tilePrefab = Resources.Load("Tile_Prefab");
         speedIncreasePrefab = Resources.Load("SpeedChangeTrigger_Prefab");
 
@@ -251,6 +253,16 @@ public class WorldGenerator : MonoBehaviour
         if (chunk != null)
         {
             var tile = (GameObject)UnityEngine.Object.Instantiate(platformPrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+            tile.transform.parent = chunk.transform;
+            tile.transform.localPosition = new Vector3(rect.x, rect.y, 0);
+            tile.transform.localScale = new Vector3(rect.width, rect.height, tile.transform.localScale.z);
+        }
+    }
+    public void CreateOneWayPlatform(GameObject chunk, Rect rect)
+    {
+        if (chunk != null)
+        {
+            var tile = (GameObject)UnityEngine.Object.Instantiate(_oneWayPlatformPrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
             tile.transform.parent = chunk.transform;
             tile.transform.localPosition = new Vector3(rect.x, rect.y, 0);
             tile.transform.localScale = new Vector3(rect.width, rect.height, tile.transform.localScale.z);

@@ -53,10 +53,14 @@ public class ChunkGenerator : IChunkGenerator
                     worldGenerator.CreatePlatform(chunk, feature.Rect);
                     worldGenerator.CreateTiles(chunk, biome.tileColor, feature.Rect);
                     break;
-                case BaseChunkShape.TileTypes.Platform50p:
+                case BaseChunkShape.TileTypes.OneWayPlatform:
+                    worldGenerator.CreateOneWayPlatform(chunk, feature.Rect);
+                    worldGenerator.CreateTiles(chunk, biome.tileColor, feature.Rect);
+                    break;
+                case BaseChunkShape.TileTypes.OneWayPlatform50p:
                     if (Random.Range(0, 2) == 0)
                     {
-                        worldGenerator.CreatePlatform(chunk, feature.Rect);
+                        worldGenerator.CreateOneWayPlatform(chunk, feature.Rect);
                         worldGenerator.CreateTiles(chunk, biome.tileColor, feature.Rect);
                     }
                     break;

@@ -15,7 +15,8 @@ public abstract class BaseChunkShape
     {
         Air,
         Platform,
-        Platform50p,
+        OneWayPlatform,
+        OneWayPlatform50p,
         Tier1Enemy,
         Coin,
         Powerup,

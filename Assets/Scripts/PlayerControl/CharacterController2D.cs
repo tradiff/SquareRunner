@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CharacterController2D : MonoBehaviour
 {
-    private const float SkinWidth = .02f;
+    private const float SkinWidth = .2f;
     private const int TotalHorizontalRays = 8;
     private const int TotalVerticalRays = 4;
 
@@ -56,7 +56,7 @@ public class CharacterController2D : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider2D>();
 
         var colliderWidth = _boxCollider.size.x * Mathf.Abs(transform.localScale.x) - (2 * SkinWidth);
-        _horizontalDistanceBetweenRays = (colliderWidth * TotalVerticalRays - 1);
+        _horizontalDistanceBetweenRays = colliderWidth / (TotalVerticalRays - 1);
 
         var colliderHeight = _boxCollider.size.y * Mathf.Abs(transform.localScale.y) - (2 * SkinWidth);
         _verticalDistanceBetweenRays = colliderHeight / (TotalHorizontalRays - 1);
@@ -193,7 +193,7 @@ public class CharacterController2D : MonoBehaviour
         var standingOnDistance = float.MaxValue;
         for (var i = 0; i < TotalVerticalRays; i++)
         {
-            var rayVector = new Vector2(rayOrigin.x + (i * _verticalDistanceBetweenRays), rayOrigin.y);
+            var rayVector = new Vector2(rayOrigin.x + (i * _horizontalDistanceBetweenRays), rayOrigin.y);
             Debug.DrawRay(rayVector, rayDirection * rayDistance, Color.red);
 
             var raycastHit = Physics2D.Raycast(rayVector, rayDirection, rayDistance, PlatformMask);
