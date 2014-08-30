@@ -112,12 +112,14 @@ public class GameManager : MonoBehaviour
             lastNormalPlayPosition = Player.transform.position;
             Player.transform.position = new Vector3(0, Player.transform.position.y + 100, Player.transform.position.z);
             Player.lastPosition = Player.transform.position;
+            Camera.main.transform.position = Player.transform.position;
         }
         if (newArea == Areas.Normal)
         {
             WorldGenerator.DestroyBonusChunks();
             Player.transform.position = new Vector3(lastNormalPlayPosition.x, 10, Player.transform.position.z);
             Player.lastPosition = Player.transform.position;
+            Camera.main.transform.position = Player.transform.position;
         }
 
     }
