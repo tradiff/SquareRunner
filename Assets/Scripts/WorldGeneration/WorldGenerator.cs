@@ -53,6 +53,7 @@ public class WorldGenerator : MonoBehaviour
         biomes.Add(new StormyBiome());
         biomes.Add(new LavaCaveBiome());
         biomes.Add(new WesternBiome());
+        biomes.Add(new SunsetBiome());
 
         GameManager.Instance.ResetGame();
     }
@@ -189,6 +190,7 @@ public class WorldGenerator : MonoBehaviour
         lastChunkPosX = (int)positionX;
         lastBiome = biome;
         Debug.Log("lastChunkPosX = " + lastChunkPosX);
+        biome.UpdateChunk(chunk);
         return chunk;
     }
 

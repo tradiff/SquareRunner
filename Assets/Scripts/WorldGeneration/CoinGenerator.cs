@@ -48,6 +48,7 @@ public class CoinGenerator : IChunkGenerator
                 }
             }
         }
+        biome.UpdateChunk(chunk);
     }
 
 

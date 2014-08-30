@@ -23,6 +23,7 @@ public class Hero : MonoBehaviour
     private float _magnetRange = 5f;
     private float magnetTime = 0;
     private float maxMagnetTime = 30f;
+    private GameObject _currentChunk;
 
 
     public void Awake()
@@ -150,6 +151,14 @@ public class Hero : MonoBehaviour
     {
         HasHat = false;
         IsDead = false;
+        HasMagnet = false;
+    }
+
+    public void EnterChunk(GameObject chunk)
+    {
+        _currentChunk = chunk;
+        this.transform.FindChild("HeroSprite").GetComponent<SpriteRenderer>().color = chunk.GetComponent<WorldChunk>().Biome.playerColor;
+        this.transform.FindChild("HeroSprite").FindChild("hat").GetComponent<SpriteRenderer>().color = chunk.GetComponent<WorldChunk>().Biome.playerColor;
     }
 
     public void HitDestroyer()

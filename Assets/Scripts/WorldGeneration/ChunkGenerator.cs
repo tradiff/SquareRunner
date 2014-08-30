@@ -14,6 +14,7 @@ public class ChunkGenerator : IChunkGenerator
 
     public void Generate(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
     {
+        chunk.GetComponent<WorldChunk>().Biome = biome;
         worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkShape, biome, buffered));
     }
 

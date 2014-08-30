@@ -3,17 +3,14 @@ using System.Collections;
 
 public class WorldChunk : MonoBehaviour
 {
-
-    // Use this for initialization
-    void Start()
+    public BaseBiome Biome;
+    void OnTriggerEnter2D(Collider2D other)
     {
-
+        if (other.tag == "Player")
+        {
+            Debug.Log("Player entered new chunk");
+            other.GetComponent<Hero>().EnterChunk(this.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - (Time.deltaTime * 12f), this.gameObject.transform.position.y, 0);
-
-    }
 }
