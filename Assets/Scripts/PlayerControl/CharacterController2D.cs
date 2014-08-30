@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CharacterController2D : MonoBehaviour
 {
-    private const float SkinWidth = .2f;
+    private const float SkinWidth = .02f;
     private const int TotalHorizontalRays = 8;
     private const int TotalVerticalRays = 4;
 

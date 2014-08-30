@@ -19,7 +19,7 @@ public class SunsetBiome : BaseBiome
         var sr = chunk.GetComponentsInChildren<SpriteRenderer>(true);
         foreach (var item in sr)
         {
-            if (item.tag != "Liquid")
+            if (item.tag != "Liquid" && item.tag != "Background")
                 item.color = Color.black;
         }
     }
