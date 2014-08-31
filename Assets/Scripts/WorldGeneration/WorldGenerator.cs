@@ -115,7 +115,7 @@ public class WorldGenerator : MonoBehaviour
     private GameObject GenerateBonusWorldChunk(float positionX, BaseChunkShape shape)
     {
         Debug.Log("new chunk at " + positionX);
-        var eligibleChunkShapes = chunkShapes.Where(x => GameManager.Instance.distanceTraveled >= x.Difficulty - 1).ToList();
+        var eligibleChunkShapes = chunkShapes.Where(x => GameManager.Instance.distanceTraveled >= x.Difficulty - 1 && !x.CanKill).ToList();
 
         var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, GameManager.Instance.Area == GameManager.Areas.Bonus ? 100 : 0, 0), new Quaternion(0, 0, 0, 0));
         if (shape == null)

@@ -6,6 +6,7 @@ public class ChunkGenerator : IChunkGenerator
     private WorldGenerator worldGenerator;
     public Object liquidPrefab = Resources.Load("Liquid_Prefab");
     public Object spawnPointPrefab = Resources.Load("entities/SpawnTarget_Prefab");
+    public Object spikePrefab = Resources.Load("entities/Spike_Prefab");
 
     public ChunkGenerator()
     {
@@ -66,6 +67,15 @@ public class ChunkGenerator : IChunkGenerator
                     break;
                 case BaseChunkShape.TileTypes.SpawnPoint:
                     worldGenerator.CreateTile(chunk, spawnPointPrefab, feature.Rect.xMin, feature.Rect.yMin);
+                    break;
+                case BaseChunkShape.TileTypes.Spike:
+                    for (var x = (int)feature.Rect.xMin; x < (int)feature.Rect.xMax; x++)
+                    {
+                        for (var y = (int)feature.Rect.yMin; y < (int)feature.Rect.yMax; y++)
+                        {
+                            worldGenerator.CreateTile(chunk, spikePrefab, x, y);
+                        }
+                    }
                     break;
                 default:
                     break;

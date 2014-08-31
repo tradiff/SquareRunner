@@ -6,6 +6,7 @@ public class GapyShape2 : BaseChunkShape
     public GapyShape2()
     {
         this.Difficulty = 0;
+        this.CanKill = true;
         this.Map.Add(new FeatureDefinition { Rect = new Rect(0, 0, 10, 1), TileType = TileTypes.Platform });
         this.Map.Add(new FeatureDefinition { Rect = new Rect(14, 0, 3, 3), TileType = TileTypes.Platform });
         this.Map.Add(new FeatureDefinition { Rect = new Rect(20, 0, GameManager.Instance.WorldGenerator.chunkWidth - 20, 1), TileType = TileTypes.Platform });

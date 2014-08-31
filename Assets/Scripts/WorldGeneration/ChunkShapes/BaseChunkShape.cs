@@ -6,6 +6,7 @@ public abstract class BaseChunkShape
 {
     public int Difficulty = 0;
     public List<FeatureDefinition> Map = new List<FeatureDefinition>();
+    public bool CanKill = false;
  
     public BaseChunkShape()
     {
