@@ -11,16 +11,16 @@ public class CoinGenerator : IChunkGenerator
         worldGenerator = GameManager.Instance.WorldGenerator;
     }
 
-    public void Generate(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
+    public void Generate(WorldChunk chunk, bool buffered)
     {
-        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkShape, biome, buffered));
+        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, buffered));
     }
 
-    public IEnumerator GenerateCoroutine(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
+    public IEnumerator GenerateCoroutine(WorldChunk chunk, bool buffered)
     {
-        if (biome.GetType() == typeof(BonusBiome))
+        if (chunk.Biome.GetType() == typeof(BonusBiome))
         {
-            var features = chunkShape.Map.Where(x => x.TileType == BaseChunkShape.TileTypes.OneWayPlatform || x.TileType == BaseChunkShape.TileTypes.OneWayPlatform50p || x.TileType == BaseChunkShape.TileTypes.Platform);
+            var features = chunk.Shape.Map.Where(x => x.TileType == BaseChunkShape.TileTypes.OneWayPlatform || x.TileType == BaseChunkShape.TileTypes.OneWayPlatform50p || x.TileType == BaseChunkShape.TileTypes.Platform);
             var overlap = false;
             for (int x = 0; x < 50; x++)
             {
@@ -38,7 +38,7 @@ public class CoinGenerator : IChunkGenerator
 
                     if (!overlap)
                     {
-                        var coin = worldGenerator.CreateTile(chunk, biome.coinPrefab, x, y);
+                        var coin = worldGenerator.CreateTile(chunk.gameObject, chunk.Biome.coinPrefab, x, y);
                         Component.Destroy(coin.GetComponentInChildren<Animator>());
                         if (buffered)
                             yield return new WaitForEndOfFrame();
@@ -50,7 +50,7 @@ public class CoinGenerator : IChunkGenerator
         }
         else
         {
-            foreach (var feature in chunkShape.Map)
+            foreach (var feature in chunk.Shape.Map)
             {
                 if (feature.TileType == BaseChunkShape.TileTypes.Coin)
                 {
@@ -58,7 +58,7 @@ public class CoinGenerator : IChunkGenerator
                     {
                         for (int y = (int)feature.Rect.yMin; y < (int)feature.Rect.yMax; y++)
                         {
-                            worldGenerator.CreateTile(chunk, biome.coinPrefab, x, y);
+                            worldGenerator.CreateTile(chunk.gameObject, chunk.Biome.coinPrefab, x, y);
                         }
                     }
                     if (buffered)
@@ -66,7 +66,7 @@ public class CoinGenerator : IChunkGenerator
                 }
             }
         }
-        biome.UpdateChunk(chunk);
+        chunk.Biome.UpdateChunk(chunk);
     }
 
 

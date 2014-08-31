@@ -16,7 +16,7 @@ public abstract class BaseBiome : IWeighted
     public int Weight { get; set; }
     public bool IsSpecial = true;
 
-    public virtual void UpdateChunk(GameObject chunk)
+    public virtual void UpdateChunk(WorldChunk chunk)
     {
 
     }

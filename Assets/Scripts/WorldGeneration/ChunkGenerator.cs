@@ -13,17 +13,15 @@ public class ChunkGenerator : IChunkGenerator
         worldGenerator = GameManager.Instance.WorldGenerator;
     }
 
-    public void Generate(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
+    public void Generate(WorldChunk chunk, bool buffered)
     {
-        chunk.GetComponent<WorldChunk>().Biome = biome;
-        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, chunkShape, biome, buffered));
+        worldGenerator.StartChildCoroutine(GenerateCoroutine(chunk, buffered));
     }
 
-    public IEnumerator GenerateCoroutine(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
+    public IEnumerator GenerateCoroutine(WorldChunk chunk, bool buffered)
     {
-        Debug.Log("generating " + chunkShape.Map.Count);
-        if (biome.backgroundPrefab != null)
-            worldGenerator.CreateBG(chunk, biome.backgroundPrefab);
+        if (chunk.Biome.backgroundPrefab != null)
+            worldGenerator.CreateBG(chunk.gameObject, chunk.Biome.backgroundPrefab);
 
         // ragged top
         for (int x = 0; x < worldGenerator.chunkWidth; x++)
@@ -32,48 +30,48 @@ public class ChunkGenerator : IChunkGenerator
             {
                 if (Random.Range(0, 2) == 0)
                 {
-                    var tile = worldGenerator.CreateTile(chunk, new Color(0.2f, 0.2f, 0.2f), x, y);
+                    var tile = worldGenerator.CreateTile(chunk.gameObject, new Color(0.2f, 0.2f, 0.2f), x, y);
                 }
             }
         }
 
-        foreach (var feature in chunkShape.Map)
+        foreach (var feature in chunk.Shape.Map)
         {
             switch (feature.TileType)
             {
                 case BaseChunkShape.TileTypes.Air:
                     break;
                 case BaseChunkShape.TileTypes.Liquid:
-                    var tile = worldGenerator.CreateTiles(chunk, liquidPrefab, feature.Rect);
-                    tile.GetComponentInChildren<SpriteRenderer>().color = biome.waterColor;
+                    var tile = worldGenerator.CreateTiles(chunk.gameObject, liquidPrefab, feature.Rect);
+                    tile.GetComponentInChildren<SpriteRenderer>().color = chunk.Biome.waterColor;
                     var particleSystem = tile.GetComponentInChildren<ParticleSystem>();
                     particleSystem.emissionRate = 3 * feature.Rect.width;
-                    particleSystem.startColor = biome.waterColor;
+                    particleSystem.startColor = chunk.Biome.waterColor;
                     break;
                 case BaseChunkShape.TileTypes.Platform:
-                    worldGenerator.CreatePlatform(chunk, feature.Rect);
-                    worldGenerator.CreateTiles(chunk, biome.tileColor, feature.Rect);
+                    worldGenerator.CreatePlatform(chunk.gameObject, feature.Rect);
+                    worldGenerator.CreateTiles(chunk.gameObject, chunk.Biome.tileColor, feature.Rect);
                     break;
                 case BaseChunkShape.TileTypes.OneWayPlatform:
-                    worldGenerator.CreateOneWayPlatform(chunk, feature.Rect);
-                    worldGenerator.CreateTiles(chunk, biome.tileColor, feature.Rect);
+                    worldGenerator.CreateOneWayPlatform(chunk.gameObject, feature.Rect);
+                    worldGenerator.CreateTiles(chunk.gameObject, chunk.Biome.tileColor, feature.Rect);
                     break;
                 case BaseChunkShape.TileTypes.OneWayPlatform50p:
                     if (Random.Range(0, 2) == 0)
                     {
-                        worldGenerator.CreateOneWayPlatform(chunk, feature.Rect);
-                        worldGenerator.CreateTiles(chunk, biome.tileColor, feature.Rect);
+                        worldGenerator.CreateOneWayPlatform(chunk.gameObject, feature.Rect);
+                        worldGenerator.CreateTiles(chunk.gameObject, chunk.Biome.tileColor, feature.Rect);
                     }
                     break;
                 case BaseChunkShape.TileTypes.SpawnPoint:
-                    worldGenerator.CreateTile(chunk, spawnPointPrefab, feature.Rect.xMin, feature.Rect.yMin);
+                    worldGenerator.CreateTile(chunk.gameObject, spawnPointPrefab, feature.Rect.xMin, feature.Rect.yMin);
                     break;
                 case BaseChunkShape.TileTypes.Spike:
                     for (var x = (int)feature.Rect.xMin; x < (int)feature.Rect.xMax; x++)
                     {
                         for (var y = (int)feature.Rect.yMin; y < (int)feature.Rect.yMax; y++)
                         {
-                            worldGenerator.CreateTile(chunk, spikePrefab, x, y);
+                            worldGenerator.CreateTile(chunk.gameObject, spikePrefab, x, y);
                         }
                     }
                     break;

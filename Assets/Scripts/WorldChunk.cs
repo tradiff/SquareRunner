@@ -3,6 +3,8 @@ using System.Collections;
 
 public class WorldChunk : MonoBehaviour
 {
+    public bool HasSpeedIncrease;
+    public BaseChunkShape Shape;
     public BaseBiome Biome;
     void OnTriggerEnter2D(Collider2D other)
     {

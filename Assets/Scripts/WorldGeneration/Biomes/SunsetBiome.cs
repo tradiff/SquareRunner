@@ -14,7 +14,7 @@ public class SunsetBiome : BaseBiome
         this.waterColor = new Color(0.32f, 0.77f, 1f, 1f);
         this.backgroundPrefab = Resources.Load("backgrounds/Background_Sunset_Prefab");
     }
-    public override void UpdateChunk(GameObject chunk)
+    public override void UpdateChunk(WorldChunk chunk)
     {
         var sr = chunk.GetComponentsInChildren<SpriteRenderer>(true);
         foreach (var item in sr)

@@ -12,14 +12,19 @@ public class EnemyGenerator : IChunkGenerator
         worldGenerator = GameManager.Instance.WorldGenerator;
     }
 
-    public void Generate(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered)
+    public void Generate(WorldChunk chunk, bool buffered)
     {
         if (GameManager.Instance.Area == GameManager.Areas.Bonus)
         {
             return;
         }
+        if (GameManager.Instance.distanceTraveled < 1 || chunk.HasSpeedIncrease)
+        {
+            return;
+        }
 
-        foreach (var feature in chunkShape.Map)
+
+        foreach (var feature in  chunk.Shape.Map)
         {
             if (feature.TileType == BaseChunkShape.TileTypes.Tier1Enemy)
             {
@@ -40,7 +45,7 @@ public class EnemyGenerator : IChunkGenerator
                     {
                         for (var y = (int)feature.Rect.yMin; y < (int)feature.Rect.yMax; y += 2)
                         {
-                            worldGenerator.CreateTile(chunk, prefab, x, y);
+                            worldGenerator.CreateTile(chunk.gameObject, prefab, x, y);
                         }
                     }
                 }

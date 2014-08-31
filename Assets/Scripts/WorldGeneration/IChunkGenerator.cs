@@ -3,5 +3,5 @@ using System.Collections;
 
 public interface IChunkGenerator
 {
-    void Generate(GameObject chunk, BaseChunkShape chunkShape, BaseBiome biome, bool buffered);
+    void Generate(WorldChunk chunk, bool buffered);
 }

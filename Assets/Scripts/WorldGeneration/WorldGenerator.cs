@@ -14,14 +14,14 @@ public class WorldGenerator : MonoBehaviour
     private int lastChunkPosX;
     public float chunkWidth;
     public float chunkHeight;
-    private List<BaseChunkShape> chunkShapes;
-    private List<BaseBiome> biomes;
-    private ChunkGenerator chunkGenerator;
-    private CoinGenerator coinGenerator;
-    private PowerupGenerator powerupGenerator;
-    private EnemyGenerator enemyGenerator;
+    private List<BaseChunkShape> _chunkShapes;
+    private List<BaseBiome> _biomes;
+    private List<IChunkGenerator> _generators;
     private bool readyForChunks;
     private BaseBiome lastBiome;
+    List<WorldChunk> bonusWorldChunks = new List<WorldChunk>();
+    private bool speedInreaseTesting = false;
+    private int speedIncreaseCount = 0;
 
     void Start()
     {
@@ -31,31 +31,35 @@ public class WorldGenerator : MonoBehaviour
         readyForChunks = false;
         chunkWidth = 50;
         chunkHeight = 14;
-        chunkShapes = new List<BaseChunkShape>();
-        biomes = new List<BaseBiome>();
-        chunkGenerator = new ChunkGenerator();
-        coinGenerator = new CoinGenerator();
-        powerupGenerator = new PowerupGenerator();
-        enemyGenerator = new EnemyGenerator();
+
         worldChunkPrefab = Resources.Load("WorldChunkPrefab");
         platformPrefab = Resources.Load("Platform_Prefab");
         _oneWayPlatformPrefab = Resources.Load("OneWayPlatform_Prefab");
         tilePrefab = Resources.Load("Tile_Prefab");
         speedIncreasePrefab = Resources.Load("SpeedChangeTrigger_Prefab");
 
-        chunkShapes.Add(new FlatShape());
-        chunkShapes.Add(new FlatShape2());
-        chunkShapes.Add(new PowerupShape1());
-        chunkShapes.Add(new GapyShape1());
-        chunkShapes.Add(new GapyShape2());
-        chunkShapes.Add(new ChrisShape1());
 
-        biomes.Add(new GrassBiome());
-        biomes.Add(new CaveBiome());
-        biomes.Add(new StormyBiome());
-        biomes.Add(new LavaCaveBiome());
-        biomes.Add(new WesternBiome());
-        biomes.Add(new SunsetBiome());
+        _generators = new List<IChunkGenerator>();
+        _generators.Add(new ChunkGenerator());
+        _generators.Add(new CoinGenerator());
+        _generators.Add(new PowerupGenerator());
+        _generators.Add(new EnemyGenerator());
+
+        _chunkShapes = new List<BaseChunkShape>();
+        _chunkShapes.Add(new FlatShape());
+        _chunkShapes.Add(new FlatShape2());
+        _chunkShapes.Add(new PowerupShape1());
+        _chunkShapes.Add(new GapyShape1());
+        _chunkShapes.Add(new GapyShape2());
+        _chunkShapes.Add(new ChrisShape1());
+
+        _biomes = new List<BaseBiome>();
+        _biomes.Add(new GrassBiome());
+        _biomes.Add(new CaveBiome());
+        _biomes.Add(new StormyBiome());
+        _biomes.Add(new LavaCaveBiome());
+        _biomes.Add(new WesternBiome());
+        _biomes.Add(new SunsetBiome());
 
         GameManager.Instance.ResetGame();
     }
@@ -78,7 +82,6 @@ public class WorldGenerator : MonoBehaviour
         }
     }
 
-    List<GameObject> bonusWorldChunks = new List<GameObject>();
     public void GenerateBonusChunks()
     {
         bonusWorldChunks.Add(GenerateBonusWorldChunk(0, new FlatShape()));
@@ -105,95 +108,96 @@ public class WorldGenerator : MonoBehaviour
             GameObject.Destroy(chunk);
         }
 
-        //lastChunkPosX = 0;
         speedIncreaseCount = 0;
         GenerateWorldChunk(-50, false);
         GenerateWorldChunk(0, false);
         readyForChunks = true;
     }
 
-    private GameObject GenerateBonusWorldChunk(float positionX, BaseChunkShape shape)
+    private WorldChunk GenerateBonusWorldChunk(float positionX, BaseChunkShape shape)
     {
         Debug.Log("new chunk at " + positionX);
-        var eligibleChunkShapes = chunkShapes.Where(x => GameManager.Instance.distanceTraveled >= x.Difficulty - 1 && !x.CanKill).ToList();
+        var eligibleChunkShapes = _chunkShapes.Where(x => GameManager.Instance.distanceTraveled >= x.Difficulty - 1 && !x.CanKill).ToList();
 
-        var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, GameManager.Instance.Area == GameManager.Areas.Bonus ? 100 : 0, 0), new Quaternion(0, 0, 0, 0));
+        var chunkGO = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, GameManager.Instance.Area == GameManager.Areas.Bonus ? 100 : 0, 0), new Quaternion(0, 0, 0, 0));
+        var chunk = chunkGO.GetComponent<WorldChunk>();
         if (shape == null)
             shape = eligibleChunkShapes.RandomElement();
 
-        BaseBiome biome = new BonusBiome();
+        chunk.Biome = new BonusBiome();
+        chunk.Shape = shape;
 
-        chunkGenerator.Generate(chunk, shape, biome, false);
-        coinGenerator.Generate(chunk, shape, biome, false);
-        powerupGenerator.Generate(chunk, shape, biome, false);
+        foreach (var gen in _generators)
+        {
+            gen.Generate(chunk, false);
+        }
         return chunk;
     }
 
 
-    private bool speedInreaseTesting = false;
-    private int speedIncreaseCount = 0;
-    private GameObject GenerateWorldChunk(float positionX, bool buffered)
+    private WorldChunk GenerateWorldChunk(float positionX, bool buffered)
     {
         Debug.Log("new chunk at " + positionX);
-        bool speedIncreaseChunk = false;
 
-        if (speedInreaseTesting)
-        {
-            if (speedIncreaseCount == 0 && GameManager.Instance.distanceTraveled > 100)
-                speedIncreaseChunk = true;
-            if (speedIncreaseCount == 1 && GameManager.Instance.distanceTraveled > 200)
-                speedIncreaseChunk = true;
-            if (speedIncreaseCount == 2 && GameManager.Instance.distanceTraveled > 300)
-                speedIncreaseChunk = true;
-            if (speedIncreaseCount == 3 && GameManager.Instance.distanceTraveled > 400)
-                speedIncreaseChunk = true;
-        }
+        var eligibleChunkShapes = _chunkShapes.Where(x => GameManager.Instance.distanceTraveled >= x.Difficulty - 1).ToList();
+
+        var chunkGO = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, GameManager.Instance.Area == GameManager.Areas.Bonus ? 100 : 0, 0), new Quaternion(0, 0, 0, 0));
+        var chunk = chunkGO.GetComponent<WorldChunk>();
+        chunk.HasSpeedIncrease = DueForSpeedIncrease();
+
+        if (buffered == false || chunk.HasSpeedIncrease == true)
+            chunk.Shape = new FlatShape();
         else
-        {
-            if (speedIncreaseCount == 0 && GameManager.Instance.distanceTraveled > 300)
-                speedIncreaseChunk = true;
-            if (speedIncreaseCount == 1 && GameManager.Instance.distanceTraveled > 500)
-                speedIncreaseChunk = true;
-            if (speedIncreaseCount == 2 && GameManager.Instance.distanceTraveled > 750)
-                speedIncreaseChunk = true;
-            if (speedIncreaseCount == 3 && GameManager.Instance.distanceTraveled > 1000)
-                speedIncreaseChunk = true;
-        }
+            chunk.Shape = eligibleChunkShapes.RandomElement();
 
-
-
-        var eligibleChunkShapes = chunkShapes.Where(x => GameManager.Instance.distanceTraveled >= x.Difficulty - 1).ToList();
-
-        var chunk = (GameObject)Instantiate(worldChunkPrefab, new Vector3(positionX, GameManager.Instance.Area == GameManager.Areas.Bonus ? 100 : 0, 0), new Quaternion(0, 0, 0, 0));
-        BaseChunkShape shape;
-        if (buffered == false || speedIncreaseChunk == true)
-            shape = new FlatShape();
-        else
-            shape = eligibleChunkShapes.RandomElement();
-
-        BaseBiome biome;
         if (buffered == false || lastBiome == null || lastBiome.IsSpecial)
-            biome = new GrassBiome();
+            chunk.Biome = new GrassBiome();
         else
-            biome = biomes.Choose();
+            chunk.Biome = _biomes.Choose();
 
-        chunkGenerator.Generate(chunk, shape, biome, buffered);
-        coinGenerator.Generate(chunk, shape, biome, buffered);
-        powerupGenerator.Generate(chunk, shape, biome, buffered);
-        if (GameManager.Instance.distanceTraveled > 1 && !speedIncreaseChunk)
-            enemyGenerator.Generate(chunk, shape, biome, buffered);
-
-        if (speedIncreaseChunk)
+        foreach (var gen in _generators)
         {
-            this.CreateTile(chunk, speedIncreasePrefab, 2, 0);
+            gen.Generate(chunk, false);
+        }
+
+        if (chunk.HasSpeedIncrease)
+        {
+            this.CreateTile(chunk.gameObject, speedIncreasePrefab, 2, 0);
             speedIncreaseCount++;
         }
 
         lastChunkPosX = (int)positionX;
-        lastBiome = biome;
+        lastBiome = chunk.Biome;
         Debug.Log("lastChunkPosX = " + lastChunkPosX);
-        biome.UpdateChunk(chunk);
+        chunk.Biome.UpdateChunk(chunk);
         return chunk;
+    }
+
+    private bool DueForSpeedIncrease()
+    {
+        if (speedInreaseTesting)
+        {
+            if (speedIncreaseCount == 0 && GameManager.Instance.distanceTraveled > 100)
+                return true;
+            if (speedIncreaseCount == 1 && GameManager.Instance.distanceTraveled > 200)
+                return true;
+            if (speedIncreaseCount == 2 && GameManager.Instance.distanceTraveled > 300)
+                return true;
+            if (speedIncreaseCount == 3 && GameManager.Instance.distanceTraveled > 400)
+                return true;
+        }
+        else
+        {
+            if (speedIncreaseCount == 0 && GameManager.Instance.distanceTraveled > 300)
+                return true;
+            if (speedIncreaseCount == 1 && GameManager.Instance.distanceTraveled > 500)
+                return true;
+            if (speedIncreaseCount == 2 && GameManager.Instance.distanceTraveled > 750)
+                return true;
+            if (speedIncreaseCount == 3 && GameManager.Instance.distanceTraveled > 1000)
+                return true;
+        }
+        return false;
     }
 
 
