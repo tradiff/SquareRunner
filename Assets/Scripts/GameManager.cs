@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         speed += 0.25f;
         SoundManager.Instance.PlaySound(SoundManager.Sounds.SpeedIncrease);
         Player.SpeedUpdated();
+        Camera.main.GetComponent<CameraFollow>().StartShake();
     }
 
 
