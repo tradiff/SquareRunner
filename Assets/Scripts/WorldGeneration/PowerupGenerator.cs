@@ -23,7 +23,7 @@ public class PowerupGenerator : IChunkGenerator
                     worldGenerator.CreateTile(chunk.gameObject, powerupHatPrefab, feature.Rect.xMin, feature.Rect.yMin);
                 else if (Random.Range(0, 2) == 0)
                     worldGenerator.CreateTile(chunk.gameObject, powerupMagnetPrefab, feature.Rect.xMin, feature.Rect.yMin);
-                else if (Random.Range(0, 5) == 0)
+                else if (Random.Range(0, 5) == 0 && chunk.Biome.GetType() != typeof(BonusBiome))
                     worldGenerator.CreateTile(chunk.gameObject, powerupBonusPrefab, feature.Rect.xMin, feature.Rect.yMin);
 
             }
