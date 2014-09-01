@@ -103,6 +103,11 @@ public class ShopScreen : MonoBehaviour
         return si;
     }
 
+    public void CloseClick()
+    {
+        Application.LoadLevel("StartScreen");
+    }
+
     public enum ShopItemType
     {
         SingleUse,
