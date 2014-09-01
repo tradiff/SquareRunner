@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameStates.RecapScreen:
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.Die);
+                PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + coins);
                 GooglePlayManager.ReportScore((int)this.distanceTraveled);
                 StartCoroutine(ShowLevelRecapScreen()); // delay for the sound to finish
                 break;

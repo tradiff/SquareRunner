@@ -40,6 +40,7 @@ public class StartScreen : MonoBehaviour
     {
         GooglePlayManager.ShowLeaderBoards();
     }
+
     public void ShopClick()
     {
         Debug.Log("Loading shop");

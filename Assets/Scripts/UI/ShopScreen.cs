@@ -66,11 +66,11 @@ public class ShopScreen : MonoBehaviour
         CreateShopItem("item_Respawn", "Respawn", "Opportunity to respawn after dying", 10000, ShopItemType.SingleUse);
         CreateShopItem("item_Hat", "Hat", "Keep an extra hat in your back pocket", 10000, ShopItemType.SingleUse);
         CreateShopItem("item_SlowMo", "Slow Mo", "Slow Motion for 10 seconds", 10000, ShopItemType.SingleUse);
-        CreateShopItem("item_LuckyCharm", "Lucky Charm", "Increased odds of rolling powerups", 10000, ShopItemType.SingleUse);
+        CreateShopItem("item_LuckyCharm", "Lucky Charm", "Increased odds of rolling powerups for one run", 10000, ShopItemType.SingleUse);
         CreateShopItem("item_DoubleJump", "Double Jump", "Double Jump for one run", 10000, ShopItemType.SingleUse);
 
         CreateShopLabel("Upgrades");
-        CreateShopItem("upgrade_CoinMagnetDuration", "Coin Magnet Duration", "2x Coins for 10 seconds", 10000, ShopItemType.Upgrade);
+        CreateShopItem("upgrade_CoinMagnetDuration", "Coin Magnet Duration", "", 10000, ShopItemType.Upgrade);
         CreateShopItem("upgrade_CoinMagnetStrength", "Coin Magnet Strength", "", 10000, ShopItemType.Upgrade);
     }
 
