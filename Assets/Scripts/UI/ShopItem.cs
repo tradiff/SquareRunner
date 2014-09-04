@@ -4,38 +4,42 @@ using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
-    public string Key;
-    public string Name;
-    public string Description;
-    public int Cost;
-    public ShopScreen.ShopItemType ShopItemType;
+    public InventoryItem InventoryItem;
     
     void Awake()
     {
         UpdateLabels();
+        //InventorySystem.Instance.Coins = 100000;
     }
 
     public void UpdateLabels()
     {
-        int owned = PlayerPrefs.GetInt(Key, 0);
+        if (InventoryItem == null)
+            return;
+        int owned = PlayerPrefs.GetInt(InventoryItem.Key, 0);
 
-        transform.FindChild("Name").GetComponent<Text>().text = Name;
-        transform.FindChild("Description").GetComponent<Text>().text = Description;
-        transform.FindChild("Cost").GetComponent<Text>().text = Cost.ToString("N0");
+        transform.FindChild("Name").GetComponent<Text>().text = InventoryItem.Name;
+        transform.FindChild("Description").GetComponent<Text>().text = InventoryItem.Description;
+        transform.FindChild("Cost").GetComponent<Text>().text = InventoryItem.Cost.ToString("N0");
         transform.FindChild("Own").GetComponent<Text>().text = owned.ToString("N0") + " Owned";
+
+        if (!string.IsNullOrEmpty(InventoryItem.Image))
+            transform.FindChild("Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/" + InventoryItem.Image);
         ShopScreen.Instance.UpdateLabels();
     }
 
     public void BuyClick()
     {
-        int coinsInBank = PlayerPrefs.GetInt("Coins", 0);
-        if (coinsInBank > Cost)
+        if (InventorySystem.Instance.Coins >= InventoryItem.Cost)
         {
-            coinsInBank -= Cost;
-            PlayerPrefs.SetInt("Coins", coinsInBank);
-            int owned = PlayerPrefs.GetInt(Key, 0);
-            owned++;
-            PlayerPrefs.SetInt(Key, owned);
+            InventorySystem.Instance.Coins -= InventoryItem.Cost;
+            if (InventoryItem.ShopItemType == InventoryItem.InventoryItemType.SingleUse)
+                InventorySystem.Instance.UpdateQuantity(this.InventoryItem, this.InventoryItem.SingleUseOwned+1);
+
+            if (InventoryItem.ShopItemType == InventoryItem.InventoryItemType.Upgrade)
+            {
+                // todo: upgrade
+            }
         }
         UpdateLabels();
     }

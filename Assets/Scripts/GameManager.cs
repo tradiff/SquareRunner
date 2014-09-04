@@ -14,10 +14,12 @@ public class GameManager : MonoBehaviour
 
     public WorldGenerator WorldGenerator = null;
     public Hero Player = null;
-    public GameHud GameHud;
     public Camera HudCamera;
     public GooglePlayManager GooglePlayManager;
     public GameObject TouchTarget;
+    public bool HasCoinMultiplier = false;
+    private float _coinMultiplierTime = 0;
+    private float _coinMultiplierMaxTime = 30f;
 
     public static GameManager Instance
     {
@@ -39,6 +41,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (HasCoinMultiplier)
+        {
+            if ((_coinMultiplierTime -= Time.deltaTime) <= 0)
+            {
+                HasCoinMultiplier = false;
+            }
+        }
     }
 
     public void IncreaseSpeed()
@@ -53,9 +62,9 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShowLevelRecapScreen()
     {
         yield return StartCoroutine(ExtensionMethods.WaitForRealSeconds(1.3f));
-        GameHud.levelRecapScreen.alpha = 1;
-        GameHud.levelRecapScreen.interactable = true;
-        GameHud.levelRecapScreen.blocksRaycasts = true;
+        GameHud.Instance.levelRecapScreen.alpha = 1;
+        GameHud.Instance.levelRecapScreen.interactable = true;
+        GameHud.Instance.levelRecapScreen.blocksRaycasts = true;
     }
 
 
@@ -64,15 +73,15 @@ public class GameManager : MonoBehaviour
         // reset
         float newTimeScale = 0;
         Player.SetEnabled(false);
-        GameHud.pauseScreen.alpha = 0;
-        GameHud.pauseScreen.interactable = false;
-        GameHud.pauseScreen.blocksRaycasts = false;
-        GameHud.settingsScreen.alpha = 0;
-        GameHud.settingsScreen.interactable = false;
-        GameHud.settingsScreen.blocksRaycasts = false;
-        GameHud.levelRecapScreen.alpha = 0;
-        GameHud.levelRecapScreen.interactable = false;
-        GameHud.levelRecapScreen.blocksRaycasts = false;
+        GameHud.Instance.pauseScreen.alpha = 0;
+        GameHud.Instance.pauseScreen.interactable = false;
+        GameHud.Instance.pauseScreen.blocksRaycasts = false;
+        GameHud.Instance.settingsScreen.alpha = 0;
+        GameHud.Instance.settingsScreen.interactable = false;
+        GameHud.Instance.settingsScreen.blocksRaycasts = false;
+        GameHud.Instance.levelRecapScreen.alpha = 0;
+        GameHud.Instance.levelRecapScreen.interactable = false;
+        GameHud.Instance.levelRecapScreen.blocksRaycasts = false;
         
 
         switch (newState)
@@ -81,13 +90,14 @@ public class GameManager : MonoBehaviour
                 Application.LoadLevel("StartScreen");
                 break;
             case GameStates.Playing:
+                GameHud.Instance.UpdatePowerupButtons();
                 newTimeScale = 1;
                 Player.SetEnabled(true);
                 break;
             case GameStates.Paused:
-                GameHud.pauseScreen.alpha = 1;
-                GameHud.pauseScreen.interactable = true;
-                GameHud.pauseScreen.blocksRaycasts = true;
+                GameHud.Instance.pauseScreen.alpha = 1;
+                GameHud.Instance.pauseScreen.interactable = true;
+                GameHud.Instance.pauseScreen.blocksRaycasts = true;
                 break;
             case GameStates.RecapScreen:
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.Die);
@@ -96,9 +106,9 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(ShowLevelRecapScreen()); // delay for the sound to finish
                 break;
             case GameStates.SetttingsScreen:
-                GameHud.settingsScreen.alpha = 1;
-                GameHud.settingsScreen.interactable = true;
-                GameHud.settingsScreen.blocksRaycasts = true;
+                GameHud.Instance.settingsScreen.alpha = 1;
+                GameHud.Instance.settingsScreen.interactable = true;
+                GameHud.Instance.settingsScreen.blocksRaycasts = true;
                 break;
         }
         GameState = newState;
@@ -142,6 +152,9 @@ public class GameManager : MonoBehaviour
 
         this.WorldGenerator.ResetGame();
         this.Player.Reset();
+        this.HasCoinMultiplier = false;
+        _coinMultiplierTime = 0;
+        GameHud.Instance.ClearPowerupButtons();
         Camera.main.transform.position = new Vector3(0, Camera.main.transform.position.y);
         ChangeState(GameStates.Playing);
         Player.SetEnabled(true);
@@ -150,6 +163,11 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1;
         SoundManager.Instance.PlaySound(SoundManager.Sounds.Start);
+    }
+    public void GetCoinMultiplier()
+    {
+        HasCoinMultiplier = true;
+        _coinMultiplierTime = _coinMultiplierMaxTime;
     }
 
     public enum GameStates

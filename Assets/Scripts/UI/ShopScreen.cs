@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ShopScreen : MonoBehaviour
 {
@@ -62,16 +63,16 @@ public class ShopScreen : MonoBehaviour
 
 
         CreateShopLabel("Single Use Items");
-        CreateShopItem("item_CoinMultiplier", "Coin Multiplier", "2x Coins for 10 seconds", 10000, ShopItemType.SingleUse);
-        CreateShopItem("item_Respawn", "Respawn", "Opportunity to respawn after dying", 10000, ShopItemType.SingleUse);
-        CreateShopItem("item_Hat", "Hat", "Keep an extra hat in your back pocket", 10000, ShopItemType.SingleUse);
-        CreateShopItem("item_SlowMo", "Slow Mo", "Slow Motion for 10 seconds", 10000, ShopItemType.SingleUse);
-        CreateShopItem("item_LuckyCharm", "Lucky Charm", "Increased odds of rolling powerups for one run", 10000, ShopItemType.SingleUse);
-        CreateShopItem("item_DoubleJump", "Double Jump", "Double Jump for one run", 10000, ShopItemType.SingleUse);
+        foreach (var item in InventorySystem.Instance.Items.Where(x => x.ShopItemType == InventoryItem.InventoryItemType.SingleUse))
+        {
+            CreateShopItem(item);
+        }
 
         CreateShopLabel("Upgrades");
-        CreateShopItem("upgrade_CoinMagnetDuration", "Coin Magnet Duration", "", 10000, ShopItemType.Upgrade);
-        CreateShopItem("upgrade_CoinMagnetStrength", "Coin Magnet Strength", "", 10000, ShopItemType.Upgrade);
+        foreach (var item in InventorySystem.Instance.Items.Where(x => x.ShopItemType == InventoryItem.InventoryItemType.Upgrade))
+        {
+            CreateShopItem(item);
+        }
     }
 
     private void CreateShopLabel(string name)
@@ -84,18 +85,14 @@ public class ShopScreen : MonoBehaviour
         _itemTop -= 70;
     }
 
-    private ShopItem CreateShopItem(string key, string name, string description, int cost, ShopItemType shopItemType)
+    private ShopItem CreateShopItem(InventoryItem item)
     {
         var siGO = (GameObject)Instantiate(_shopItemPrefab);
         siGO.transform.SetParent(transform.FindChild("ScrollView/container").transform, false);
         siGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, _itemTop);
 
         var si = siGO.GetComponent<ShopItem>();
-        si.Key = key;
-        si.Name = name;
-        si.Description = description;
-        si.Cost = cost;
-        si.ShopItemType = shopItemType;
+        si.InventoryItem = item;
         _shopItems.Add(si);
         si.UpdateLabels();
 
