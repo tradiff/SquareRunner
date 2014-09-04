@@ -59,12 +59,13 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private IEnumerator ShowLevelRecapScreen()
+    private IEnumerator ShowLevelRecapScreen(int oldBankAmount)
     {
         yield return StartCoroutine(ExtensionMethods.WaitForRealSeconds(1.3f));
         GameHud.Instance.levelRecapScreen.alpha = 1;
         GameHud.Instance.levelRecapScreen.interactable = true;
         GameHud.Instance.levelRecapScreen.blocksRaycasts = true;
+        GameHud.Instance.levelRecapScreen.GetComponent<LevelRecapScreen>().Activate(true, oldBankAmount);
     }
 
 
@@ -101,9 +102,10 @@ public class GameManager : MonoBehaviour
                 break;
             case GameStates.RecapScreen:
                 SoundManager.Instance.PlaySound(SoundManager.Sounds.Die);
-                PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + coins);
+                int oldBankAmount = PlayerPrefs.GetInt("Coins", 0);
+                PlayerPrefs.SetInt("Coins", oldBankAmount + coins);
                 GooglePlayManager.ReportScore((int)this.distanceTraveled);
-                StartCoroutine(ShowLevelRecapScreen()); // delay for the sound to finish
+                StartCoroutine(ShowLevelRecapScreen(oldBankAmount)); // delay for the sound to finish
                 break;
             case GameStates.SetttingsScreen:
                 GameHud.Instance.settingsScreen.alpha = 1;

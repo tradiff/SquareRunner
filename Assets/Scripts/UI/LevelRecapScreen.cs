@@ -4,19 +4,42 @@ using System.Collections;
 
 public class LevelRecapScreen : MonoBehaviour
 {
-    Text distanceText;
+    bool _activated;
+    Text _distanceText;
+    Text _bankText;
+    int _bankAmount;
+    int _coinCounter;
 
     void Awake()
     {
-        distanceText = transform.Find("Distance").GetComponent<Text>();
+        _distanceText = transform.Find("Distance").GetComponent<Text>();
+        _bankText = transform.Find("Bank").GetComponent<Text>();
+        _activated = false;
     }
 
     void Update()
     {
-        if (GameManager.Instance.Player.IsDead)
+        if (_activated)
         {
-            distanceText.text = string.Format("{0:N0}m", GameManager.Instance.distanceTraveled);
+            _distanceText.text = string.Format("{0:N0}m", GameManager.Instance.distanceTraveled);
+            if (_coinCounter > 0)
+            {
+                _bankAmount += 1;
+                _coinCounter -= 1;
+                _bankText.text = string.Format("{0:N0}", _bankAmount);
+            }
         }
+    }
+
+    public void Activate(bool active, int oldBankAmount)
+    {
+        if (active)
+        {
+            _bankAmount = oldBankAmount;
+            _coinCounter = GameManager.Instance.coins;
+        }
+        _activated = active;
+
     }
     
     public void QuitClick()
