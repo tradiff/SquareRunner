@@ -79,7 +79,7 @@ public class ShopScreen : MonoBehaviour
     {
         var go = (GameObject)Instantiate(_shopCategoryLabelPrefab);
         go.transform.SetParent(transform.FindChild("ScrollView/container").transform, false);
-        go.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, _itemTop);
+        //go.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, _itemTop);
         go.GetComponent<Text>().text = name;
 
         _itemTop -= 70;
@@ -89,7 +89,7 @@ public class ShopScreen : MonoBehaviour
     {
         var siGO = (GameObject)Instantiate(_shopItemPrefab);
         siGO.transform.SetParent(transform.FindChild("ScrollView/container").transform, false);
-        siGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, _itemTop);
+        //siGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, _itemTop);
 
         var si = siGO.GetComponent<ShopItem>();
         si.InventoryItem = item;
