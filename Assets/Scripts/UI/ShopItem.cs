@@ -23,7 +23,7 @@ public class ShopItem : MonoBehaviour
         transform.FindChild("Name").GetComponent<Text>().text = InventoryItem.Name;
         transform.FindChild("Description").GetComponent<Text>().text = InventoryItem.Description;
         transform.FindChild("btnBuy/Text").GetComponent<Text>().text = InventoryItem.Cost.ToString("N0");
-        //transform.FindChild("btnBuy").GetComponent<Image>().color = canAfford ? Color.green : Color.white;
+        transform.FindChild("btnBuy").GetComponent<Image>().color = canAfford ? new Color(0, 1, 0, .59f) : new Color(1, 1, 1, .59f);
         transform.FindChild("btnBuy/Text").GetComponent<Text>().color = canAfford ? Color.white : Color.red;
         transform.FindChild("Own").GetComponent<Text>().text = String.Format("You have: {0:N0}", owned);
 
