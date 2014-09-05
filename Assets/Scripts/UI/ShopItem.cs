@@ -25,11 +25,10 @@ public class ShopItem : MonoBehaviour
         transform.FindChild("btnBuy/Text").GetComponent<Text>().text = InventoryItem.Cost.ToString("N0");
         transform.FindChild("btnBuy").GetComponent<Image>().color = canAfford ? new Color(0, 1, 0, .59f) : new Color(1, 1, 1, .59f);
         transform.FindChild("btnBuy/Text").GetComponent<Text>().color = canAfford ? Color.white : Color.red;
-        transform.FindChild("Own").GetComponent<Text>().text = String.Format("You have: {0:N0}", owned);
+        transform.FindChild("Own").GetComponent<Text>().text = String.Format("{0:N0}", owned);
 
         if (!string.IsNullOrEmpty(InventoryItem.Image))
             transform.FindChild("Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/" + InventoryItem.Image);
-        ShopScreen.Instance.UpdateLabels();
     }
 
     public void BuyClick()
@@ -45,7 +44,7 @@ public class ShopItem : MonoBehaviour
                 // todo: upgrade
             }
         }
-        UpdateLabels();
+        ShopScreen.Instance.UpdateLabels();
     }
 
 }

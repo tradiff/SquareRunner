@@ -14,7 +14,7 @@ public class ShopScreen : MonoBehaviour
         }
     }
     private static ShopScreen _instance;
-    private List<ShopItem> _shopItems;
+    private List<ShopItem> _shopItems = new List<ShopItem>();
     private Object _shopItemPrefab;
     private Object _shopCategoryLabelPrefab;
     private float _itemTop = 0;
@@ -32,11 +32,16 @@ public class ShopScreen : MonoBehaviour
     {
         int coins = PlayerPrefs.GetInt("Coins", 0);
         transform.FindChild("Coins").GetComponent<Text>().text = "Coins: " + coins.ToString("N0");
+
+        foreach (var item in _shopItems)
+        {
+            item.UpdateLabels();
+        }
     }
 
     private void CreateShopItems()
     {
-        _shopItems = new List<ShopItem>();
+        _shopItems.Clear();
         _itemTop = -30;
 
         // idea: add gems in coins, worth 10 coins
