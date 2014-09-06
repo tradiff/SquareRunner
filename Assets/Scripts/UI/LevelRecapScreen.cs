@@ -8,7 +8,8 @@ public class LevelRecapScreen : MonoBehaviour
     Text _distanceText;
     Text _bankText;
     int _bankAmount;
-    int _coinCounter;
+    int _targetBankAmount;
+    int _bankCounterIncrement;
 
     void Awake()
     {
@@ -22,10 +23,10 @@ public class LevelRecapScreen : MonoBehaviour
         if (_activated)
         {
             _distanceText.text = string.Format("{0:N0}m", GameManager.Instance.distanceTraveled);
-            if (_coinCounter > 0)
+            if (_bankAmount < _targetBankAmount)
             {
-                _bankAmount += 1;
-                _coinCounter -= 1;
+                _bankAmount += Mathf.Max((int)((float)_bankCounterIncrement * Timekeeper.Instance.deltaTime), 1);
+                _bankAmount = Mathf.Min(_bankAmount, _targetBankAmount);
                 _bankText.text = string.Format("{0:N0}", _bankAmount);
             }
         }
@@ -35,8 +36,10 @@ public class LevelRecapScreen : MonoBehaviour
     {
         if (active)
         {
+            var newCoins = GameManager.Instance.coins;
             _bankAmount = oldBankAmount;
-            _coinCounter = GameManager.Instance.coins;
+            _targetBankAmount = _bankAmount + newCoins;
+            _bankCounterIncrement = newCoins / 5; // coins per second
         }
         _activated = active;
 
