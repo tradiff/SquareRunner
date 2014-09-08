@@ -34,16 +34,9 @@ public class InputManager
         if (Input.GetKeyDown(KeyCode.Space))
             return true;
 
-        if (Input.GetMouseButtonDown(0))
+        if (FullScreenTouch.Instance.StartTouch)
             return true;
 
-        if (Input.touchCount > 0)
-        {
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
-            {
-                return true;
-            }
-        }
         return false;
     }
 
@@ -61,4 +54,14 @@ public class InputManager
 
         return new Vector2();
     }
+
+    public bool FullScreenTouching()
+    {
+        if (Input.GetKey(KeyCode.Space))
+            return true;
+
+        return FullScreenTouch.Instance.Touching;
+    }
+
+
 }

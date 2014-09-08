@@ -103,24 +103,9 @@ public class Hero : MonoBehaviour
 
 
         bool jumpKey = false;
-        if (InputManager.Instance.Touching())
+        if (InputManager.Instance.FullScreenTouching())
         {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                jumpKey = true;
-            }
-            else
-            {
-                var screenPos = InputManager.Instance.GetTouch();
-                Vector3 wp = GameManager.Instance.HudCamera.ScreenToWorldPoint(screenPos);
-                Vector2 touchPos = new Vector2(wp.x, wp.y);
-
-                Collider2D collider2d = Physics2D.OverlapPoint(touchPos);
-                if (collider2d == GameManager.Instance.TouchTarget.collider2D)
-                {
-                    jumpKey = true;
-                }
-            }
+            jumpKey = true;
         }
 
         if (holdingJump && jumpKey && (jumpTime -= Time.deltaTime) > 0)

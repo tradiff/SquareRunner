@@ -21,19 +21,12 @@ public class StartScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InputManager.Instance.StartTouch())
-        {
-            var screenPos = InputManager.Instance.GetTouch();
-            Vector3 wp = Camera.main.ScreenToWorldPoint(screenPos);
-            Vector2 touchPos = new Vector2(wp.x, wp.y);
+    }
 
-            Collider2D collider2d = Physics2D.OverlapPoint(touchPos);
-            if (collider2d == TouchTarget.collider2D)
-            {
-                Debug.Log("Loading level");
-                Application.LoadLevel("Level");
-            }
-        }
+    public void FullScreenClick()
+    {
+        Debug.Log("Loading level");
+        Application.LoadLevel("Level");
     }
 
     public void LeaderboardsClick()
