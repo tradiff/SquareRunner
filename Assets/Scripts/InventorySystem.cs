@@ -34,16 +34,16 @@ public class InventorySystem : MonoBehaviour
     private void UpdateItems()
     {
         Items = new List<InventoryItem>();
-        Items.Add(new InventoryItem { Key = "item_Hat", Name = "Hat", Description = "Keep an extra hat in your back pocket", Cost = 500, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "single_hat", Max = 3 });
-        Items.Add(new InventoryItem { Key = "item_CoinMultiplier", Name = "Coin Multiplier", Description = "2x Coins for 30 seconds", Cost = 1, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "single_coin_multiplier", Max = 3 });
-        Items.Add(new InventoryItem { Key = "item_CoinMagnet", Name = "Coin Magnet", Description = "On-demand coin magnet", Cost = 500, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "single_coin_multiplier", Max = 3 });
-        Items.Add(new InventoryItem { Key = "item_Respawn", Name = "Respawn", Description = "Opportunity to respawn after dying", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "", Max = 3 });
-        Items.Add(new InventoryItem { Key = "item_SlowMo", Name = "Slow Mo", Description = "Slow Motion for 10 seconds", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "", Max = 3 });
-        Items.Add(new InventoryItem { Key = "item_LuckyCharm", Name = "Lucky Charm", Description = "Increases odds of rolling powerups for one run", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "", Max = 3 });
-        Items.Add(new InventoryItem { Key = "item_DoubleJump", Name = "Double Jump", Description = "Double Jump for one run", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "" });
+        Items.Add(new InventoryItem { Key = "item_Hat", Name = "Hat", Description = "Stay safe with an on-demand hat", Cost = 500, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "single_hat", Max = 3 });
+        Items.Add(new InventoryItem { Key = "item_CoinMultiplier", Name = "Coin Multiplier", Description = "Get rich quick with 2x coins for 30 seconds", Cost = 500, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "single_coin_multiplier", Max = 3 });
+        Items.Add(new InventoryItem { Key = "item_CoinMagnet", Name = "Coin Magnet", Description = "Reinvest your dividends with an on-demand coin magnet", Cost = 500, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "single_coin_magnet", Max = 3 });
+        //Items.Add(new InventoryItem { Key = "item_Respawn", Name = "Respawn", Description = "Opportunity to respawn after dying", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "", Max = 3 });
+        //Items.Add(new InventoryItem { Key = "item_SlowMo", Name = "Slow Mo", Description = "Slow Motion for 10 seconds", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "", Max = 3 });
+        //Items.Add(new InventoryItem { Key = "item_LuckyCharm", Name = "Lucky Charm", Description = "Increases odds of powerups spawning for one run", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "", Max = 3 });
+        //Items.Add(new InventoryItem { Key = "item_DoubleJump", Name = "Double Jump", Description = "Double Jump for one run", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "" });
 
-        Items.Add(new InventoryItem { Key = "upgrade_CoinMagnetDuration", Name = "Coin Magnet Duration", Description = "", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.Upgrade, Image = "" });
-        Items.Add(new InventoryItem { Key = "upgrade_CoinMagnetStrength", Name = "Coin Magnet Strength", Description = "", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.Upgrade, Image = "" });
+        //Items.Add(new InventoryItem { Key = "upgrade_CoinMagnetDuration", Name = "Coin Magnet Duration", Description = "", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.Upgrade, Image = "" });
+        //Items.Add(new InventoryItem { Key = "upgrade_CoinMagnetStrength", Name = "Coin Magnet Strength", Description = "", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.Upgrade, Image = "" });
 
         foreach (var item in Items)
         {

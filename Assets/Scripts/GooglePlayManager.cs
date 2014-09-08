@@ -6,7 +6,7 @@ public class GooglePlayManager : MonoBehaviour
 {
     void Awake()
     {
-        PlayGamesPlatform.Activate();
+        var a = PlayGamesPlatform.Activate();
     }
 
     // Use this for initialization
@@ -29,6 +29,8 @@ public class GooglePlayManager : MonoBehaviour
 
     public void ReportScore(int score)
     {
+        var currentUserId = PlayGamesPlatform.Instance.GetUserId();
+        if (currentUserId == "10877506100") return; // travis
         Social.ReportScore(score, "CgkIp4ihjYEFEAIQAA", (bool success) =>
         {
             if (success)

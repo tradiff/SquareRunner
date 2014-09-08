@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 43fede288f6d2a840a2877d92fcb1994
+guid: eed95ead7cdf0954692a96a75828a102
 TextureImporter:
   fileIDToRecycleName:
-    21300000: single_hat
+    21300000: single_coin_magnet
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,9 +26,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

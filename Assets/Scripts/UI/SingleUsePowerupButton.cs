@@ -17,7 +17,7 @@ public class SingleUsePowerupButton : MonoBehaviour
             return;
 
         if (!string.IsNullOrEmpty(InventoryItem.Image))
-            transform.GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/" + InventoryItem.Image);
+            transform.Find("imgForeground").GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/" + InventoryItem.Image);
     }
 
     public void ButtonClick()
@@ -57,8 +57,16 @@ public class SingleUsePowerupButton : MonoBehaviour
         {
             InventorySystem.Instance.UpdateQuantity(InventoryItem, InventoryItem.SingleUseOwned - 1);
             GameHud.Instance.usedPowerUpsThisRound.Add(InventoryItem);
-            GameHud.Instance.UpdatePowerupButtons();
         }
         UpdateLabels();
+        var _animator = GetComponentInChildren<Animator>();
+        _animator.SetTrigger("Pressed");
+    }
+
+
+    public void ButtonClickFinished()
+    {
+        Debug.Log("ButtonClickFinished");
+        GameHud.Instance.UpdatePowerupButtons();
     }
 }

@@ -73,7 +73,8 @@ public class ShopScreen : MonoBehaviour
             CreateShopItem(item);
         }
 
-        CreateShopLabel("Upgrades");
+        // todo: put this back after upgrades exist
+        //CreateShopLabel("Upgrades");
         foreach (var item in InventorySystem.Instance.Items.Where(x => x.ShopItemType == InventoryItem.InventoryItemType.Upgrade))
         {
             CreateShopItem(item);
