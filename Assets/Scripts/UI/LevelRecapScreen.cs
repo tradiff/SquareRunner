@@ -10,6 +10,7 @@ public class LevelRecapScreen : MonoBehaviour
     int _bankAmount;
     int _targetBankAmount;
     int _bankCounterIncrement;
+    int _countTime = 3;
 
     void Awake()
     {
@@ -39,15 +40,19 @@ public class LevelRecapScreen : MonoBehaviour
             var newCoins = GameManager.Instance.coins;
             _bankAmount = oldBankAmount;
             _targetBankAmount = _bankAmount + newCoins;
-            _bankCounterIncrement = newCoins / 5; // coins per second
+            _bankCounterIncrement = newCoins / _countTime; // coins per second
         }
         _activated = active;
 
     }
-    
+
     public void QuitClick()
     {
         GameManager.Instance.ChangeState(GameManager.GameStates.StartScreen);
+    }
+    public void ShopClick()
+    {
+        GameManager.Instance.ChangeState(GameManager.GameStates.ShopScreen);
     }
 
     public void RetryClick()

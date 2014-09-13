@@ -90,6 +90,9 @@ public class GameManager : MonoBehaviour
             case GameStates.StartScreen:
                 Application.LoadLevel("StartScreen");
                 break;
+            case GameStates.ShopScreen:
+                Application.LoadLevel("Shop");
+                break;
             case GameStates.Playing:
                 GameHud.Instance.UpdatePowerupButtons();
                 newTimeScale = 1;
@@ -175,6 +178,7 @@ public class GameManager : MonoBehaviour
     public enum GameStates
     {
         StartScreen,
+        ShopScreen,
         Playing,
         Paused,
         RecapScreen,
