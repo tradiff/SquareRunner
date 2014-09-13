@@ -18,7 +18,7 @@ public class GooglePlayManager : MonoBehaviour
         Authenticate();
     }
 
-    private static void Authenticate()
+    private void Authenticate()
     {
         Social.localUser.Authenticate((bool success) =>
         {
@@ -39,7 +39,7 @@ public class GooglePlayManager : MonoBehaviour
     public void ReportScore(int score)
     {
         var currentUserId = PlayGamesPlatform.Instance.GetUserId();
-        if (currentUserId == "10877506100") return; // travis
+        if (currentUserId == "108775061000885810356") return; // travis
         Social.ReportScore(score, "CgkIp4ihjYEFEAIQAA", (bool success) =>
         {
             if (success)
@@ -56,7 +56,7 @@ public class GooglePlayManager : MonoBehaviour
     public void ShowLeaderBoards()
     {
         Authenticate();
-        Social.ShowLeaderboardUI();
+        PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIp4ihjYEFEAIQAA");
     }
 
 }
