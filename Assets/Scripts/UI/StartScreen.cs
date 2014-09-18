@@ -5,14 +5,12 @@ using UnityEngine.UI;
 public class StartScreen : MonoBehaviour
 {
     public GooglePlayManager GooglePlayManager;
-    GameObject TouchTarget;
     Text versionText;
 
     // Use this for initialization
     void Awake()
     {
         GooglePlayManager = transform.GetComponent<GooglePlayManager>();
-        TouchTarget = GameObject.Find("TouchTarget");
         Time.timeScale = 1;
         versionText = GameObject.Find("VersionText").GetComponent<Text>();
         versionText.text = "v " + CurrentBundleVersion.version;
