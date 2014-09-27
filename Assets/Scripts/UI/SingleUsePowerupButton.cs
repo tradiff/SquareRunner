@@ -35,6 +35,15 @@ public class SingleUsePowerupButton : MonoBehaviour
             }
         }
 
+        if (InventoryItem.Key == "item_Giant")
+        {
+            if (!GameManager.Instance.Player.IsGiant)
+            {
+                GameManager.Instance.Player.GetGiant();
+                decrease = true;
+            }
+        }
+
         if (InventoryItem.Key == "item_CoinMultiplier")
         {
             if (!GameManager.Instance.HasCoinMultiplier)

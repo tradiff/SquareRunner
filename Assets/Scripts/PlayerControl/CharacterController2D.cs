@@ -54,7 +54,11 @@ public class CharacterController2D : MonoBehaviour
         _transform = transform;
         _localScale = transform.localScale;
         _boxCollider = GetComponent<BoxCollider2D>();
+        UpdateSize();
+    }
 
+    public void UpdateSize()
+    {
         var colliderWidth = _boxCollider.size.x * Mathf.Abs(transform.localScale.x) - (2 * SkinWidth);
         _horizontalDistanceBetweenRays = colliderWidth / (TotalVerticalRays - 1);
 

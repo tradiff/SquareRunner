@@ -15,6 +15,7 @@ public class Hero : MonoBehaviour
     public bool HasMagnet = false;
     public bool IsDead = false;
     private bool holdingJump = false;
+    public bool IsGiant = false;
     private float jumpTime = 0;
     private float maxJumpTime = .1666f;
     private GameObject _hatGO;
@@ -23,6 +24,8 @@ public class Hero : MonoBehaviour
     private float _magnetRange = 5f;
     private float magnetTime = 0;
     private float maxMagnetTime = 30f;
+    private float giantTime = 0;
+    private float maxGiantTime = 30f;
     private GameObject _currentChunk;
     private TrailRenderer _trail;
 
@@ -57,6 +60,30 @@ public class Hero : MonoBehaviour
         if (IsDead && GameManager.Instance.GameState != GameManager.GameStates.RecapScreen)
         {
             GameManager.Instance.ChangeState(GameManager.GameStates.RecapScreen);
+        }
+
+        if (IsGiant)
+        {
+            if ((giantTime -= Time.deltaTime) > 0)
+            {
+                if (transform.localScale.x != 5)
+                {
+                    transform.localScale = new Vector3(5, 5, 5);
+                    _controller.UpdateSize();
+                }
+            }
+            else
+            {
+                IsGiant = false;
+            }
+        }
+        else
+        {
+            if (transform.localScale.x != 1)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                _controller.UpdateSize();
+            }
         }
 
 
@@ -222,6 +249,12 @@ public class Hero : MonoBehaviour
         magnetTime = maxMagnetTime;
     }
 
+    public void GetGiant()
+    {
+        IsGiant = true;
+        giantTime = maxGiantTime;
+    }
+
     public void TakeHat()
     {
         HasHat = false;
@@ -236,4 +269,26 @@ public class Hero : MonoBehaviour
             }
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Entity")
+        {
+            if (IsGiant) return;
+
+            var enemy = other.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                if (HasHat)
+                {
+                    TakeHat();
+                }
+                else
+                {
+                    IsDead = true;
+                }
+            }
+        }
+    }
+
 }
