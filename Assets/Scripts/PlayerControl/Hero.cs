@@ -166,6 +166,7 @@ public class Hero : MonoBehaviour
         HasHat = false;
         IsDead = false;
         HasMagnet = false;
+        IsGiant = false;
     }
 
     public void SpeedUpdated()
