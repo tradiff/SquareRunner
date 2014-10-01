@@ -31,7 +31,7 @@ public class ShopScreen : MonoBehaviour
     public void UpdateLabels()
     {
         int coins = PlayerPrefs.GetInt("Coins", 0);
-        transform.FindChild("Coins").GetComponent<Text>().text = "Coins: " + coins.ToString("N0");
+        transform.FindChild("Coins").GetComponent<Text>().text = "<color=#ffff00ff>◆</color> " + coins.ToString("N0");
 
         foreach (var item in _shopItems)
         {

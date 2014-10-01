@@ -22,7 +22,7 @@ public class ShopItem : MonoBehaviour
         bool canAfford = InventorySystem.Instance.Coins >= InventoryItem.Cost;
         transform.FindChild("Name").GetComponent<Text>().text = InventoryItem.Name;
         transform.FindChild("Description").GetComponent<Text>().text = InventoryItem.Description;
-        transform.FindChild("btnBuy/Text").GetComponent<Text>().text = InventoryItem.Cost.ToString("N0");
+        transform.FindChild("btnBuy/Text").GetComponent<Text>().text = "<color=#ffff00ff>◆</color> " + InventoryItem.Cost.ToString("N0");
         transform.FindChild("btnBuy").GetComponent<Image>().color = canAfford ? new Color(0, 1, 0, .59f) : new Color(1, 1, 1, .59f);
         transform.FindChild("btnBuy/Text").GetComponent<Text>().color = canAfford ? Color.white : Color.red;
         transform.FindChild("Own").GetComponent<Text>().text = String.Format("{0:N0}", owned);
