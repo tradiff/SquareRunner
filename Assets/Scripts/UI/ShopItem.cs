@@ -44,6 +44,7 @@ public class ShopItem : MonoBehaviour
                 // todo: upgrade
             }
         }
+        transform.FindChild("Own").GetComponent<Animator>().SetTrigger("TextBump2");
         ShopScreen.Instance.UpdateLabels();
     }
 

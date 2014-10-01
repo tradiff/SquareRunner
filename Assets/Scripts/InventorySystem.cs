@@ -35,7 +35,7 @@ public class InventorySystem : MonoBehaviour
     {
         Items = new List<InventoryItem>();
         Items.Add(new InventoryItem { Key = "item_Hat", Name = "Hat", Description = "Stay safe with an on-demand hat", Cost = 500, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "single_hat", Max = 3 });
-        Items.Add(new InventoryItem { Key = "item_Giant", Name = "Giant", Description = "Giant Mode. Lasts 30 seconds.", Cost = 500, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "single_giant", Max = 3 });
+        Items.Add(new InventoryItem { Key = "item_Giant", Name = "Giant", Description = "Giant Mode. Lasts 30 seconds.", Cost = 1, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "single_giant", Max = 3 });
         Items.Add(new InventoryItem { Key = "item_CoinMultiplier", Name = "Coin Multiplier", Description = "Get rich quick with 2x coins. Lasts 30 seconds.", Cost = 100, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "single_coin_multiplier", Max = 3 });
         Items.Add(new InventoryItem { Key = "item_CoinMagnet", Name = "Coin Magnet", Description = "Reinvest your dividends with an on-demand coin magnet. Lasts 30 seconds.", Cost = 100, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "single_coin_magnet", Max = 3 });
         //Items.Add(new InventoryItem { Key = "item_Respawn", Name = "Respawn", Description = "Opportunity to respawn after dying", Cost = 10000, ShopItemType = InventoryItem.InventoryItemType.SingleUse, Image = "", Max = 3 });
